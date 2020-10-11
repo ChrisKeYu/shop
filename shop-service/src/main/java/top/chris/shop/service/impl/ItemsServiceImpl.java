@@ -40,7 +40,7 @@ public class ItemsServiceImpl implements ItemsService {
     @Override
     public PagedGridResult catItems(SearchItemsBo itemsBo) {
         itemsBo = checkParms(itemsBo);
-        if (StringUtils.isBlank(itemsBo.getKeywords())){
+        if (itemsBo.getCatId() == null ){
             throw new RuntimeException("请求中没有包含要查询商品的id");
         }
         String sort = itemsBo.getSort();
