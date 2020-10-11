@@ -1,0 +1,32 @@
+2020-05-04 16:16:28 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-04 17:06:15 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-04 17:06:51 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-04 17:10:03 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-04 17:10:19 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-04 17:26:12 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-04 17:31:12 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-04 21:27:24 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-04 21:28:14 下午 [Thread: http-nio-8080-exec-5][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-04 21:30:06 下午 [Thread: http-nio-8080-exec-5][ Class:org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver >> Method: org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.logException(AbstractHandlerExceptionResolver.java:198) ]
+WARN:Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public top.chris.shop.util.JsonResult top.chris.shop.web.controller.PassportController.regist(top.chris.shop.pojo.bo.UsersBo) with 2 errors: [Field error in object 'usersBo' on field 'password': rejected value [123]; codes [Length.usersBo.password,Length.password,Length.java.lang.String,Length]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [usersBo.password,password]; arguments []; default message [password],2147483647,6]; default message [密码长度必须大于6位]] [Field error in object 'usersBo' on field 'confirmPassword': rejected value [null]; codes [NotBlank.usersBo.confirmPassword,NotBlank.confirmPassword,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [usersBo.confirmPassword,confirmPassword]; arguments []; default message [confirmPassword]]; default message [请再次输入密码]] ]
+2020-05-04 21:30:34 下午 [Thread: http-nio-8080-exec-8][ Class:org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver >> Method: org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.logException(AbstractHandlerExceptionResolver.java:198) ]
+WARN:Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public top.chris.shop.util.JsonResult top.chris.shop.web.controller.PassportController.regist(top.chris.shop.pojo.bo.UsersBo): [Field error in object 'usersBo' on field 'confirmPassword': rejected value [null]; codes [NotBlank.usersBo.confirmPassword,NotBlank.confirmPassword,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [usersBo.confirmPassword,confirmPassword]; arguments []; default message [confirmPassword]]; default message [请再次输入密码]] ]
+2020-05-04 23:08:46 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-04 23:08:59 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-04 23:11:11 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-04 23:11:46 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-04 23:11:58 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.

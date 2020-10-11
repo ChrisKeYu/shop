@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.chris.shop.mapper.ItemsMapper">
+
+	<resultMap id="catItems1" type="top.chris.shop.pojo.vo.CatItemListVo">
+		<result property="itemId" column="itemId" ></result>
+		<result property="imgUrl" column="imgUrl" ></result>
+		<result property="itemName" column="itemName" ></result>
+		<result property="price" column="price" ></result>
+		<result property="sellCounts" column="sellCounts" ></result>
+	</resultMap>
+	<resultMap id="simpleItemResultMap" type="top.chris.shop.pojo.vo.RenderItemInfoVo$SimpleItem">
+		<result property="itemName" column="item_name" ></result>
+		<result property="sellCounts" column="sell_counts" ></result>
+		<result property="content" column="content"></result>
+	</resultMap>
+	<select id="queryCatItems" parameterType="top.chris.shop.pojo.bo.SearchItemsBo" resultMap="catItems1">
+		SELECT
+		i.id AS itemId,
+		c.url AS imgUrl,
+		i.item_name AS itemName,
+		sp.price_normal AS price,
+		i.sell_counts AS sellCounts,
+		i.updated_time AS updateTime
+		FROM
+		items AS i
+		LEFT JOIN items_img AS c ON i.id = c.item_id
+		LEFT JOIN ( SELECT item_id, MIN( price_discount ) AS price_normal FROM `items_spec` GROUP BY item_id ) AS sp ON i.id = sp.item_id
+		WHERE
+		c.is_main = 1
+		AND i.cat_id = #{catId}
+		<choose>
+			<when test='sort == "k" '>
+				ORDER BY
+				i.updated_time DESC
+			</when>
+			<when test='sort == "c" '>
+				ORDER BY
+				i.sell_counts DESC
+			</when>
+			<when test='sort == "p" '>
+				ORDER BY
+				sp.price_normal
+			</when>
+		</choose>
+	</select>
+	<select id="querySearchItemsLikeName" parameterType="top.chris.shop.pojo.bo.SearchItemsBo" resultMap="catItems1" >
+		SELECT
+		i.id AS itemId,
+		c.url AS imgUrl,
+		i.item_name AS itemName,
+		sp.price_normal AS price,
+		i.sell_counts AS sellCounts,
+		i.updated_time AS updateTime
+		FROM
+		items AS i
+		LEFT JOIN items_img AS c ON i.id = c.item_id
+		LEFT JOIN ( SELECT item_id, MIN( price_discount ) AS price_normal FROM `items_spec` GROUP BY item_id ) AS sp ON i.id = sp.item_id
+		WHERE
+		c.is_main = 1
+		AND i.item_name LIKE '%${keywords}%'
+		<choose>
+			<when test='sort == "k" '>
+				ORDER BY
+				i.updated_time DESC
+			</when>
+			<when test='sort == "c" '>
+				ORDER BY
+				i.sell_counts DESC
+			</when>
+			<when test='sort == "p" '>
+				ORDER BY
+				sp.price_normal
+			</when>
+		</choose>
+	</select>
+
+
+	<resultMap id="renderItemInfo1" type="top.chris.shop.pojo.vo.RenderItemInfoVo">
+		<association property="item" javaType="top.chris.shop.pojo.Items" >
+			<result property="itemName" column="itemName"></result>
+			<result property="sellCounts" column="sellCounts"></result>
+		</association>
+		<collection property="itemImgList" ofType="top.chris.shop.pojo.ItemsImg">
+			<result property="isMain" column="is_main"></result>
+			<result property="url" column="url"></result>
+		</collection>
+		<collection property="itemSpecList" ofType="top.chris.shop.pojo.ItemsSpec">
+			<result property="id" column="id"></result>
+			<result property="priceDiscount" column="priceDiscount"></result>
+			<result property="priceNormal" column="priceNormal"></result>
+			<result property="stock" column="stock"></result>
+			<result property="discounts" column="discounts"></result>
+		</collection>
+		<collection property="itemParams" ofType="top.chris.shop.pojo.ItemsParam">
+			<result property="producPlace" column="producPlace"></result>
+			<result property="brand" column="brand"></result>
+			<result property="factoryName" column="factoryName"></result>
+			<result property="factoryAddress" column="factoryAddress"></result>
+			<result property="packagingMethod" column="packagingMethod"></result>
+			<result property="footPeriod" column="footPeriod"></result>
+			<result property="weight" column="weight"></result>
+			<result property="storageMethod" column="storageMethod"></result>
+			<result property="eatMethod" column="eatMethod"></result>
+		</collection>
+	</resultMap>
+    <select id="renderItemInfo" resultType="top.chris.shop.pojo.vo.RenderItemInfoVo" parameterType="String" resultMap="renderItemInfo1">
+		SELECT
+	its.item_name AS itemName,
+	its.sell_counts AS sellCounts,
+	ips.produc_place AS producPlace,
+	ips.brand AS brand,
+	ips.factory_name AS factoryName,
+	ips.factory_address AS factoryAddress,
+	ips.packaging_method AS packagingMethod,
+	ips.foot_period AS footPeriod,
+	ips.weight AS weight,
+	ips.storage_method AS storageMethod,
+	ips.eat_method AS eatMethod,
+	iss.id AS id,
+	iss.price_discount AS priceDiscount,
+	iss.price_normal AS priceNormal,
+	iss.stock AS stock,
+	iss.discounts AS discounts,
+	iig.is_main,
+	iig.url
+FROM
+	items its,
+	items_param ips,
+	items_spec iss,
+	items_img iig
+WHERE
+	its.id = ips.item_id
+	AND its.id = #{itemId}
+	AND its.id = iss.item_id
+	AND its.id = iig.item_id
+	</select>
+	<select id="querySimpleItemByItemId" resultMap="simpleItemResultMap" parameterType="String">
+	select item_name,sell_counts,content from items where id = #{itemId}
+	</select>
+
+</mapper>

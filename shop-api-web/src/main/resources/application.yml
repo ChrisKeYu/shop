@@ -1,0 +1,46 @@
+#可配置量
+top:
+  chris:
+    shop:
+      basicStaticServerUrl: "http://localhost:8848"
+
+#服务相关的配置
+#
+###############################################################################
+server:
+  port: 8080 #配置服务器端口号
+  tomcat:
+    uri-encoding: UTF-8
+  max-http-header-size: 80KB
+###############################################################################
+#
+#配置数据源信息
+#
+###############################################################################
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource #数据源类型为HikariCP,特点快，但没有druid那么安全，监控性，稳定性
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shop?characterEncoding=UTF-8&useSSL=false&useUnicode=true&serverTimezone=UTC
+    username: root
+    password: root
+    hikari:
+      connection-timeout: 30000     #等待连接池分配连接的最大时长(毫秒),超过这个时长还没有可用的连接则发生SQLException,默认:30秒
+      minimum-idle: 5               #最小连接数
+      maximum-pool-size: 20         #最大连接数
+      auto-commit: true             #自动提交
+      idle-timeout: 600000          #连接超时的最大时长(毫秒),超时则被释放(retired),默认:10分钟
+      pool-name: DateSourceHikariCP #连接池的名字
+      max-lifetime: 1800000         #连接的生命时长(毫秒),超时而且没被使用则被释放(retired),默认:30分钟 1800000ms
+      connection-test-query: SELECT 1
+###############################################################################
+#
+#配置mybatis
+#
+###############################################################################
+mybatis:
+  type-aliases-package: top.chris.shop.pojo                #指定包名后，方便在xxxmapper.xml中某些属性值中不需要写指定包下类的全限定名，写类名即可
+  mapper-locations: classpath:mapper/*.xml                 #配置映射文件所在的位置
+  configuration:                                            #配置mybatis日志文件输出
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl   #选择日志的实现类,选择在日志输出
+################################################################################

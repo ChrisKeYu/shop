@@ -1,0 +1,293 @@
+2020-05-05 10:01:08 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 10:03:20 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 10:03:34 上午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-05 10:03:35 上午 [Thread: http-nio-8080-exec-2][ Class:org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder >> Method: org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder.matches(BCryptPasswordEncoder.java:90) ]
+WARN:Encoded password does not look like BCrypt
+2020-05-05 10:05:03 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 10:06:12 上午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-05 10:16:13 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 10:16:26 上午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-05 11:55:26 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 14:36:40 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 14:44:22 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 14:44:38 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-05 14:51:06 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 14:51:14 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-05 14:54:52 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 14:55:14 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-05 14:57:11 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 14:57:19 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-05 14:59:35 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 14:59:43 下午 [Thread: http-nio-8080-exec-3][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-05 16:16:07 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 16:16:13 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-05 16:43:49 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 16:44:12 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-05 16:48:46 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 16:49:00 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-05 17:33:31 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 17:35:18 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-05 17:56:15 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 17:56:50 下午 [Thread: http-nio-8080-exec-8][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-05 17:59:45 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 18:00:17 下午 [Thread: http-nio-8080-exec-3][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-05 18:01:10 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 18:03:01 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-05 18:05:35 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 18:05:45 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-05 18:10:17 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 18:10:47 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-05 19:55:31 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 19:57:41 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 19:58:37 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-05 20:01:56 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 20:11:35 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 20:13:19 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 20:16:04 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 20:23:14 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 20:40:37 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 20:42:01 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 20:42:39 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 20:42:58 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 20:53:22 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 20:54:00 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 20:55:10 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 20:56:14 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 20:59:31 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.16.Final
+2020-05-05 20:59:31 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting ShopMainApplication on DESKTOP-255B2FK with PID 22244 (D:\ForSpringBootProject\shop\shop-api-web\target\classes started by Chris in D:\ForSpringBootProject\shop)
+2020-05-05 20:59:31 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2020-05-05 20:59:32 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:244) ]
+INFO:Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-05-05 20:59:32 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126) ]
+INFO:Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-05-05 20:59:32 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182) ]
+INFO:Finished Spring Data repository scanning in 24ms. Found 0 repository interfaces.
+2020-05-05 20:59:32 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 20:59:33 下午 [Thread: main][ Class:org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker >> Method: org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330) ]
+INFO:Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9f346bc9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-05 20:59:33 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90) ]
+INFO:Tomcat initialized with port(s): 8080 (http)
+2020-05-05 20:59:33 下午 [Thread: main][ Class:org.springframework.web.context.ContextLoader >> Method: org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296) ]
+INFO:Root WebApplicationContext: initialization completed in 2111 ms
+2020-05-05 20:59:35 下午 [Thread: main][ Class:springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping >> Method: springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods(PropertySourcedRequestMappingHandlerMapping.java:69) ]
+INFO:Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-05-05 20:59:36 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-05 20:59:36 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2020-05-05 20:59:36 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2020-05-05 20:59:36 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2020-05-05 20:59:36 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeEntityHelperCache(MapperCacheDisabler.java:83) ]
+INFO:Clear EntityHelper entityTableMap cache.
+2020-05-05 20:59:36 下午 [Thread: main][ Class:org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration >> Method: org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration.getOrDeducePassword(UserDetailsServiceAutoConfiguration.java:87) ]
+INFO:
+
+Using generated security password: 03210b55-341a-4bf1-8c49-a9ed02b47df6
+
+2020-05-05 20:59:36 下午 [Thread: main][ Class:org.springframework.security.web.DefaultSecurityFilterChain >> Method: org.springframework.security.web.DefaultSecurityFilterChain.<init>(DefaultSecurityFilterChain.java:43) ]
+INFO:Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@16cb9989, org.springframework.security.web.context.SecurityContextPersistenceFilter@4f1afe8f, org.springframework.security.web.header.HeaderWriterFilter@48cd319d, org.springframework.security.web.authentication.logout.LogoutFilter@51ac12ac, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@443a06ad, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6da54910, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3dfd6220, org.springframework.security.web.session.SessionManagementFilter@b1b471, org.springframework.security.web.access.ExceptionTranslationFilter@38732364, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@285a4fe3]
+2020-05-05 20:59:36 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'taskScheduler'
+2020-05-05 20:59:36 下午 [Thread: main][ Class:springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper >> Method: springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:160) ]
+INFO:Context refreshed
+2020-05-05 20:59:36 下午 [Thread: main][ Class:springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper >> Method: springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:163) ]
+INFO:Found 1 custom documentation plugin(s)
+2020-05-05 20:59:36 下午 [Thread: main][ Class:springfox.documentation.spring.web.scanners.ApiListingReferenceScanner >> Method: springfox.documentation.spring.web.scanners.ApiListingReferenceScanner.scan(ApiListingReferenceScanner.java:41) ]
+INFO:Scanning for api listing references
+2020-05-05 20:59:37 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204) ]
+INFO:Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-05 20:59:37 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) ]
+INFO:Started ShopMainApplication in 6.126 seconds (JVM running for 7.454)
+2020-05-05 21:00:21 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.16.Final
+2020-05-05 21:00:22 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting ShopMainApplication on DESKTOP-255B2FK with PID 20888 (D:\ForSpringBootProject\shop\shop-api-web\target\classes started by Chris in D:\ForSpringBootProject\shop)
+2020-05-05 21:00:22 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2020-05-05 21:00:23 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:244) ]
+INFO:Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-05-05 21:00:23 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126) ]
+INFO:Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-05-05 21:00:23 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182) ]
+INFO:Finished Spring Data repository scanning in 31ms. Found 0 repository interfaces.
+2020-05-05 21:00:23 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 21:00:24 下午 [Thread: main][ Class:org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker >> Method: org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330) ]
+INFO:Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4e350b63] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-05 21:00:24 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90) ]
+INFO:Tomcat initialized with port(s): 8080 (http)
+2020-05-05 21:00:24 下午 [Thread: main][ Class:org.springframework.web.context.ContextLoader >> Method: org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296) ]
+INFO:Root WebApplicationContext: initialization completed in 2461 ms
+2020-05-05 21:00:26 下午 [Thread: main][ Class:springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping >> Method: springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods(PropertySourcedRequestMappingHandlerMapping.java:69) ]
+INFO:Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-05-05 21:00:27 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-05 21:00:27 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2020-05-05 21:00:27 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2020-05-05 21:00:27 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2020-05-05 21:00:27 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeEntityHelperCache(MapperCacheDisabler.java:83) ]
+INFO:Clear EntityHelper entityTableMap cache.
+2020-05-05 21:00:27 下午 [Thread: main][ Class:org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration >> Method: org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration.getOrDeducePassword(UserDetailsServiceAutoConfiguration.java:87) ]
+INFO:
+
+Using generated security password: 53b3509f-fae2-45a8-b15d-13e9e1535aa1
+
+2020-05-05 21:00:27 下午 [Thread: main][ Class:org.springframework.security.web.DefaultSecurityFilterChain >> Method: org.springframework.security.web.DefaultSecurityFilterChain.<init>(DefaultSecurityFilterChain.java:43) ]
+INFO:Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4dc52559, org.springframework.security.web.context.SecurityContextPersistenceFilter@1a2ac487, org.springframework.security.web.header.HeaderWriterFilter@67328bcb, org.springframework.security.web.authentication.logout.LogoutFilter@2db86a7c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@36224f93, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@634f58d2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5c3d4f05, org.springframework.security.web.session.SessionManagementFilter@2478b629, org.springframework.security.web.access.ExceptionTranslationFilter@299b9851, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@543fe698]
+2020-05-05 21:00:27 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'taskScheduler'
+2020-05-05 21:00:27 下午 [Thread: main][ Class:springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper >> Method: springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:160) ]
+INFO:Context refreshed
+2020-05-05 21:00:27 下午 [Thread: main][ Class:springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper >> Method: springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:163) ]
+INFO:Found 1 custom documentation plugin(s)
+2020-05-05 21:00:27 下午 [Thread: main][ Class:springfox.documentation.spring.web.scanners.ApiListingReferenceScanner >> Method: springfox.documentation.spring.web.scanners.ApiListingReferenceScanner.scan(ApiListingReferenceScanner.java:41) ]
+INFO:Scanning for api listing references
+2020-05-05 21:00:28 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204) ]
+INFO:Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-05 21:00:28 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) ]
+INFO:Started ShopMainApplication in 6.39 seconds (JVM running for 7.692)
+2020-05-05 21:05:58 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524) ]
+INFO:Initializing Servlet 'dispatcherServlet'
+2020-05-05 21:05:58 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546) ]
+INFO:Completed initialization in 10 ms
+2020-05-05 21:08:39 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.16.Final
+2020-05-05 21:08:40 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting ShopMainApplication on DESKTOP-255B2FK with PID 11424 (D:\ForSpringBootProject\shop\shop-api-web\target\classes started by Chris in D:\ForSpringBootProject\shop)
+2020-05-05 21:08:40 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2020-05-05 21:08:41 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:244) ]
+INFO:Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-05-05 21:08:41 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126) ]
+INFO:Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-05-05 21:08:41 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182) ]
+INFO:Finished Spring Data repository scanning in 22ms. Found 0 repository interfaces.
+2020-05-05 21:08:41 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 21:08:41 下午 [Thread: main][ Class:org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker >> Method: org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330) ]
+INFO:Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c762b2f1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-05 21:08:42 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90) ]
+INFO:Tomcat initialized with port(s): 8080 (http)
+2020-05-05 21:08:42 下午 [Thread: main][ Class:org.springframework.web.context.ContextLoader >> Method: org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296) ]
+INFO:Root WebApplicationContext: initialization completed in 2103 ms
+2020-05-05 21:08:44 下午 [Thread: main][ Class:springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping >> Method: springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods(PropertySourcedRequestMappingHandlerMapping.java:69) ]
+INFO:Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-05-05 21:08:44 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-05 21:08:45 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2020-05-05 21:08:45 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2020-05-05 21:08:45 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2020-05-05 21:08:45 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeEntityHelperCache(MapperCacheDisabler.java:83) ]
+INFO:Clear EntityHelper entityTableMap cache.
+2020-05-05 21:08:45 下午 [Thread: main][ Class:org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration >> Method: org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration.getOrDeducePassword(UserDetailsServiceAutoConfiguration.java:87) ]
+INFO:
+
+Using generated security password: 1427e217-e0a0-4cb5-88ef-0a469e19e703
+
+2020-05-05 21:08:45 下午 [Thread: main][ Class:org.springframework.security.web.DefaultSecurityFilterChain >> Method: org.springframework.security.web.DefaultSecurityFilterChain.<init>(DefaultSecurityFilterChain.java:43) ]
+INFO:Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12abcd1e, org.springframework.security.web.context.SecurityContextPersistenceFilter@42c0a16e, org.springframework.security.web.header.HeaderWriterFilter@15605d83, org.springframework.security.web.authentication.logout.LogoutFilter@256bb5be, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@543fe698, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7ccd611e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2fd9fb34, org.springframework.security.web.session.SessionManagementFilter@22f02996, org.springframework.security.web.access.ExceptionTranslationFilter@6ddd1c51, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2dc39b53]
+2020-05-05 21:08:45 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'taskScheduler'
+2020-05-05 21:08:45 下午 [Thread: main][ Class:springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper >> Method: springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:160) ]
+INFO:Context refreshed
+2020-05-05 21:08:45 下午 [Thread: main][ Class:springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper >> Method: springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:163) ]
+INFO:Found 1 custom documentation plugin(s)
+2020-05-05 21:08:45 下午 [Thread: main][ Class:springfox.documentation.spring.web.scanners.ApiListingReferenceScanner >> Method: springfox.documentation.spring.web.scanners.ApiListingReferenceScanner.scan(ApiListingReferenceScanner.java:41) ]
+INFO:Scanning for api listing references
+2020-05-05 21:08:45 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204) ]
+INFO:Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-05 21:08:45 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) ]
+INFO:Started ShopMainApplication in 6.037 seconds (JVM running for 7.308)
+2020-05-05 21:08:49 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524) ]
+INFO:Initializing Servlet 'dispatcherServlet'
+2020-05-05 21:08:49 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546) ]
+INFO:Completed initialization in 10 ms
+2020-05-05 21:32:31 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 21:32:57 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-05 21:36:38 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 21:37:16 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 21:39:59 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 21:41:27 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 21:42:18 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 21:42:29 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 21:42:45 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 21:43:24 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-05 21:48:02 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-05-05 21:48:24 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.

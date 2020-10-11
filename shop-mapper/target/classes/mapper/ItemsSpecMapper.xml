@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.chris.shop.mapper.ItemsSpecMapper">
+    <resultMap id="SimpleItemsSpecResultMap" type="top.chris.shop.pojo.vo.RenderItemInfoVo$SimpleItemsSpec">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="priceDiscount" column="price_discount"/>
+        <result property="priceNormal" column="price_normal"/>
+        <result property="stock" column="stock"/>
+        <result property="discounts" column="discounts"/>
+    </resultMap>
+    <select id="querySimpleItemsSpecByItemId" resultMap="SimpleItemsSpecResultMap" parameterType="String">
+        select id,name,price_discount,price_normal,stock,discounts from items_spec where item_id = #{itemId}
+    </select>
+</mapper>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.chris.shop.mapper.CategoryMapper">
+
+    <resultMap id="CategoryVoResultMap" type="top.chris.shop.pojo.vo.CategoryVo">
+        <result property="id" column="id"></result>
+        <result property="name" column="name"></result>
+        <result property="type" column="type"></result>
+        <result property="fatherId" column="father_id"></result>
+        <result property="logo" column="logo"></result>
+        <result property="slogan" column="slogan"></result>
+        <result property="catImage" column="cat_image"></result>
+        <result property="bgColor" column="bg_color"></result>
+        <collection property="subCatList" ofType="top.chris.shop.pojo.Category">
+            <result property="id" column="sub_id"></result>
+            <result property="name" column="sub_name"></result>
+            <result property="type" column="sub_type"></result>
+            <result property="fatherId" column="sub_father_id"></result>
+            <result property="logo" column="sub_logo"></result>
+            <result property="slogan" column="sub_slogan"></result>
+            <result property="catImage" column="sub_cat_image"></result>
+            <result property="bgColor" column="sub_bg_color"></result>
+        </collection>
+    </resultMap>
+
+    <select id="rendersSubCatLazyLoad" resultMap="CategoryVoResultMap" parameterType="Integer">
+    SELECT
+        c1.*,
+        c2.id AS sub_id,
+        c2.`name` AS sub_name,
+        c2.type AS sub_type,
+        c2.father_id AS sub_father_id,
+        c2.logo AS sub_logo,
+        c2.slogan AS sub_slogan,
+        c2.cat_image AS sub_cat_image,
+        c2.bg_color AS sub_bg_color
+    FROM
+        category c1
+        LEFT JOIN category c2 ON c1.id = c2.father_id WHERE c1.father_id = #{rootCatId}
+    </select>
+
+    <resultMap id="rendersSubCatItemsLazyLoad1" type="top.chris.shop.pojo.vo.RenderSixItemsVo">
+        <result property="rootCatName" column="rootCatName"></result>
+        <result property="slogan" column="slogan"></result>
+        <result property="bgColor" column="bg_color"></result>
+        <result property="catImage" column="cat_image"></result>
+        <collection property="simpleItemList" ofType="top.chris.shop.pojo.vo.SimpleItem">
+            <result property="itemName" column="item_name"></result>
+            <result property="itemId" column="itemId"></result>
+            <result property="itemUrl" column="itemUrl"></result>
+        </collection>
+    </resultMap>
+
+    <select id="rendersSubCatItemsLazyLoad" resultMap="rendersSubCatItemsLazyLoad1" parameterType="Integer">
+	SELECT
+	item.*,
+	img.url AS itemUrl
+FROM
+	(
+	SELECT
+		c.`name` AS rootCatName,
+		c.slogan,
+		c.bg_color,
+		c.cat_image,
+		i.item_name,
+		i.id AS itemId ,
+		i.updated_time AS updateTime
+	FROM
+		items AS i
+		LEFT JOIN category AS c ON i.root_cat_id = c.id
+	WHERE
+		i.root_cat_id = #{rootCatId}
+	) AS item,
+	(
+	SELECT
+		imgs.url,
+		imgs.item_id
+	FROM
+		items AS its
+		LEFT JOIN items_img AS imgs ON its.id = imgs.item_id
+	WHERE
+		imgs.is_main = 1
+	) AS img
+WHERE
+	item.itemId = img.item_id
+	ORDER BY item.updateTime DESC
+    </select>
+
+</mapper>

@@ -1,0 +1,23 @@
+{
+  "groups": [
+    {
+      "name": "top.chris.shop",
+      "type": "top.chris.shop.common.ShopProperties",
+      "sourceType": "top.chris.shop.common.ShopProperties"
+    },
+    {
+      "name": "top.chris.shop.constant",
+      "type": "top.chris.shop.common.ShopConstant",
+      "sourceType": "top.chris.shop.common.ShopConstant"
+    }
+  ],
+  "properties": [
+    {
+      "name": "top.chris.shop.basic-static-server-url",
+      "type": "java.lang.String",
+      "sourceType": "top.chris.shop.common.ShopProperties",
+      "defaultValue": "http:\/\/localhost:8848"
+    }
+  ],
+  "hints": []
+}
