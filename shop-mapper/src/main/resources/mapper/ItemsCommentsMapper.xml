@@ -3,5 +3,19 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="top.chris.shop.mapper.ItemsCommentsMapper">
-
+    <resultMap id="ItemCommentLevelDtoResultMapper" type="top.chris.shop.pojo.dto.ItemCommentLevelDto">
+        <result property="counts" column="counts"></result>
+        <result property="commentLevel" column="comment_level"></result>
+    </resultMap>
+    <select id="getCommentsForEveryLevelByItemId" parameterType="String" resultMap="ItemCommentLevelDtoResultMapper">
+        SELECT
+	comment_level,
+	COUNT(*) AS 'counts'
+FROM
+	items_comments
+WHERE
+	item_id = #{ItemId}
+GROUP BY
+	comment_level
+    </select>
 </mapper>

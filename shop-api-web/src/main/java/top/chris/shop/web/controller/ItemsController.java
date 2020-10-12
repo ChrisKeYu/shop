@@ -42,4 +42,9 @@ public class ItemsController {
         return JsonResult.isOk(itemsService.queryItemPageInfo(itemId));
     }
 
+    @GetMapping("/commentLevel")
+    public JsonResult renderCommentLevel(String itemId){
+        System.out.println("商品详情的ID："+itemId);
+        return JsonResult.isOk(itemsService.renderCommentLevel(itemId));
+    }
 }

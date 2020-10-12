@@ -4,13 +4,13 @@ import com.github.pagehelper.PageHelper;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import top.chris.shop.mapper.ItemsImgMapper;
-import top.chris.shop.mapper.ItemsMapper;
-import top.chris.shop.mapper.ItemsParamMapper;
-import top.chris.shop.mapper.ItemsSpecMapper;
+import top.chris.shop.enums.CommentLevel;
+import top.chris.shop.mapper.*;
 import top.chris.shop.pojo.bo.CatItemsBo;
 import top.chris.shop.pojo.bo.SearchItemsBo;
+import top.chris.shop.pojo.dto.ItemCommentLevelDto;
 import top.chris.shop.pojo.vo.CatItemListVo;
+import top.chris.shop.pojo.vo.CountsVo;
 import top.chris.shop.pojo.vo.RenderItemInfoVo;
 import top.chris.shop.service.ItemsService;
 import top.chris.shop.util.PagedGridResult;
@@ -28,6 +28,8 @@ public class ItemsServiceImpl implements ItemsService {
     @Autowired
     private ItemsImgMapper imgMapper;
 
+    @Autowired
+    private ItemsCommentsMapper commentsMapper;
     //分页插件
     @Autowired
     private PageHelper pageHelper;
@@ -103,6 +105,30 @@ public class ItemsServiceImpl implements ItemsService {
         return renderItemInfoVo;
     }
 
+    @Override
+    public CountsVo renderCommentLevel(String itemId) {
+        CountsVo countsVo = new CountsVo();
+        List<ItemCommentLevelDto> commentLevelDtos = commentsMapper.getCommentsForEveryLevelByItemId(itemId);
+        //迭代各评论的查询结果
+        for (ItemCommentLevelDto dto: commentLevelDtos) {
+            //判断是否为“好评”
+            if (dto.getCommentLevel()== CommentLevel.GOOD.type){
+                countsVo.setGoodCounts(dto.getCounts());
+                countsVo.setTotalCounts(countsVo.getTotalCounts()+dto.getCounts());
+            }
+            //判断是否为“中评”
+             if (dto.getCommentLevel()== CommentLevel.NORMAL.type){
+                countsVo.setNormalCounts(dto.getCounts());
+                countsVo.setTotalCounts(countsVo.getTotalCounts()+dto.getCounts());
+            }
+            //判断是否为“差评”
+            if (dto.getCommentLevel()== CommentLevel.BAD.type){
+                countsVo.setBadCounts(dto.getCounts());
+                countsVo.setTotalCounts(countsVo.getTotalCounts()+dto.getCounts());
+            }
+        }
+        return countsVo;
+    }
 
 
     /**
