@@ -2,7 +2,7 @@ package top.chris.shop.pojo.vo;
 
 import lombok.Data;
 
-//各个评价的数量模型（各评论数量可以为0）
+//各个评价的数量模型（各评论数量可以为0，“好评：3个，中评：0个，差评：8个”）
 @Data
 public class CountsVo {
     private Integer totalCounts;

@@ -7,7 +7,7 @@
         <result property="counts" column="counts"></result>
         <result property="commentLevel" column="comment_level"></result>
     </resultMap>
-    <select id="getCommentsForEveryLevelByItemId" parameterType="String" resultMap="ItemCommentLevelDtoResultMapper">
+    <select id="getCommentForEveryLevelByItemId" parameterType="String" resultMap="ItemCommentLevelDtoResultMapper">
         SELECT
 	comment_level,
 	COUNT(*) AS 'counts'
@@ -17,5 +17,24 @@ WHERE
 	item_id = #{ItemId}
 GROUP BY
 	comment_level
+    </select>
+    <select id="getCommentByItemIdAndLevel" resultType="top.chris.shop.pojo.vo.CommentRecordVo" parameterType="top.chris.shop.pojo.bo.CommentBo">
+        SELECT
+	u.face AS userFace,
+	u.nickname AS nickname,
+	ic.created_time AS createdTime,
+	ic.content AS content,
+	ic.sepc_name AS specName
+FROM
+	items_comments ic
+	LEFT JOIN users u ON u.id = ic.user_id
+	<where>
+		<if test="itemId != null">
+			AND item_id = #{itemId}
+		</if>
+		<if test="level != 0 and level != null">
+			AND comment_level = #{level}
+		</if>
+	</where>
     </select>
 </mapper>

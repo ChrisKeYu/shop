@@ -1,8 +1,11 @@
 package top.chris.shop.service;
 
+import org.springframework.web.bind.annotation.RequestParam;
 import top.chris.shop.pojo.bo.CatItemsBo;
+import top.chris.shop.pojo.bo.CommentBo;
 import top.chris.shop.pojo.bo.SearchItemsBo;
 import top.chris.shop.pojo.dto.ItemCommentLevelDto;
+import top.chris.shop.pojo.vo.CommentRecordVo;
 import top.chris.shop.pojo.vo.CountsVo;
 import top.chris.shop.pojo.vo.RenderItemInfoVo;
 import top.chris.shop.util.PagedGridResult;
@@ -23,5 +26,7 @@ public interface ItemsService {
     //商品详情查询，接受商品的id，返回商品详情的数据。
     RenderItemInfoVo queryItemPageInfo(String itemId);
     //商品评论各等级数量的查询，返回统计好的各评论的数量模型。
-    CountsVo renderCommentLevel(String itemId);
+    CountsVo renderCommentLevelyItemId(String itemId);
+    //商品评论各的查询，返回CommentRecordVo集合的数据模型。
+    PagedGridResult renderCommentByItemIdAndLevel(CommentBo commentBo,Integer page, Integer pageSize);
 }
