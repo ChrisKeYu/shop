@@ -1,8 +1,10 @@
 package top.chris.shop.service.impl;
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import top.chris.shop.enums.CommentLevel;
 import top.chris.shop.mapper.*;
@@ -41,7 +43,6 @@ public class ItemsServiceImpl implements ItemsService {
      * @param itemsBo
      * @return
      */
-    //TODO 分页逻辑，目前使用的是前端分页（后台不做分页查询，将所有的数据返回，交由前端完成分页工作），如有必要可以改为后端分页
     @Override
     public PagedGridResult catItems(SearchItemsBo itemsBo) {
         itemsBo = checkParms(itemsBo);
@@ -50,27 +51,24 @@ public class ItemsServiceImpl implements ItemsService {
         }
         String sort = itemsBo.getSort();
         if (StringUtils.equals(sort,"c") || StringUtils.equals(sort,"p") || StringUtils.equals(sort,"k")){
-//            itemsBo.setSort("no");
-            int allResultCount = itemsMapper.queryCatItems(itemsBo).size();
+//           itemsBo.setSort("no");
             //使用PageHelper设置分页，为了安全分页，后边最好紧跟mybatis mapper方法
             //注意这里看起来似乎是属于内存分页，但其实PageHelper插件对mybatis执行流程进行了增强，属于物理分页
             itemsBo.setSort(sort);
             //pageHelper.startPage(itemsBo.getPage(),itemsBo.getPageSize());
             //获取分页查询后的结果。
             List<CatItemListVo> result = itemsMapper.queryCatItems(itemsBo);
-            //创建分页容器对象（配合前端工程的分页，把查询的数据封装到该容器中）
             PagedGridResult pagedGridResult = new PagedGridResult();
+            PageInfo<?> pageInfo = new PageInfo<>(result);
             pagedGridResult.setRows(result);
             pagedGridResult.setPage(itemsBo.getPage());
-            pagedGridResult.setRecords(result.size()); //总记录数
-            pagedGridResult.setTotal(result.size()/itemsBo.getPageSize());
-            //返回分页模型
+            pagedGridResult.setRecords(pageInfo.getTotal()); //总记录数
+            pagedGridResult.setTotal(pageInfo.getPages());
             return pagedGridResult;
         }else {
             throw new RuntimeException("查询依据不正确");
         }
     }
-    //TODO 分页逻辑，目前使用的是前端分页（后台不做分页查询，将所有的数据返回，交由前端完成分页工作），如有必要可以改为后端分页
     @Override
     public PagedGridResult searchItemsLikeName(SearchItemsBo itemsBo) {
         itemsBo = checkParms(itemsBo);
@@ -81,14 +79,14 @@ public class ItemsServiceImpl implements ItemsService {
         if (StringUtils.equals(sort,"c") || StringUtils.equals(sort,"p") || StringUtils.equals(sort,"k")){
             //使用PageHelper设置分页，为了安全分页，后边最好紧跟mybatis mapper方法
             //注意这里看起来似乎是属于内存分页，但其实PageHelper插件对mybatis执行流程进行了增强，属于物理分页
-            //pageHelper.startPage(itemsBo.getPage(),itemsBo.getPageSize());
+            pageHelper.startPage(itemsBo.getPage(),itemsBo.getPageSize());
             List<CatItemListVo> result = itemsMapper.querySearchItemsLikeName(itemsBo);
-            //PagedGridResult pagedGridResult = new PagedGridResult(result,itemsBo.getPage());
             PagedGridResult pagedGridResult = new PagedGridResult();
+            PageInfo<?> pageInfo = new PageInfo<>(result);
             pagedGridResult.setRows(result);
             pagedGridResult.setPage(itemsBo.getPage());
-            pagedGridResult.setRecords(result.size());
-            pagedGridResult.setTotal(result.size()/itemsBo.getPageSize());
+            pagedGridResult.setRecords(pageInfo.getTotal());
+            pagedGridResult.setTotal(pageInfo.getPages());
             return pagedGridResult;
         }else {
             throw new RuntimeException("查询数据格式不正确");
@@ -134,7 +132,7 @@ public class ItemsServiceImpl implements ItemsService {
         }
         return countsVo;
     }
-    //TODO 分页逻辑，目前使用的是前端分页（后台不做分页查询，将所有的数据返回，交由前端完成分页工作），如有必要可以改为后端分页
+
     @Override
     public PagedGridResult renderCommentByItemIdAndLevel(CommentBo commentBo,Integer page, Integer pageSize) {
         //使用PageHelper进行分页查询（由于使用前端的分页插件，它的原理是把后台查询的所有数据返回给前端，交由前端去完成分页的功能，而不是通过后台进行分页查询，后台只需要把所有查询的结果一次性输出到前台即可）
@@ -142,14 +140,15 @@ public class ItemsServiceImpl implements ItemsService {
         List<CommentRecordVo> result = commentsMapper.getCommentByItemIdAndLevel(commentBo);
         PagedGridResult pagedGridResult = new PagedGridResult();
         if (result != null){
+            PageInfo<?> pageInfo = new PageInfo<>(result);
             //插入数据
             pagedGridResult.setRows(result);
             //插入当前页数
             pagedGridResult.setPage(page);
             //插入查询的总记录数
-            pagedGridResult.setRecords(result.size());
+            pagedGridResult.setRecords(pageInfo.getTotal());
             //插入总页数（总记录数 / pageSize[每一页的可展示的数量]）
-            pagedGridResult.setTotal(result.size()/pageSize);
+            pagedGridResult.setTotal(pageInfo.getPages());
         }
         return pagedGridResult;
     }
