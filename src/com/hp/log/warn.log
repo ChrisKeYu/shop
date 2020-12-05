@@ -120,3 +120,29 @@ WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check you
 WARN:Trying to infer dataType java.lang.String[]
 2020-12-05 22:19:52 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
 WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-05 22:47:05 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-05 22:47:10 下午 [Thread: main][ Class:springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader >> Method: springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader.apply(ParameterDataTypeReader.java:92) ]
+WARN:Trying to infer dataType java.lang.String[]
+2020-12-05 22:47:36 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-05 22:47:40 下午 [Thread: main][ Class:springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader >> Method: springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader.apply(ParameterDataTypeReader.java:92) ]
+WARN:Trying to infer dataType java.lang.String[]
+2020-12-05 23:12:12 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-05 23:12:18 下午 [Thread: main][ Class:springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader >> Method: springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader.apply(ParameterDataTypeReader.java:92) ]
+WARN:Trying to infer dataType java.lang.String[]
+2020-12-05 23:13:28 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-05 23:19:16 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-05 23:19:21 下午 [Thread: main][ Class:springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader >> Method: springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader.apply(ParameterDataTypeReader.java:92) ]
+WARN:Trying to infer dataType java.lang.String[]
+2020-12-05 23:19:30 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-05 23:20:43 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-05 23:20:50 下午 [Thread: main][ Class:springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader >> Method: springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader.apply(ParameterDataTypeReader.java:92) ]
+WARN:Trying to infer dataType java.lang.String[]
+2020-12-05 23:21:28 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.

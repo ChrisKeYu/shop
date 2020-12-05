@@ -1,6 +1,6 @@
 package top.chris.shop.service.impl;
 
-import org.apache.commons.lang3.StringUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.n3r.idworker.Sid;
@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.expression.spel.support.ReflectivePropertyAccessor;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,10 +23,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Slf4j
 @Service
 public class AddressServiceImpl implements AddressService {
-    /** logger */
-    private static final Logger log = LoggerFactory.getLogger(AddressServiceImpl.class);
     @Autowired
     private Sid sid;
 
@@ -48,6 +47,7 @@ public class AddressServiceImpl implements AddressService {
         addressMapper.insert(userAddress);
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public List<AddressVo> renderUserAddress(String userId) {
         UserAddress userAddress = new UserAddress();
@@ -63,6 +63,7 @@ public class AddressServiceImpl implements AddressService {
         return renderList;
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public Integer updateUserAddress(AddressBo addressBo) {
         //检测数据库中是否存指定的地址数据
@@ -78,6 +79,7 @@ public class AddressServiceImpl implements AddressService {
         return addressMapper.updateByPrimaryKey(userAddress);
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public Integer updateDefalutUserAddress(String userId, String addressId) {
         List<UserAddress> lsit = addressMapper.selectAll();
@@ -99,6 +101,7 @@ public class AddressServiceImpl implements AddressService {
         return addressMapper.updateByPrimaryKey(userAddress);
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public Integer deleteUserAddress(String userId, String addressId) {
         //检测数据库中是否存指定的地址数据

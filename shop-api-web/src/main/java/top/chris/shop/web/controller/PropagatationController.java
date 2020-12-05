@@ -11,6 +11,9 @@ import top.chris.shop.service.PropagationService;
 
 import java.util.ArrayList;
 import java.util.List;
+/**
+ * 早期代码-对业务没有用处
+ */
 
 /**
  * 事务传播演示控制器，专门用来演示事务的传播功能和特性的控制器
@@ -21,7 +24,7 @@ import java.util.List;
  *           叫做事务的传播行为(在两个不同的Service层之间，如何实现共享和使用事务)。
  */
 @ApiIgnore //Swage2不会去扫描这个控制器，不需要进入文档
-@RestController  //属于RestFul风格的Api
+//@RestController  //属于RestFul风格的Api
 @RequestMapping("/propagation") //添加一个访问前缀
 public class PropagatationController {
 

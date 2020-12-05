@@ -2,6 +2,8 @@ package top.chris.shop.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 import tk.mybatis.mapper.entity.Example.Criteria;
 import top.chris.shop.util.JsonResult;
@@ -19,6 +21,7 @@ public class PropagationServiceImpl implements PropagationService {
     @Autowired
     private StuMapper stuMapper;
 
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public List<Stu> getStuWhenIdIn(List<String> ids) {
         //多余复制的单表数据操作，需要用到example对象，构造方法中需要写入待操作单表的类。
@@ -30,23 +33,27 @@ public class PropagationServiceImpl implements PropagationService {
         return stuMapper.selectByExample(example);
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public List<Stu> getAllStu() {
         return stuMapper.selectAll();
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public JsonResult addStu(Stu stu) {
         stuMapper.insert(stu);
         return JsonResult.isOk("insert success");
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public JsonResult updateStu(Stu stu) {
         stuMapper.updateByPrimaryKey(stu);
         return JsonResult.isOk("update success");
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public JsonResult deleteStu(String stuId) {
         Stu stu = new Stu();
@@ -56,6 +63,7 @@ public class PropagationServiceImpl implements PropagationService {
     }
 
 
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public void addParentStu() {
         Stu stu = new Stu();
@@ -66,6 +74,7 @@ public class PropagationServiceImpl implements PropagationService {
 
     //@Transactional(propagation = Propagation.MANDATORY) //再调用此方法前就会先检查调用者是否有事务，如果没有那么该方法不会不被执行，而且抛出异常。
     //@Transactional(propagation = Propagation.REQUIRES_NEW)
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public void addSubStu() {
         Stu stu1 = new Stu();

@@ -1276,3 +1276,366 @@ INFO:DateSourceHikariCP - Starting...
 WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
 2020-12-05 22:19:52 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.HikariDataSource >> Method: com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123) ]
 INFO:DateSourceHikariCP - Start completed.
+2020-12-05 22:47:04 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.16.Final
+2020-12-05 22:47:04 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting ShopMainApplication on DESKTOP-255B2FK with PID 3088 (D:\ForSpringBootProject\shop\shop-api-web\target\classes started by Chris in D:\ForSpringBootProject\shop)
+2020-12-05 22:47:04 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2020-12-05 22:47:05 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:244) ]
+INFO:Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-05 22:47:05 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126) ]
+INFO:Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-12-05 22:47:05 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182) ]
+INFO:Finished Spring Data repository scanning in 44ms. Found 0 repository interfaces.
+2020-12-05 22:47:05 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-05 22:47:06 下午 [Thread: main][ Class:org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker >> Method: org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330) ]
+INFO:Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$acda3de2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-05 22:47:06 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90) ]
+INFO:Tomcat initialized with port(s): 8080 (http)
+2020-12-05 22:47:06 下午 [Thread: main][ Class:org.springframework.web.context.ContextLoader >> Method: org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296) ]
+INFO:Root WebApplicationContext: initialization completed in 2362 ms
+2020-12-05 22:47:09 下午 [Thread: main][ Class:springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping >> Method: springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods(PropertySourcedRequestMappingHandlerMapping.java:69) ]
+INFO:Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-12-05 22:47:09 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-05 22:47:10 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2020-12-05 22:47:10 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2020-12-05 22:47:10 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2020-12-05 22:47:10 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeEntityHelperCache(MapperCacheDisabler.java:83) ]
+INFO:Clear EntityHelper entityTableMap cache.
+2020-12-05 22:47:10 下午 [Thread: main][ Class:org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration >> Method: org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration.getOrDeducePassword(UserDetailsServiceAutoConfiguration.java:87) ]
+INFO:
+
+Using generated security password: c1d41b8e-805b-40ad-9e9a-f3ef66a40849
+
+2020-12-05 22:47:10 下午 [Thread: main][ Class:org.springframework.security.web.DefaultSecurityFilterChain >> Method: org.springframework.security.web.DefaultSecurityFilterChain.<init>(DefaultSecurityFilterChain.java:43) ]
+INFO:Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@19b5214b, org.springframework.security.web.context.SecurityContextPersistenceFilter@3caee3a8, org.springframework.security.web.header.HeaderWriterFilter@6f91fbda, org.springframework.security.web.authentication.logout.LogoutFilter@4837f97e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@251c90f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2dfa02c1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5fb3111a, org.springframework.security.web.session.SessionManagementFilter@681061d6, org.springframework.security.web.access.ExceptionTranslationFilter@4b7ed03e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1c5d3a37]
+2020-12-05 22:47:10 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'taskScheduler'
+2020-12-05 22:47:10 下午 [Thread: main][ Class:springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper >> Method: springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:160) ]
+INFO:Context refreshed
+2020-12-05 22:47:10 下午 [Thread: main][ Class:springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper >> Method: springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:163) ]
+INFO:Found 1 custom documentation plugin(s)
+2020-12-05 22:47:10 下午 [Thread: main][ Class:springfox.documentation.spring.web.scanners.ApiListingReferenceScanner >> Method: springfox.documentation.spring.web.scanners.ApiListingReferenceScanner.scan(ApiListingReferenceScanner.java:41) ]
+INFO:Scanning for api listing references
+2020-12-05 22:47:10 下午 [Thread: main][ Class:springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader >> Method: springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader.apply(ParameterDataTypeReader.java:92) ]
+WARN:Trying to infer dataType java.lang.String[]
+2020-12-05 22:47:11 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204) ]
+INFO:Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-05 22:47:11 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) ]
+INFO:Started ShopMainApplication in 7.194 seconds (JVM running for 8.843)
+2020-12-05 22:47:34 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.16.Final
+2020-12-05 22:47:35 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting ShopMainApplication on DESKTOP-255B2FK with PID 9896 (D:\ForSpringBootProject\shop\shop-api-web\target\classes started by Chris in D:\ForSpringBootProject\shop)
+2020-12-05 22:47:35 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2020-12-05 22:47:36 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:244) ]
+INFO:Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-05 22:47:36 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126) ]
+INFO:Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-12-05 22:47:36 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182) ]
+INFO:Finished Spring Data repository scanning in 30ms. Found 0 repository interfaces.
+2020-12-05 22:47:36 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-05 22:47:36 下午 [Thread: main][ Class:org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker >> Method: org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330) ]
+INFO:Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2c433692] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-05 22:47:37 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90) ]
+INFO:Tomcat initialized with port(s): 8080 (http)
+2020-12-05 22:47:37 下午 [Thread: main][ Class:org.springframework.web.context.ContextLoader >> Method: org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296) ]
+INFO:Root WebApplicationContext: initialization completed in 2258 ms
+2020-12-05 22:47:39 下午 [Thread: main][ Class:springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping >> Method: springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods(PropertySourcedRequestMappingHandlerMapping.java:69) ]
+INFO:Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-12-05 22:47:39 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-05 22:47:40 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2020-12-05 22:47:40 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2020-12-05 22:47:40 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2020-12-05 22:47:40 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeEntityHelperCache(MapperCacheDisabler.java:83) ]
+INFO:Clear EntityHelper entityTableMap cache.
+2020-12-05 22:47:40 下午 [Thread: main][ Class:org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration >> Method: org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration.getOrDeducePassword(UserDetailsServiceAutoConfiguration.java:87) ]
+INFO:
+
+Using generated security password: 03847563-3ae6-427f-b841-e07c816c546b
+
+2020-12-05 22:47:40 下午 [Thread: main][ Class:org.springframework.security.web.DefaultSecurityFilterChain >> Method: org.springframework.security.web.DefaultSecurityFilterChain.<init>(DefaultSecurityFilterChain.java:43) ]
+INFO:Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@31ab1e67, org.springframework.security.web.context.SecurityContextPersistenceFilter@fddd7ae, org.springframework.security.web.header.HeaderWriterFilter@22791b75, org.springframework.security.web.authentication.logout.LogoutFilter@7da1e005, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2725ca05, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6459f4ea, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@29bbc391, org.springframework.security.web.session.SessionManagementFilter@703fa45, org.springframework.security.web.access.ExceptionTranslationFilter@50bc3219, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4602f874]
+2020-12-05 22:47:40 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'taskScheduler'
+2020-12-05 22:47:40 下午 [Thread: main][ Class:springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper >> Method: springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:160) ]
+INFO:Context refreshed
+2020-12-05 22:47:40 下午 [Thread: main][ Class:springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper >> Method: springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:163) ]
+INFO:Found 1 custom documentation plugin(s)
+2020-12-05 22:47:40 下午 [Thread: main][ Class:springfox.documentation.spring.web.scanners.ApiListingReferenceScanner >> Method: springfox.documentation.spring.web.scanners.ApiListingReferenceScanner.scan(ApiListingReferenceScanner.java:41) ]
+INFO:Scanning for api listing references
+2020-12-05 22:47:40 下午 [Thread: main][ Class:springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader >> Method: springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader.apply(ParameterDataTypeReader.java:92) ]
+WARN:Trying to infer dataType java.lang.String[]
+2020-12-05 22:47:40 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204) ]
+INFO:Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-05 22:47:40 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) ]
+INFO:Started ShopMainApplication in 6.225 seconds (JVM running for 7.498)
+2020-12-05 23:12:11 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.16.Final
+2020-12-05 23:12:11 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting ShopMainApplication on DESKTOP-255B2FK with PID 900 (D:\ForSpringBootProject\shop\shop-api-web\target\classes started by Chris in D:\ForSpringBootProject\shop)
+2020-12-05 23:12:11 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2020-12-05 23:12:12 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:244) ]
+INFO:Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-05 23:12:12 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126) ]
+INFO:Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-12-05 23:12:12 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182) ]
+INFO:Finished Spring Data repository scanning in 39ms. Found 0 repository interfaces.
+2020-12-05 23:12:12 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-05 23:12:13 下午 [Thread: main][ Class:org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker >> Method: org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330) ]
+INFO:Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$81efee7f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-05 23:12:13 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90) ]
+INFO:Tomcat initialized with port(s): 8080 (http)
+2020-12-05 23:12:14 下午 [Thread: main][ Class:org.springframework.web.context.ContextLoader >> Method: org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296) ]
+INFO:Root WebApplicationContext: initialization completed in 2471 ms
+2020-12-05 23:12:16 下午 [Thread: main][ Class:springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping >> Method: springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods(PropertySourcedRequestMappingHandlerMapping.java:69) ]
+INFO:Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-12-05 23:12:16 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-05 23:12:17 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2020-12-05 23:12:17 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2020-12-05 23:12:17 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2020-12-05 23:12:17 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeEntityHelperCache(MapperCacheDisabler.java:83) ]
+INFO:Clear EntityHelper entityTableMap cache.
+2020-12-05 23:12:17 下午 [Thread: main][ Class:org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration >> Method: org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration.getOrDeducePassword(UserDetailsServiceAutoConfiguration.java:87) ]
+INFO:
+
+Using generated security password: 5e631806-4eae-4ba7-a7ed-e06569c8ecbe
+
+2020-12-05 23:12:17 下午 [Thread: main][ Class:org.springframework.security.web.DefaultSecurityFilterChain >> Method: org.springframework.security.web.DefaultSecurityFilterChain.<init>(DefaultSecurityFilterChain.java:43) ]
+INFO:Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6775c0d1, org.springframework.security.web.context.SecurityContextPersistenceFilter@dc1fadd, org.springframework.security.web.header.HeaderWriterFilter@3e52ed5d, org.springframework.security.web.authentication.logout.LogoutFilter@5cd8d029, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@49653791, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@60928a61, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@38f617f4, org.springframework.security.web.session.SessionManagementFilter@1de5cc88, org.springframework.security.web.access.ExceptionTranslationFilter@3ca17943, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@91a2543]
+2020-12-05 23:12:17 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'taskScheduler'
+2020-12-05 23:12:17 下午 [Thread: main][ Class:springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper >> Method: springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:160) ]
+INFO:Context refreshed
+2020-12-05 23:12:17 下午 [Thread: main][ Class:springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper >> Method: springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:163) ]
+INFO:Found 1 custom documentation plugin(s)
+2020-12-05 23:12:18 下午 [Thread: main][ Class:springfox.documentation.spring.web.scanners.ApiListingReferenceScanner >> Method: springfox.documentation.spring.web.scanners.ApiListingReferenceScanner.scan(ApiListingReferenceScanner.java:41) ]
+INFO:Scanning for api listing references
+2020-12-05 23:12:18 下午 [Thread: main][ Class:springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader >> Method: springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader.apply(ParameterDataTypeReader.java:92) ]
+WARN:Trying to infer dataType java.lang.String[]
+2020-12-05 23:12:18 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204) ]
+INFO:Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-05 23:12:18 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) ]
+INFO:Started ShopMainApplication in 7.519 seconds (JVM running for 8.962)
+2020-12-05 23:13:28 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524) ]
+INFO:Initializing Servlet 'dispatcherServlet'
+2020-12-05 23:13:28 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546) ]
+INFO:Completed initialization in 30 ms
+2020-12-05 23:13:28 下午 [Thread: http-nio-8080-exec-2][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法[Ljava.lang.Object;.renderUserAddress在Sat Dec 05 23:13:28 CST 2020时使用参数[Ljava.lang.Object;@a25dd01[{201205124086051143680}]调用------
+2020-12-05 23:13:28 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.HikariDataSource >> Method: com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110) ]
+INFO:DateSourceHikariCP - Starting...
+2020-12-05 23:13:28 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-05 23:13:29 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.HikariDataSource >> Method: com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123) ]
+INFO:DateSourceHikariCP - Start completed.
+2020-12-05 23:13:48 下午 [Thread: http-nio-8080-exec-7][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法[Ljava.lang.Object;.rendersCarousel在Sat Dec 05 23:13:48 CST 2020时使用参数[Ljava.lang.Object;@5f3f8ebe[{}]调用------
+2020-12-05 23:13:48 下午 [Thread: http-nio-8080-exec-8][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法[Ljava.lang.Object;.rendersCats在Sat Dec 05 23:13:48 CST 2020时使用参数[Ljava.lang.Object;@107d4a1b[{}]调用------
+2020-12-05 23:13:48 下午 [Thread: http-nio-8080-exec-9][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法[Ljava.lang.Object;.rendersSubItemsCats在Sat Dec 05 23:13:48 CST 2020时使用参数[Ljava.lang.Object;@6fc206d2[{1}]调用------
+2020-12-05 23:13:49 下午 [Thread: http-nio-8080-exec-10][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法[Ljava.lang.Object;.rendersSubCats在Sat Dec 05 23:13:49 CST 2020时使用参数[Ljava.lang.Object;@4f2df350[{2}]调用------
+2020-12-05 23:13:49 下午 [Thread: http-nio-8080-exec-1][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法[Ljava.lang.Object;.rendersSubCats在Sat Dec 05 23:13:49 CST 2020时使用参数[Ljava.lang.Object;@4e3368d8[{3}]调用------
+2020-12-05 23:13:49 下午 [Thread: http-nio-8080-exec-2][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法[Ljava.lang.Object;.rendersSubCats在Sat Dec 05 23:13:49 CST 2020时使用参数[Ljava.lang.Object;@5186bfb2[{4}]调用------
+2020-12-05 23:13:49 下午 [Thread: http-nio-8080-exec-5][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法[Ljava.lang.Object;.rendersSubCats在Sat Dec 05 23:13:49 CST 2020时使用参数[Ljava.lang.Object;@2ffbad83[{6}]调用------
+2020-12-05 23:13:50 下午 [Thread: http-nio-8080-exec-4][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法[Ljava.lang.Object;.rendersSubCats在Sat Dec 05 23:13:50 CST 2020时使用参数[Ljava.lang.Object;@308184de[{10}]调用------
+2020-12-05 23:13:50 下午 [Thread: http-nio-8080-exec-3][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法[Ljava.lang.Object;.rendersSubCats在Sat Dec 05 23:13:50 CST 2020时使用参数[Ljava.lang.Object;@3db21c95[{9}]调用------
+2020-12-05 23:13:51 下午 [Thread: http-nio-8080-exec-6][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法[Ljava.lang.Object;.rendersSubItemsCats在Sat Dec 05 23:13:51 CST 2020时使用参数[Ljava.lang.Object;@189ca895[{2}]调用------
+2020-12-05 23:13:51 下午 [Thread: http-nio-8080-exec-8][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法[Ljava.lang.Object;.rendersSubItemsCats在Sat Dec 05 23:13:51 CST 2020时使用参数[Ljava.lang.Object;@32a633ad[{3}]调用------
+2020-12-05 23:13:51 下午 [Thread: http-nio-8080-exec-7][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法[Ljava.lang.Object;.rendersSubCats在Sat Dec 05 23:13:51 CST 2020时使用参数[Ljava.lang.Object;@74adc7e8[{8}]调用------
+2020-12-05 23:13:52 下午 [Thread: http-nio-8080-exec-9][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法[Ljava.lang.Object;.rendersSubCats在Sat Dec 05 23:13:52 CST 2020时使用参数[Ljava.lang.Object;@19f14b86[{7}]调用------
+2020-12-05 23:13:52 下午 [Thread: http-nio-8080-exec-10][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法[Ljava.lang.Object;.rendersSubCats在Sat Dec 05 23:13:52 CST 2020时使用参数[Ljava.lang.Object;@1abd9fee[{5}]调用------
+2020-12-05 23:13:53 下午 [Thread: http-nio-8080-exec-1][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法[Ljava.lang.Object;.rendersSubItemsCats在Sat Dec 05 23:13:53 CST 2020时使用参数[Ljava.lang.Object;@3b42a4b7[{4}]调用------
+2020-12-05 23:13:53 下午 [Thread: http-nio-8080-exec-2][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法[Ljava.lang.Object;.rendersSubItemsCats在Sat Dec 05 23:13:53 CST 2020时使用参数[Ljava.lang.Object;@675a4310[{5}]调用------
+2020-12-05 23:13:53 下午 [Thread: http-nio-8080-exec-5][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法[Ljava.lang.Object;.rendersSubItemsCats在Sat Dec 05 23:13:53 CST 2020时使用参数[Ljava.lang.Object;@ee958f7[{6}]调用------
+2020-12-05 23:13:53 下午 [Thread: http-nio-8080-exec-4][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法[Ljava.lang.Object;.rendersSubItemsCats在Sat Dec 05 23:13:53 CST 2020时使用参数[Ljava.lang.Object;@3bbf1f66[{7}]调用------
+2020-12-05 23:19:13 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.16.Final
+2020-12-05 23:19:13 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting ShopMainApplication on DESKTOP-255B2FK with PID 23148 (D:\ForSpringBootProject\shop\shop-api-web\target\classes started by Chris in D:\ForSpringBootProject\shop)
+2020-12-05 23:19:13 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2020-12-05 23:19:16 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:244) ]
+INFO:Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-05 23:19:16 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126) ]
+INFO:Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-12-05 23:19:16 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182) ]
+INFO:Finished Spring Data repository scanning in 28ms. Found 0 repository interfaces.
+2020-12-05 23:19:16 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-05 23:19:16 下午 [Thread: main][ Class:org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker >> Method: org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330) ]
+INFO:Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$22ecc3bc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-05 23:19:17 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90) ]
+INFO:Tomcat initialized with port(s): 8080 (http)
+2020-12-05 23:19:17 下午 [Thread: main][ Class:org.springframework.web.context.ContextLoader >> Method: org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296) ]
+INFO:Root WebApplicationContext: initialization completed in 3518 ms
+2020-12-05 23:19:20 下午 [Thread: main][ Class:springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping >> Method: springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods(PropertySourcedRequestMappingHandlerMapping.java:69) ]
+INFO:Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-12-05 23:19:20 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-05 23:19:20 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2020-12-05 23:19:20 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2020-12-05 23:19:20 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2020-12-05 23:19:20 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeEntityHelperCache(MapperCacheDisabler.java:83) ]
+INFO:Clear EntityHelper entityTableMap cache.
+2020-12-05 23:19:20 下午 [Thread: main][ Class:org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration >> Method: org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration.getOrDeducePassword(UserDetailsServiceAutoConfiguration.java:87) ]
+INFO:
+
+Using generated security password: b57ef395-13f9-45e3-96d3-bad95b880dac
+
+2020-12-05 23:19:21 下午 [Thread: main][ Class:org.springframework.security.web.DefaultSecurityFilterChain >> Method: org.springframework.security.web.DefaultSecurityFilterChain.<init>(DefaultSecurityFilterChain.java:43) ]
+INFO:Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@609b041c, org.springframework.security.web.context.SecurityContextPersistenceFilter@14d1737a, org.springframework.security.web.header.HeaderWriterFilter@66b0e207, org.springframework.security.web.authentication.logout.LogoutFilter@6e0d16a4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@dc1fadd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@49653791, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@474e34e4, org.springframework.security.web.session.SessionManagementFilter@6a96d639, org.springframework.security.web.access.ExceptionTranslationFilter@288728e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@33f4c769]
+2020-12-05 23:19:21 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'taskScheduler'
+2020-12-05 23:19:21 下午 [Thread: main][ Class:springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper >> Method: springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:160) ]
+INFO:Context refreshed
+2020-12-05 23:19:21 下午 [Thread: main][ Class:springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper >> Method: springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:163) ]
+INFO:Found 1 custom documentation plugin(s)
+2020-12-05 23:19:21 下午 [Thread: main][ Class:springfox.documentation.spring.web.scanners.ApiListingReferenceScanner >> Method: springfox.documentation.spring.web.scanners.ApiListingReferenceScanner.scan(ApiListingReferenceScanner.java:41) ]
+INFO:Scanning for api listing references
+2020-12-05 23:19:21 下午 [Thread: main][ Class:springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader >> Method: springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader.apply(ParameterDataTypeReader.java:92) ]
+WARN:Trying to infer dataType java.lang.String[]
+2020-12-05 23:19:21 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204) ]
+INFO:Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-05 23:19:21 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) ]
+INFO:Started ShopMainApplication in 8.232 seconds (JVM running for 9.696)
+2020-12-05 23:19:30 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524) ]
+INFO:Initializing Servlet 'dispatcherServlet'
+2020-12-05 23:19:30 下午 [Thread: http-nio-8080-exec-1][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546) ]
+INFO:Completed initialization in 11 ms
+2020-12-05 23:19:30 下午 [Thread: http-nio-8080-exec-2][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法top.chris.shop.service.impl.IndexServiceImpl.rendersCats在Sat Dec 05 23:19:30 CST 2020时使用参数[Ljava.lang.Object;@60fed2e5[{}]调用------
+2020-12-05 23:19:30 下午 [Thread: http-nio-8080-exec-1][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法top.chris.shop.service.impl.IndexServiceImpl.rendersCarousel在Sat Dec 05 23:19:30 CST 2020时使用参数[Ljava.lang.Object;@120cd040[{}]调用------
+2020-12-05 23:19:30 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.HikariDataSource >> Method: com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110) ]
+INFO:DateSourceHikariCP - Starting...
+2020-12-05 23:19:30 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-05 23:19:30 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.HikariDataSource >> Method: com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123) ]
+INFO:DateSourceHikariCP - Start completed.
+2020-12-05 23:19:30 下午 [Thread: http-nio-8080-exec-3][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法top.chris.shop.service.impl.IndexServiceImpl.rendersSubItemsCats在Sat Dec 05 23:19:30 CST 2020时使用参数[Ljava.lang.Object;@a3f8ea8[{1}]调用------
+2020-12-05 23:19:40 下午 [Thread: http-nio-8080-exec-6][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法top.chris.shop.service.impl.IndexServiceImpl.rendersSubCats在Sat Dec 05 23:19:40 CST 2020时使用参数[Ljava.lang.Object;@13c47c1f[{6}]调用------
+2020-12-05 23:19:40 下午 [Thread: http-nio-8080-exec-7][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法top.chris.shop.service.impl.IndexServiceImpl.rendersSubCats在Sat Dec 05 23:19:40 CST 2020时使用参数[Ljava.lang.Object;@7a4cbf2e[{7}]调用------
+2020-12-05 23:19:40 下午 [Thread: http-nio-8080-exec-8][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法top.chris.shop.service.impl.IndexServiceImpl.rendersSubCats在Sat Dec 05 23:19:40 CST 2020时使用参数[Ljava.lang.Object;@4744f3af[{8}]调用------
+2020-12-05 23:20:40 下午 [Thread: background-preinit][ Class:org.hibernate.validator.internal.util.Version >> Method: org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) ]
+INFO:HV000001: Hibernate Validator 6.0.16.Final
+2020-12-05 23:20:41 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) ]
+INFO:Starting ShopMainApplication on DESKTOP-255B2FK with PID 23284 (D:\ForSpringBootProject\shop\shop-api-web\target\classes started by Chris in D:\ForSpringBootProject\shop)
+2020-12-05 23:20:41 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675) ]
+INFO:No active profile set, falling back to default profiles: default
+2020-12-05 23:20:43 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:244) ]
+INFO:Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-05 23:20:43 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126) ]
+INFO:Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-12-05 23:20:43 下午 [Thread: main][ Class:org.springframework.data.repository.config.RepositoryConfigurationDelegate >> Method: org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182) ]
+INFO:Finished Spring Data repository scanning in 55ms. Found 0 repository interfaces.
+2020-12-05 23:20:43 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-05 23:20:44 下午 [Thread: main][ Class:org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker >> Method: org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330) ]
+INFO:Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4f987014] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-05 23:20:44 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90) ]
+INFO:Tomcat initialized with port(s): 8080 (http)
+2020-12-05 23:20:45 下午 [Thread: main][ Class:org.springframework.web.context.ContextLoader >> Method: org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296) ]
+INFO:Root WebApplicationContext: initialization completed in 3807 ms
+2020-12-05 23:20:48 下午 [Thread: main][ Class:springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping >> Method: springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods(PropertySourcedRequestMappingHandlerMapping.java:69) ]
+INFO:Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-12-05 23:20:48 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-05 23:20:48 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2020-12-05 23:20:48 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2020-12-05 23:20:48 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeStaticCache(MapperCacheDisabler.java:60) ]
+INFO:Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2020-12-05 23:20:48 下午 [Thread: main][ Class:tk.mybatis.mapper.autoconfigure.MapperCacheDisabler >> Method: tk.mybatis.mapper.autoconfigure.MapperCacheDisabler.removeEntityHelperCache(MapperCacheDisabler.java:83) ]
+INFO:Clear EntityHelper entityTableMap cache.
+2020-12-05 23:20:49 下午 [Thread: main][ Class:org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration >> Method: org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration.getOrDeducePassword(UserDetailsServiceAutoConfiguration.java:87) ]
+INFO:
+
+Using generated security password: 45296a99-796b-478b-95bb-cd4089dd4b5e
+
+2020-12-05 23:20:49 下午 [Thread: main][ Class:org.springframework.security.web.DefaultSecurityFilterChain >> Method: org.springframework.security.web.DefaultSecurityFilterChain.<init>(DefaultSecurityFilterChain.java:43) ]
+INFO:Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@29dcdd1c, org.springframework.security.web.context.SecurityContextPersistenceFilter@6e8f2094, org.springframework.security.web.header.HeaderWriterFilter@563317c1, org.springframework.security.web.authentication.logout.LogoutFilter@16a6dc21, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5c70d7f0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@58601e7a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7cdb7fc, org.springframework.security.web.session.SessionManagementFilter@221b77d7, org.springframework.security.web.access.ExceptionTranslationFilter@4e5c8ef3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@538b3c88]
+2020-12-05 23:20:49 下午 [Thread: main][ Class:org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler >> Method: org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171) ]
+INFO:Initializing ExecutorService 'taskScheduler'
+2020-12-05 23:20:49 下午 [Thread: main][ Class:springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper >> Method: springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:160) ]
+INFO:Context refreshed
+2020-12-05 23:20:49 下午 [Thread: main][ Class:springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper >> Method: springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:163) ]
+INFO:Found 1 custom documentation plugin(s)
+2020-12-05 23:20:49 下午 [Thread: main][ Class:springfox.documentation.spring.web.scanners.ApiListingReferenceScanner >> Method: springfox.documentation.spring.web.scanners.ApiListingReferenceScanner.scan(ApiListingReferenceScanner.java:41) ]
+INFO:Scanning for api listing references
+2020-12-05 23:20:50 下午 [Thread: main][ Class:springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader >> Method: springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader.apply(ParameterDataTypeReader.java:92) ]
+WARN:Trying to infer dataType java.lang.String[]
+2020-12-05 23:20:50 下午 [Thread: main][ Class:org.springframework.boot.web.embedded.tomcat.TomcatWebServer >> Method: org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204) ]
+INFO:Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-05 23:20:50 下午 [Thread: main][ Class:top.chris.shop.ShopMainApplication >> Method: org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) ]
+INFO:Started ShopMainApplication in 9.589 seconds (JVM running for 11.186)
+2020-12-05 23:21:28 下午 [Thread: http-nio-8080-exec-2][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524) ]
+INFO:Initializing Servlet 'dispatcherServlet'
+2020-12-05 23:21:28 下午 [Thread: http-nio-8080-exec-2][ Class:org.springframework.web.servlet.DispatcherServlet >> Method: org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546) ]
+INFO:Completed initialization in 20 ms
+2020-12-05 23:21:28 下午 [Thread: http-nio-8080-exec-2][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法top.chris.shop.service.impl.IndexServiceImpl.rendersCarousel在Sat Dec 05 23:21:28 CST 2020时使用参数[]调用------
+2020-12-05 23:21:28 下午 [Thread: http-nio-8080-exec-1][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法top.chris.shop.service.impl.IndexServiceImpl.rendersCats在Sat Dec 05 23:21:28 CST 2020时使用参数[]调用------
+2020-12-05 23:21:28 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.HikariDataSource >> Method: com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110) ]
+INFO:DateSourceHikariCP - Starting...
+2020-12-05 23:21:28 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-05 23:21:28 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.HikariDataSource >> Method: com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123) ]
+INFO:DateSourceHikariCP - Start completed.
+2020-12-05 23:21:28 下午 [Thread: http-nio-8080-exec-3][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法top.chris.shop.service.impl.IndexServiceImpl.rendersSubItemsCats在Sat Dec 05 23:21:28 CST 2020时使用参数[1]调用------
+2020-12-05 23:21:28 下午 [Thread: http-nio-8080-exec-4][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法top.chris.shop.service.impl.IndexServiceImpl.rendersSubCats在Sat Dec 05 23:21:28 CST 2020时使用参数[2]调用------
+2020-12-05 23:21:29 下午 [Thread: http-nio-8080-exec-5][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法top.chris.shop.service.impl.IndexServiceImpl.rendersSubCats在Sat Dec 05 23:21:29 CST 2020时使用参数[7]调用------
+2020-12-05 23:21:29 下午 [Thread: http-nio-8080-exec-6][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法top.chris.shop.service.impl.IndexServiceImpl.rendersSubCats在Sat Dec 05 23:21:29 CST 2020时使用参数[8]调用------
+2020-12-05 23:21:29 下午 [Thread: http-nio-8080-exec-7][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法top.chris.shop.service.impl.IndexServiceImpl.rendersSubCats在Sat Dec 05 23:21:29 CST 2020时使用参数[10]调用------
+2020-12-05 23:21:29 下午 [Thread: http-nio-8080-exec-8][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法top.chris.shop.service.impl.IndexServiceImpl.rendersSubCats在Sat Dec 05 23:21:29 CST 2020时使用参数[5]调用------
+2020-12-05 23:21:29 下午 [Thread: http-nio-8080-exec-9][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:27) ]
+INFO:------方法top.chris.shop.service.impl.IndexServiceImpl.rendersSubCats在Sat Dec 05 23:21:29 CST 2020时使用参数[3]调用------

@@ -47,6 +47,7 @@ public class PassportServiceImpl implements PassportService {
         }
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public UsersVo regist(UsersBo usersBo) {
         Users users = new Users(sid.next(),usersBo.getUsername(),passwordEncoder.encode(usersBo.getPassword()),
@@ -57,6 +58,7 @@ public class PassportServiceImpl implements PassportService {
         return usersVo;
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public UsersVo login(UsersBo usersBo) {
         Example example = new Example(Users.class);

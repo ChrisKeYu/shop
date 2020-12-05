@@ -6,6 +6,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import top.chris.shop.enums.CommentLevel;
 import top.chris.shop.mapper.*;
 import top.chris.shop.pojo.bo.CatItemsBo;
@@ -41,6 +43,7 @@ public class ItemsServiceImpl implements ItemsService
      * @param itemsBo
      * @return
      */
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public PagedGridResult catItems(SearchItemsBo itemsBo) {
         itemsBo = checkParms(itemsBo);
@@ -67,6 +70,7 @@ public class ItemsServiceImpl implements ItemsService
             throw new RuntimeException("查询依据不正确");
         }
     }
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public PagedGridResult searchItemsLikeName(SearchItemsBo itemsBo) {
         itemsBo = checkParms(itemsBo);
@@ -91,6 +95,7 @@ public class ItemsServiceImpl implements ItemsService
         }
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public RenderItemInfoVo queryItemPageInfo(String itemId) {
         if (StringUtils.isBlank(itemId) || StringUtils.isEmpty(itemId)){
@@ -106,6 +111,7 @@ public class ItemsServiceImpl implements ItemsService
         return renderItemInfoVo;
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public CountsVo renderCommentLevelyItemId(String itemId) {
         CountsVo countsVo = new CountsVo();
@@ -131,6 +137,7 @@ public class ItemsServiceImpl implements ItemsService
         return countsVo;
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public PagedGridResult renderCommentByItemIdAndLevel(CommentBo commentBo,Integer page, Integer pageSize) {
         //使用PageHelper进行分页查询（由于使用前端的分页插件，它的原理是把后台查询的所有数据返回给前端，交由前端去完成分页的功能，而不是通过后台进行分页查询，后台只需要把所有查询的结果一次性输出到前台即可）
@@ -151,6 +158,7 @@ public class ItemsServiceImpl implements ItemsService
         return pagedGridResult;
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public List<ShopCartVo> renderShopCart(String[] itemSpecIds) {
         List<ShopCartVo> shopCartVos = itemsMapper.queryShopCart(itemSpecIds);
