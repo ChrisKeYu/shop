@@ -4,6 +4,7 @@ import top.chris.shop.pojo.Items;
 import top.chris.shop.pojo.bo.SearchItemsBo;
 import top.chris.shop.pojo.vo.CatItemListVo;
 import top.chris.shop.pojo.vo.RenderItemInfoVo;
+import top.chris.shop.pojo.vo.ShopCartVo;
 
 import java.util.List;
 
@@ -15,8 +16,9 @@ import java.util.List;
 public interface ItemsMapper extends tk.mybatis.mapper.common.Mapper<Items> {
     List<CatItemListVo> queryCatItems(SearchItemsBo catItemsBo);
     List<CatItemListVo> querySearchItemsLikeName(SearchItemsBo searchItemsBo);
-    List<RenderItemInfoVo> renderItemInfo(String itemId);
+    List<RenderItemInfoVo> queryItemInfo(String itemId);
     RenderItemInfoVo.SimpleItem querySimpleItemByItemId (String itemId);
+    List<ShopCartVo> queryShopCart (String [] itemSpecIds);
 }
 
 

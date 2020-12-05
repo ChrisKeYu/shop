@@ -12,17 +12,15 @@ import top.chris.shop.pojo.bo.CatItemsBo;
 import top.chris.shop.pojo.bo.CommentBo;
 import top.chris.shop.pojo.bo.SearchItemsBo;
 import top.chris.shop.pojo.dto.ItemCommentLevelDto;
-import top.chris.shop.pojo.vo.CatItemListVo;
-import top.chris.shop.pojo.vo.CommentRecordVo;
-import top.chris.shop.pojo.vo.CountsVo;
-import top.chris.shop.pojo.vo.RenderItemInfoVo;
+import top.chris.shop.pojo.vo.*;
 import top.chris.shop.service.ItemsService;
 import top.chris.shop.util.PagedGridResult;
 
 import java.util.List;
 
 @Service
-public class ItemsServiceImpl implements ItemsService {
+public class ItemsServiceImpl implements ItemsService
+{
     @Autowired
     private ItemsMapper itemsMapper;
     @Autowired
@@ -151,6 +149,12 @@ public class ItemsServiceImpl implements ItemsService {
             pagedGridResult.setTotal(pageInfo.getPages());
         }
         return pagedGridResult;
+    }
+
+    @Override
+    public List<ShopCartVo> renderShopCart(String[] itemSpecIds) {
+        List<ShopCartVo> shopCartVos = itemsMapper.queryShopCart(itemSpecIds);
+        return shopCartVos;
     }
 
 

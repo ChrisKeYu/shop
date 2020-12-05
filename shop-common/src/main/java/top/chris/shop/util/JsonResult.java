@@ -49,6 +49,10 @@ public class JsonResult {
 	public static JsonResult isOk(Object data) {
 		return new JsonResult(200, data, "success");
 	}
+
+	public static JsonResult isOk() {
+		return new JsonResult(200);
+	}
 	/**
 	 * 响应失败：返回状态码和错误信息
 	 * @param status

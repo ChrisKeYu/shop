@@ -2,6 +2,7 @@ package top.chris.shop.web.controller;
 
 import com.sun.xml.internal.ws.model.ReflectAnnotationReader;
 import io.swagger.models.auth.In;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.springframework.aop.aspectj.annotation.ReflectiveAspectJAdvisorFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.expression.spel.support.ReflectivePropertyAccessor;
@@ -13,6 +14,7 @@ import top.chris.shop.pojo.vo.RenderItemInfoVo;
 import top.chris.shop.service.ItemsService;
 import top.chris.shop.util.JsonResult;
 
+import javax.swing.*;
 import java.util.List;
 import java.util.jar.JarEntry;
 
@@ -52,4 +54,12 @@ public class ItemsController {
         return JsonResult.isOk(itemsService.renderCommentByItemIdAndLevel(commentBo,page,pageSize));
     }
 
+
+    //http://localhost:8080/items/refresh?itemSpecIds=cake-1004-spec-1,cake-1004-spec-2,cake-1004-spec-3
+    //specId itemId itemImgUrl itemName specName priceNormal priceDiscount buyCounts
+    //// TODO: 购物车暂时没有持久化到数据库中
+    @GetMapping("/refresh")
+    public JsonResult renderShopCart(String[] itemSpecIds){
+        return JsonResult.isOk(itemsService.renderShopCart(itemSpecIds));
+    }
 }

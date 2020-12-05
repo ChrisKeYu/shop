@@ -8,6 +8,7 @@ import top.chris.shop.pojo.dto.ItemCommentLevelDto;
 import top.chris.shop.pojo.vo.CommentRecordVo;
 import top.chris.shop.pojo.vo.CountsVo;
 import top.chris.shop.pojo.vo.RenderItemInfoVo;
+import top.chris.shop.pojo.vo.ShopCartVo;
 import top.chris.shop.util.PagedGridResult;
 
 import java.util.List;
@@ -29,4 +30,6 @@ public interface ItemsService {
     CountsVo renderCommentLevelyItemId(String itemId);
     //商品评论各的查询，返回CommentRecordVo集合的数据模型。
     PagedGridResult renderCommentByItemIdAndLevel(CommentBo commentBo,Integer page, Integer pageSize);
+    //购物车商品展示,接受前端传过来的购物车内的所有商品id
+    List<ShopCartVo> renderShopCart(String[] itemSpecIds);
 }

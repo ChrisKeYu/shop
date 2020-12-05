@@ -11,11 +11,51 @@
 		<result property="price" column="price" ></result>
 		<result property="sellCounts" column="sellCounts" ></result>
 	</resultMap>
+
 	<resultMap id="simpleItemResultMap" type="top.chris.shop.pojo.vo.RenderItemInfoVo$SimpleItem">
 		<result property="itemName" column="item_name" ></result>
 		<result property="sellCounts" column="sell_counts" ></result>
 		<result property="content" column="content"></result>
 	</resultMap>
+
+	<resultMap id="renderItemInforResultMap" type="top.chris.shop.pojo.vo.RenderItemInfoVo">
+		<association property="item" javaType="top.chris.shop.pojo.Items" >
+			<result property="itemName" column="itemName"></result>
+			<result property="sellCounts" column="sellCounts"></result>
+		</association>
+		<collection property="itemImgList" ofType="top.chris.shop.pojo.ItemsImg">
+			<result property="isMain" column="is_main"></result>
+			<result property="url" column="url"></result>
+		</collection>
+		<collection property="itemSpecList" ofType="top.chris.shop.pojo.ItemsSpec">
+			<result property="id" column="id"></result>
+			<result property="priceDiscount" column="priceDiscount"></result>
+			<result property="priceNormal" column="priceNormal"></result>
+			<result property="stock" column="stock"></result>
+			<result property="discounts" column="discounts"></result>
+		</collection>
+		<collection property="itemParams" ofType="top.chris.shop.pojo.ItemsParam">
+			<result property="producPlace" column="producPlace"></result>
+			<result property="brand" column="brand"></result>
+			<result property="factoryName" column="factoryName"></result>
+			<result property="factoryAddress" column="factoryAddress"></result>
+			<result property="packagingMethod" column="packagingMethod"></result>
+			<result property="footPeriod" column="footPeriod"></result>
+			<result property="weight" column="weight"></result>
+			<result property="storageMethod" column="storageMethod"></result>
+			<result property="eatMethod" column="eatMethod"></result>
+		</collection>
+	</resultMap>
+
+	<resultMap id="queryShopCartResultMap" type="top.chris.shop.pojo.vo.ShopCartVo">
+		<result column="specId" property="specId"/>
+		<result column="itemImgUrl" property="itemImgUrl"/>
+		<result column="itemName" property="itemName"/>
+		<result column="specName" property="specName"/>
+		<result column="priceNormal" property="priceNormal"/>
+		<result column="priceDiscount" property="priceDiscount"/>
+	</resultMap>
+
 	<select id="queryCatItems" parameterType="top.chris.shop.pojo.bo.SearchItemsBo" resultMap="catItems1">
 		SELECT
 		i.id AS itemId,
@@ -46,6 +86,7 @@
 			</when>
 		</choose>
 	</select>
+
 	<select id="querySearchItemsLikeName" parameterType="top.chris.shop.pojo.bo.SearchItemsBo" resultMap="catItems1" >
 		SELECT
 		i.id AS itemId,
@@ -77,36 +118,7 @@
 		</choose>
 	</select>
 
-
-	<resultMap id="renderItemInfo1" type="top.chris.shop.pojo.vo.RenderItemInfoVo">
-		<association property="item" javaType="top.chris.shop.pojo.Items" >
-			<result property="itemName" column="itemName"></result>
-			<result property="sellCounts" column="sellCounts"></result>
-		</association>
-		<collection property="itemImgList" ofType="top.chris.shop.pojo.ItemsImg">
-			<result property="isMain" column="is_main"></result>
-			<result property="url" column="url"></result>
-		</collection>
-		<collection property="itemSpecList" ofType="top.chris.shop.pojo.ItemsSpec">
-			<result property="id" column="id"></result>
-			<result property="priceDiscount" column="priceDiscount"></result>
-			<result property="priceNormal" column="priceNormal"></result>
-			<result property="stock" column="stock"></result>
-			<result property="discounts" column="discounts"></result>
-		</collection>
-		<collection property="itemParams" ofType="top.chris.shop.pojo.ItemsParam">
-			<result property="producPlace" column="producPlace"></result>
-			<result property="brand" column="brand"></result>
-			<result property="factoryName" column="factoryName"></result>
-			<result property="factoryAddress" column="factoryAddress"></result>
-			<result property="packagingMethod" column="packagingMethod"></result>
-			<result property="footPeriod" column="footPeriod"></result>
-			<result property="weight" column="weight"></result>
-			<result property="storageMethod" column="storageMethod"></result>
-			<result property="eatMethod" column="eatMethod"></result>
-		</collection>
-	</resultMap>
-    <select id="renderItemInfo" resultType="top.chris.shop.pojo.vo.RenderItemInfoVo" parameterType="String" resultMap="renderItemInfo1">
+	<select id="queryItemInfo" resultType="top.chris.shop.pojo.vo.RenderItemInfoVo" parameterType="String" resultMap="renderItemInforResultMap">
 		SELECT
 	its.item_name AS itemName,
 	its.sell_counts AS sellCounts,
@@ -137,8 +149,39 @@ WHERE
 	AND its.id = iss.item_id
 	AND its.id = iig.item_id
 	</select>
+
 	<select id="querySimpleItemByItemId" resultMap="simpleItemResultMap" parameterType="String">
 	select item_name,sell_counts,content from items where id = #{itemId}
+	</select>
+
+	<select id="queryShopCart" resultMap="queryShopCartResultMap"  >
+		SELECT
+	its_it.*,ii.url as itemImgUrl
+FROM
+	items_img ii,(
+	SELECT
+		its_table.*,
+		it.item_name AS itemName
+	FROM
+		items it,(
+		SELECT
+			its.item_id,
+			its.name AS specName,
+			its.id AS specId,
+			its.price_normal AS priceNormal,
+			its.price_discount AS priceDiscount
+		FROM
+			items_spec its
+		WHERE
+		id IN
+		<foreach collection="array" index="index" open="(" close=")" item="id" separator=",">
+			#{id}
+		</foreach>
+		) AS its_table
+	WHERE
+		it.id = its_table.item_id
+	) AS its_it
+	WHERE	ii.item_id = its_it.item_id AND	ii.is_main = 1
 	</select>
 
 </mapper>
