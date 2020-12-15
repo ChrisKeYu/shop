@@ -1,6 +1,5 @@
 package top.chris.shop.service.impl;
 
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -9,7 +8,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 import top.chris.shop.common.ShopConstant;
-import top.chris.shop.enums.Sex;
+import top.chris.shop.enums.SexEnum;
 import top.chris.shop.util.DateUtil;
 import top.chris.shop.util.JsonResult;
 import top.chris.shop.mapper.UsersMapper;
@@ -52,7 +51,7 @@ public class PassportServiceImpl implements PassportService {
     public UsersVo regist(UsersBo usersBo) {
         Users users = new Users(sid.next(),usersBo.getUsername(),passwordEncoder.encode(usersBo.getPassword()),
                 usersBo.getUsername(),usersBo.getUsername(), ShopConstant.defaultUserFaceImage,null,null,
-                Sex.SECRET.type,DateUtil.stringToDate("1999-1-1"),new Date(),new Date());
+                SexEnum.SECRET.type,DateUtil.stringToDate("1999-1-1"),new Date(),new Date());
         usersMapper.insert(users);
         UsersVo usersVo = new UsersVo(users.getId(),users.getUsername(),users.getFace(),users.getSex());
         return usersVo;
@@ -66,7 +65,10 @@ public class PassportServiceImpl implements PassportService {
         criteria.andEqualTo("username",usersBo.getUsername());
         Users users = usersMapper.selectOneByExample(example);
         UsersVo usersVo = null;
-        if (users == null && passwordEncoder.matches(usersBo.getPassword(),users.getPassword())){ //检查账号和密码是否匹配
+        if (users == null){ //检查账号和密码是否匹配
+            return usersVo;
+        }
+        if(users != null && !passwordEncoder.matches(usersBo.getPassword(),users.getPassword())){
             return usersVo;
         }
         usersVo = new UsersVo(users.getId(),users.getUsername(),users.getFace(),users.getSex());

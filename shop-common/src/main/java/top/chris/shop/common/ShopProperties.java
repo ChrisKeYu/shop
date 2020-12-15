@@ -12,5 +12,6 @@ import org.springframework.context.annotation.Configuration;
 public class ShopProperties {
     //静态前端资源路径
     private String basicStaticServerUrl = "http://localhost:8848";
-
+    //前端Cookie保存的购物车名称
+    private String shopCarCookieName = "shopcart";
 }

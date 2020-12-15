@@ -11,6 +11,10 @@
         <result property="stock" column="stock"/>
         <result property="discounts" column="discounts"/>
     </resultMap>
+    <update id="updateItemSpecStock" parameterType="top.chris.shop.pojo.ItemsSpec">
+        update items_spec ic set ic.stock = ic.stock - #{stock}
+        where ic.stock - #{stock} > 0 and ic.id = #{id}
+    </update>
     <select id="querySimpleItemsSpecByItemId" resultMap="SimpleItemsSpecResultMap" parameterType="String">
         select id,name,price_discount,price_normal,stock,discounts from items_spec where item_id = #{itemId}
     </select>

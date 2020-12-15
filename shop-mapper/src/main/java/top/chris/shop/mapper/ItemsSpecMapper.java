@@ -12,6 +12,7 @@ import java.util.List;
 */
 public interface ItemsSpecMapper extends tk.mybatis.mapper.common.Mapper<ItemsSpec> {
     List<RenderItemInfoVo.SimpleItemsSpec> querySimpleItemsSpecByItemId(String itemId);
+    Integer updateItemSpecStock(ItemsSpec itemsSpec);
 }
 
 

@@ -1,0 +1,30 @@
+2020-12-14 11:45:07 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-14 11:45:13 上午 [Thread: main][ Class:springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader >> Method: springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader.apply(ParameterDataTypeReader.java:92) ]
+WARN:Trying to infer dataType java.lang.String[]
+2020-12-14 11:45:28 上午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-14 16:35:57 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-14 16:36:03 下午 [Thread: main][ Class:springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader >> Method: springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader.apply(ParameterDataTypeReader.java:92) ]
+WARN:Trying to infer dataType java.lang.String[]
+2020-12-14 16:36:14 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-14 16:37:38 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-14 16:37:43 下午 [Thread: main][ Class:springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader >> Method: springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader.apply(ParameterDataTypeReader.java:92) ]
+WARN:Trying to infer dataType java.lang.String[]
+2020-12-14 16:37:49 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-14 16:40:44 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-14 16:40:49 下午 [Thread: main][ Class:springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader >> Method: springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader.apply(ParameterDataTypeReader.java:92) ]
+WARN:Trying to infer dataType java.lang.String[]
+2020-12-14 16:42:16 下午 [Thread: http-nio-8080-exec-3][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-14 16:47:53 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-14 16:47:58 下午 [Thread: main][ Class:springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader >> Method: springfox.documentation.spring.web.readers.parameter.ParameterDataTypeReader.apply(ParameterDataTypeReader.java:92) ]
+WARN:Trying to infer dataType java.lang.String[]
+2020-12-14 16:48:21 下午 [Thread: http-nio-8080-exec-6][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.

@@ -2,6 +2,8 @@ package top.chris.shop.web.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +39,8 @@ import javax.validation.Valid;
  *      key：
  *      value：
  */
+
+@Api("登录和注册控制器")
 @RestController
 @RequestMapping("/passport")
 public class PassportController {
@@ -53,11 +57,13 @@ public class PassportController {
     @Autowired
     private ObjectMapper objectMapper;
 
+    @ApiOperation("查看注册用户是否已经存在")
     @GetMapping("/usernameIsExist")
     public JsonResult usernameIsExist(String username){
         return passportService.usernameIsExist(username.trim()); //传入去除掉首尾空格的后字符串
     }
 
+    @ApiOperation("用户注册接口")
     @Transactional(propagation = Propagation.REQUIRED)
     @PostMapping("/regist")
     public JsonResult regist(@Valid @RequestBody UsersBo usersBo) throws JsonProcessingException { //@Valid目的是调用UsersBo对象对象中的验证规则去验证前端传入参数的合法性,第二个注解表示接受的参数必须是Json格式，参数存放在payLoad中
@@ -76,6 +82,8 @@ public class PassportController {
         return JsonResult.isOk(userVo); //passportService.regist(usersBo)
     }
 
+    //TODO:登录存在漏洞
+    @ApiOperation("用登录接口")
     @Transactional(propagation = Propagation.REQUIRED)
     @PostMapping("/login")
     public JsonResult login(@Valid @RequestBody UsersBo usersBo) throws JsonProcessingException {
@@ -93,6 +101,8 @@ public class PassportController {
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
+
+    @ApiOperation("用户退出接口")
     @PostMapping("/logout")
     public JsonResult logout(){
         //TODO：不完善，只是抹去了浏览器中的对应key的cookie。单纯删除cookie，在单体架构中使用。

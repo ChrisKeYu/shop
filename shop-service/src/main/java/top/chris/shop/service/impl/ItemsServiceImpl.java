@@ -4,13 +4,16 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import top.chris.shop.enums.CommentLevel;
+import tk.mybatis.mapper.entity.Example;
+import top.chris.shop.enums.CommentLevelEnum;
+import top.chris.shop.exception.StockException;
 import top.chris.shop.mapper.*;
-import top.chris.shop.pojo.bo.CatItemsBo;
+import top.chris.shop.pojo.Items;
+import top.chris.shop.pojo.ItemsImg;
+import top.chris.shop.pojo.ItemsSpec;
 import top.chris.shop.pojo.bo.CommentBo;
 import top.chris.shop.pojo.bo.SearchItemsBo;
 import top.chris.shop.pojo.dto.ItemCommentLevelDto;
@@ -21,8 +24,7 @@ import top.chris.shop.util.PagedGridResult;
 import java.util.List;
 
 @Service
-public class ItemsServiceImpl implements ItemsService
-{
+public class ItemsServiceImpl implements ItemsService {
     @Autowired
     private ItemsMapper itemsMapper;
     @Autowired
@@ -43,7 +45,7 @@ public class ItemsServiceImpl implements ItemsService
      * @param itemsBo
      * @return
      */
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public PagedGridResult catItems(SearchItemsBo itemsBo) {
         itemsBo = checkParms(itemsBo);
@@ -70,7 +72,7 @@ public class ItemsServiceImpl implements ItemsService
             throw new RuntimeException("查询依据不正确");
         }
     }
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public PagedGridResult searchItemsLikeName(SearchItemsBo itemsBo) {
         itemsBo = checkParms(itemsBo);
@@ -95,7 +97,7 @@ public class ItemsServiceImpl implements ItemsService
         }
     }
 
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public RenderItemInfoVo queryItemPageInfo(String itemId) {
         if (StringUtils.isBlank(itemId) || StringUtils.isEmpty(itemId)){
@@ -111,7 +113,7 @@ public class ItemsServiceImpl implements ItemsService
         return renderItemInfoVo;
     }
 
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public CountsVo renderCommentLevelyItemId(String itemId) {
         CountsVo countsVo = new CountsVo();
@@ -119,17 +121,17 @@ public class ItemsServiceImpl implements ItemsService
         //迭代各评论的查询结果
         for (ItemCommentLevelDto dto: commentLevelDtos) {
             //判断是否为“好评”（表中数据“1”代表枚举类型中的“好评”）
-            if (dto.getCommentLevel()== CommentLevel.GOOD.type){
+            if (dto.getCommentLevel()== CommentLevelEnum.GOOD.type){
                 countsVo.setGoodCounts(dto.getCounts());
                 countsVo.setTotalCounts(countsVo.getTotalCounts()+dto.getCounts());
             }
             //判断是否为“中评”
-             if (dto.getCommentLevel()== CommentLevel.NORMAL.type){
+             if (dto.getCommentLevel()== CommentLevelEnum.NORMAL.type){
                 countsVo.setNormalCounts(dto.getCounts());
                 countsVo.setTotalCounts(countsVo.getTotalCounts()+dto.getCounts());
             }
             //判断是否为“差评”
-            if (dto.getCommentLevel()== CommentLevel.BAD.type){
+            if (dto.getCommentLevel()== CommentLevelEnum.BAD.type){
                 countsVo.setBadCounts(dto.getCounts());
                 countsVo.setTotalCounts(countsVo.getTotalCounts()+dto.getCounts());
             }
@@ -137,7 +139,7 @@ public class ItemsServiceImpl implements ItemsService
         return countsVo;
     }
 
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public PagedGridResult renderCommentByItemIdAndLevel(CommentBo commentBo,Integer page, Integer pageSize) {
         //使用PageHelper进行分页查询（由于使用前端的分页插件，它的原理是把后台查询的所有数据返回给前端，交由前端去完成分页的功能，而不是通过后台进行分页查询，后台只需要把所有查询的结果一次性输出到前台即可）
@@ -158,19 +160,52 @@ public class ItemsServiceImpl implements ItemsService
         return pagedGridResult;
     }
 
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<ShopCartVo> renderShopCart(String[] itemSpecIds) {
         List<ShopCartVo> shopCartVos = itemsMapper.queryShopCart(itemSpecIds);
         return shopCartVos;
     }
 
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<ItemsSpec> queryItemSpecByitemSpecIds(List<String> itemSpecIds) {
+        Example example = new Example(ItemsSpec.class);
+        example.createCriteria().andIn("id",itemSpecIds);
+        return specMapper.selectByExample(example);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public ItemsImg queryItemImgByItemId(String itemId) {
+        Example example = new Example(ItemsImg.class);
+        example.createCriteria().andEqualTo("itemId",itemId).andEqualTo("isMain","1");
+        return imgMapper.selectByExample(example).get(0);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public Items queryItemByItemId(String itemId) {
+        return itemsMapper.selectByPrimaryKey(itemId);
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public Integer decreaseItemSpecStock(ItemsSpec itemsSpec) {
+        //在mapper中设置了以锁，只有当传入的对象中的stock参数小于数据库中对应商品库存量的时候，才会扣除库存，否则发生超卖行为
+        int result = specMapper.updateItemSpecStock(itemsSpec);
+        if (result != 1){
+            throw new StockException("库存扣除失败，有可能是库存数量不足");
+        }
+        return result;
+    }
 
     /**
      * 检查前端传入数据的合法性
      * @param itemsBo
      * @return
      */
+    @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public SearchItemsBo checkParms(SearchItemsBo itemsBo) {
         if (itemsBo.getPage() == null){

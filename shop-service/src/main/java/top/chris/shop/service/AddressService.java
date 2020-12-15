@@ -1,6 +1,7 @@
 package top.chris.shop.service;
 
 import org.springframework.web.bind.annotation.RequestParam;
+import top.chris.shop.pojo.UserAddress;
 import top.chris.shop.pojo.bo.AddressBo;
 import top.chris.shop.pojo.vo.AddressVo;
 
@@ -22,4 +23,7 @@ public interface AddressService {
 
     //删除指定用户的指定地址信息
     Integer deleteUserAddress(String userId,String addressId);
+
+    //查询用户指定的地址信息
+    UserAddress queryUserAddressByAddressId(String addressId);
 }

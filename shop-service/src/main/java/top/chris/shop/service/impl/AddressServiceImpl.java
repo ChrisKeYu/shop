@@ -47,7 +47,7 @@ public class AddressServiceImpl implements AddressService {
         addressMapper.insert(userAddress);
     }
 
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<AddressVo> renderUserAddress(String userId) {
         UserAddress userAddress = new UserAddress();
@@ -110,5 +110,11 @@ public class AddressServiceImpl implements AddressService {
             throw new AddressException("请求中的地址在数据库中不存在");
         }
         return addressMapper.deleteByPrimaryKey(addressId);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public UserAddress queryUserAddressByAddressId(String addressId) {
+        return addressMapper.selectByPrimaryKey(addressId);
     }
 }
