@@ -14,6 +14,7 @@ import top.chris.shop.mapper.OrderItemsMapper;
 import top.chris.shop.mapper.OrderStatusMapper;
 import top.chris.shop.mapper.OrdersMapper;
 import top.chris.shop.pojo.*;
+import top.chris.shop.pojo.bo.OrderStatusBo;
 import top.chris.shop.pojo.bo.OrdersCreatBo;
 import top.chris.shop.service.AddressService;
 import top.chris.shop.service.ItemsService;
@@ -147,5 +148,29 @@ public class OrdersServiceImpl implements OrdersService {
         Example example = new Example(OrderItems.class);
         example.createCriteria().andEqualTo("orderId",orderId);
         return orderItemsMapper.selectByExample(example);
+    }
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public Integer updateOrderStatusByOrderId(OrderStatusBo bo) {
+        //获取对应订单ID在数据库中的数据
+        OrderStatus orderStatus = orderStatusMapper.selectByPrimaryKey(bo.getOrderId());
+        if (orderStatus == null){ //检测对应订单是否存在
+            throw new OrdersException("在数据库中未找到对应订单的状态数据");
+        }
+        orderStatus.setOrderStatus(bo.getOrderStatus());
+        orderStatus.setPayTime(bo.getPayTime());
+        int result = orderStatusMapper.updateByPrimaryKey(orderStatus);
+        return result;
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public String queryOrderStatusByOrderId(String orderId) {
+        //获取对应订单ID在数据库中的数据
+        OrderStatus orderStatus = orderStatusMapper.selectByPrimaryKey(orderId);
+        if (orderStatus == null){ //检测对应订单是否存在
+            throw new OrdersException("在数据库中未找到对应订单的状态数据");
+        }
+        return Integer.toString(orderStatus.getOrderStatus());
     }
 }

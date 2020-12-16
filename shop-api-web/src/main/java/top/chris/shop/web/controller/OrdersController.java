@@ -50,8 +50,9 @@ public class OrdersController {
     }
     @ApiOperation("查询订单支付状态")
     @PostMapping("/getPaidOrderInfo")
-    public JsonResult getPaidOrderInfo(@RequestBody String orderId){//从请求头中传递数据
-        return JsonResult.isOk();
+    public JsonResult getPaidOrderInfo(String orderId){
+        System.out.println("-----轮询订单"+orderId+"是否支付成功");
+        return JsonResult.isOk(ordersService.queryOrderStatusByOrderId(orderId));
     }
 
 
