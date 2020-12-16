@@ -17,6 +17,12 @@
       "type": "java.lang.String",
       "sourceType": "top.chris.shop.common.ShopProperties",
       "defaultValue": "http:\/\/localhost:8848"
+    },
+    {
+      "name": "top.chris.shop.shop-car-cookie-name",
+      "type": "java.lang.String",
+      "sourceType": "top.chris.shop.common.ShopProperties",
+      "defaultValue": "shopcart"
     }
   ],
   "hints": []

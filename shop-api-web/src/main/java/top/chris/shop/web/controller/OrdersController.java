@@ -1,5 +1,9 @@
 package top.chris.shop.web.controller;
 
+import com.alipay.api.AlipayApiException;
+import com.alipay.api.AlipayClient;
+import com.alipay.api.DefaultAlipayClient;
+import com.alipay.api.request.AlipayTradePagePayRequest;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +19,7 @@ import top.chris.shop.util.JsonResult;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Api("订单控制器，管理订单")
 @RestController
@@ -41,6 +46,16 @@ public class OrdersController {
         //TODO:由于购物车是前端页面用cookie实现的，没有在后台实现，危害：如果用户只结算了其中的某个商品，那么其它的商品也会丢失，后期改为Cookie+Session+数据库完成
         //清空购物车，只要清除浏览器中的cookie
         CookieUtils.setCookie(request,response,shopProperties.getShopCarCookieName(),"");
+        return JsonResult.isOk(orderId);
+    }
+    @ApiOperation("查询订单支付状态")
+    @PostMapping("/getPaidOrderInfo")
+    public JsonResult getPaidOrderInfo(@RequestBody String orderId){//从请求头中传递数据
         return JsonResult.isOk();
     }
+
+
+
+
+
 }

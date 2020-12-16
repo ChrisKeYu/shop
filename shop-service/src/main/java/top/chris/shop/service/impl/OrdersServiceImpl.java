@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.entity.Example;
 import top.chris.shop.enums.OrdersStatusEnum;
 import top.chris.shop.exception.OrdersException;
 import top.chris.shop.mapper.OrderItemsMapper;
@@ -132,5 +133,19 @@ public class OrdersServiceImpl implements OrdersService {
         orderStatusMapper.insert(status);
 
         return orders.getId();
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public Orders queryOrderByOrderId(String orderId) {
+        return ordersMapper.selectByPrimaryKey(orderId);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<OrderItems> queryOrderItemsByOrderId(String orderId) {
+        Example example = new Example(OrderItems.class);
+        example.createCriteria().andEqualTo("orderId",orderId);
+        return orderItemsMapper.selectByExample(example);
     }
 }

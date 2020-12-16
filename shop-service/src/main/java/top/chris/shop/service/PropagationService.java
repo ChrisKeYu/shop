@@ -13,21 +13,21 @@ import java.util.List;
  */
 public interface PropagationService {
 
-    public List<Stu> getStuWhenIdIn(List<String> ids);
+    List<Stu> getStuWhenIdIn(List<String> ids);
 
-    public List<Stu> getAllStu();
+    List<Stu> getAllStu();
 
-    public JsonResult addStu(Stu stu);
+    JsonResult addStu(Stu stu);
 
-    public JsonResult updateStu(Stu stu);
+    JsonResult updateStu(Stu stu);
 
-    public JsonResult deleteStu(String stuId);
+    JsonResult deleteStu(String stuId);
 
     /**
      * 下面模拟一下事务传播的环境，即同时需要用到多个Service中的不同方法来完成一个请求
      */
-    public void addParentStu();
+    void addParentStu();
 
-    public void addSubStu();
+    void addSubStu();
 
 }
