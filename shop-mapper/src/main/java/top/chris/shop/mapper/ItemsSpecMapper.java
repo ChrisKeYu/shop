@@ -11,7 +11,10 @@ import java.util.List;
 * @author mapper-generator
 */
 public interface ItemsSpecMapper extends tk.mybatis.mapper.common.Mapper<ItemsSpec> {
+    //根据ItemId查询商品属性信息
     List<RenderItemInfoVo.SimpleItemsSpec> querySimpleItemsSpecByItemId(String itemId);
+    //根据ItemSpecId(主键)查询商品的属性信息
+    List<RenderItemInfoVo.SimpleItemsSpec> querySimpleItemsSpecBySpecId(String specId);
     Integer updateItemSpecStock(ItemsSpec itemsSpec);
 }
 

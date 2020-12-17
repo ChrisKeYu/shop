@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 import top.chris.shop.enums.CommentLevelEnum;
+import top.chris.shop.exception.ItemException;
 import top.chris.shop.exception.StockException;
 import top.chris.shop.mapper.*;
 import top.chris.shop.pojo.Items;
@@ -36,6 +37,7 @@ public class ItemsServiceImpl implements ItemsService {
 
     @Autowired
     private ItemsCommentsMapper commentsMapper;
+
     //分页插件
     @Autowired
     private PageHelper pageHelper;
@@ -126,7 +128,7 @@ public class ItemsServiceImpl implements ItemsService {
                 countsVo.setTotalCounts(countsVo.getTotalCounts()+dto.getCounts());
             }
             //判断是否为“中评”
-             if (dto.getCommentLevel()== CommentLevelEnum.NORMAL.type){
+            if (dto.getCommentLevel()== CommentLevelEnum.NORMAL.type){
                 countsVo.setNormalCounts(dto.getCounts());
                 countsVo.setTotalCounts(countsVo.getTotalCounts()+dto.getCounts());
             }
@@ -198,6 +200,29 @@ public class ItemsServiceImpl implements ItemsService {
             throw new StockException("库存扣除失败，有可能是库存数量不足");
         }
         return result;
+    }
+
+    @Override
+    public Integer queryItemStockByItemId(String specId) {
+        ItemsSpec itemsSpec = specMapper.selectByPrimaryKey(specId);
+        if (itemsSpec == null){
+            throw new ItemException("数据库中没有该商品的规格参数");
+        }
+        return itemsSpec.getStock();
+    }
+
+    @Override
+    public RenderItemInfoVo queryCartInfoByitemIdAndSpecId(String itemId,String specId) {
+        if (StringUtils.isBlank(itemId) || StringUtils.isEmpty(itemId) && StringUtils.isBlank(specId) || StringUtils.isEmpty(specId)){
+            throw new RuntimeException("商品的id或商品的类型id的查询依据不正确");
+        }
+        RenderItemInfoVo renderItemInfoVo = new RenderItemInfoVo();
+        //多次查询，每次查询不同的表格，最后把查询的数据赋值到数据模型上
+        renderItemInfoVo.setItem(itemsMapper.querySimpleItemByItemId(itemId));
+        renderItemInfoVo.setItemImgList(imgMapper.querySimpleItemsImgByItemId(itemId));
+        renderItemInfoVo.setItemParams(paramMapper.querySimpleItemsParamByItemId(itemId));
+        renderItemInfoVo.setItemSpecList(specMapper.querySimpleItemsSpecBySpecId(specId));
+        return renderItemInfoVo;
     }
 
     /**

@@ -18,4 +18,8 @@
     <select id="querySimpleItemsSpecByItemId" resultMap="SimpleItemsSpecResultMap" parameterType="String">
         select id,name,price_discount,price_normal,stock,discounts from items_spec where item_id = #{itemId}
     </select>
+
+    <select id="querySimpleItemsSpecBySpecId" resultMap="SimpleItemsSpecResultMap" parameterType="String">
+        select id,name,price_discount,price_normal,stock,discounts from items_spec where id = #{specId}
+    </select>
 </mapper>

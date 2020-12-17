@@ -53,5 +53,12 @@ public interface ItemsService {
 
     //减少商品的库存
     Integer decreaseItemSpecStock(ItemsSpec itemsSpec);
+    
+    //根据商品Id和商品口味查询对应商品Id的库存量
+    Integer queryItemStockByItemId(String specId);
+
+
+    //商品详情查询，接受商品的id，返回商品详情的数据。
+    RenderItemInfoVo queryCartInfoByitemIdAndSpecId(String itemId,String specId);
 
 }
