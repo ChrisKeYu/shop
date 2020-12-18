@@ -12,4 +12,6 @@ public class ShopCartVo {
   //商品价格存储到数据库时乘上100，使得小数点扩大两位，输出到前端的时候再除于100，恢复到正常价格
   private Integer priceNormal ;
   private Integer priceDiscount ;
+  private Integer buyCounts;
+//  private Integer totalPrice;
 }

@@ -164,13 +164,6 @@ public class ItemsServiceImpl implements ItemsService {
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
-    public List<ShopCartVo> renderShopCart(String[] itemSpecIds) {
-        List<ShopCartVo> shopCartVos = itemsMapper.queryShopCart(itemSpecIds);
-        return shopCartVos;
-    }
-
-    @Transactional(propagation = Propagation.SUPPORTS)
-    @Override
     public List<ItemsSpec> queryItemSpecByitemSpecIds(List<String> itemSpecIds) {
         Example example = new Example(ItemsSpec.class);
         example.createCriteria().andIn("id",itemSpecIds);
@@ -225,6 +218,11 @@ public class ItemsServiceImpl implements ItemsService {
         return renderItemInfoVo;
     }
 
+    @Override
+    public String queryItemIdByItemSpecId(String specId) {
+        return specMapper.selectByPrimaryKey(specId).getItemId();
+    }
+
     /**
      * 检查前端传入数据的合法性
      * @param itemsBo
@@ -252,3 +250,9 @@ public class ItemsServiceImpl implements ItemsService {
 
 
 }
+//    @Transactional(propagation = Propagation.SUPPORTS)
+//    @Override
+//    public List<ShopCartVo> renderShopCart(String[] itemSpecIds) {
+//        List<ShopCartVo> shopCartVos = itemsMapper.queryShopCart(itemSpecIds);
+//        return shopCartVos;
+//    }

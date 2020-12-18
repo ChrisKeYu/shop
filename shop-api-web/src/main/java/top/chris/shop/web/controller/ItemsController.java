@@ -59,12 +59,16 @@ public class ItemsController {
     }
 
 
-    //http://localhost:8080/items/refresh?itemSpecIds=cake-1004-spec-1,cake-1004-spec-2,cake-1004-spec-3
+
+}
+
+
+
+/*//http://localhost:8080/items/refresh?itemSpecIds=cake-1004-spec-1,cake-1004-spec-2,cake-1004-spec-3
     //specId itemId itemImgUrl itemName specName priceNormal priceDiscount buyCounts
-    //// TODO: 购物车暂时没有持久化到数据库中
+    //  购物车暂时没有持久化到数据库中 （TODO）
     @ApiOperation("输出到购物车内商品信息")
     @GetMapping("/refresh")
     public JsonResult renderShopCart(String[] itemSpecIds){
         return JsonResult.isOk(itemsService.renderShopCart(itemSpecIds));
-    }
-}
+    }*/

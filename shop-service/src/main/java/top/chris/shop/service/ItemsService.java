@@ -39,9 +39,6 @@ public interface ItemsService {
     //商品评论各的查询，返回CommentRecordVo集合的数据模型。
     PagedGridResult renderCommentByItemIdAndLevel(CommentBo commentBo,Integer page, Integer pageSize);
 
-    //购物车商品展示,接受前端传过来的购物车内的所有商品id
-    List<ShopCartVo> renderShopCart(String[] itemSpecIds);
-
     //根据指定的多个ids查询商品信息
     List<ItemsSpec> queryItemSpecByitemSpecIds(List<String> itemSpecIds);
 
@@ -57,8 +54,13 @@ public interface ItemsService {
     //根据商品Id和商品口味查询对应商品Id的库存量
     Integer queryItemStockByItemId(String specId);
 
-
     //商品详情查询，接受商品的id，返回商品详情的数据。
     RenderItemInfoVo queryCartInfoByitemIdAndSpecId(String itemId,String specId);
 
+    //根据商品属性id获取ItemSpec对象中商品的id
+    String queryItemIdByItemSpecId(String specId);
+
 }
+
+//购物车商品展示,接受前端传过来的购物车内的所有商品id   (放在了购物车控制层实现了，不需要再这里实现)
+//    List<ShopCartVo> renderShopCart(String[] itemSpecIds);
