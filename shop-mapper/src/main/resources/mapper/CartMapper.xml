@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.chris.shop.mapper.CartMapper">
+
+<!--    <insert id="addItem" parameterType="ArrayList">-->
+<!--        insert into cart values (id,userId,itemId,itemImgUrl,itemName,specId,specName,priceDiscount,priceNormal,buyCounts)-->
+<!--        <foreach collection="list" item="item" index="index" separator=",">-->
+<!--            (-->
+<!--            #{item.id},-->
+<!--            #{item.userId},-->
+<!--            #{item.itemId},-->
+<!--            #{item.itemImgUrl},-->
+<!--            #{item.itemName},-->
+<!--            #{item.specId},-->
+<!--            #{item.specName},-->
+<!--            #{item.priceDiscount},-->
+<!--            #{item.priceNormal},-->
+<!--            #{item.buyCounts}-->
+<!--            )-->
+<!--        </foreach>-->
+
+<!--    </insert>-->
+</mapper>

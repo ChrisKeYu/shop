@@ -2,7 +2,7 @@ package top.chris.shop.pojo;
 
 import lombok.Data;
 import lombok.extern.java.Log;
-import top.chris.shop.pojo.vo.CartItem;
+import top.chris.shop.pojo.vo.CartItemVo;
 
 import java.util.*;
 
@@ -17,7 +17,7 @@ public class BuyCart {
      * 键 = 商品Id
      * 值 = 购物项
      */
-    private Map<String, CartItem> cartItems = new HashMap<>();
+    private Map<String, CartItemVo> cartItems = new HashMap<>();
 
     //private List<CartItem> cartItemsTest = new ArrayList<CartItem>();
     /**
@@ -27,24 +27,24 @@ public class BuyCart {
 
     /**
      * 将一个商品添加到购物车中
-     * @param newCartItem
+     * @param newCartItemVo
      */
-    public void addCartItem(CartItem newCartItem){
-        String specId = newCartItem.getSpecId();
-        String itemId = newCartItem.getItemId();
+    public void addCartItem(CartItemVo newCartItemVo){
+        String specId = newCartItemVo.getSpecId();
+        String itemId = newCartItemVo.getItemId();
         String id = itemId+":"+specId;
         //判断购物车[集合]中是否有相同的商品被添加进来:判断依据(商品ID和商品类型ID组合称为 id)
         if (cartItems.containsKey(id)){
             //存在：即加入了相同商品，此时把原购物车中该商品取出来
-            CartItem cartItem = cartItems.get(id);
+            CartItemVo cartItemVo = cartItems.get(id);
             //改变原来的数量（取出这个商品原来在购物车的数量，然后和刚刚添加进来的同样商品的数量进行累加得到该商品最新的购买数量）
-            cartItem.setBuyCounts(cartItem.getBuyCounts()+newCartItem.getBuyCounts());
+            cartItemVo.setBuyCounts(cartItemVo.getBuyCounts()+newCartItemVo.getBuyCounts());
         }else {
             //添加进来的商品是原购物车中没有的商品，此时只需要往购物车中添加此商品即可
-            cartItems.put(id,newCartItem);
+            cartItems.put(id,newCartItemVo);
         }
         //最后修改购物车的总价
-        totalPrice += newCartItem.getCartItemSubTotal();
+        totalPrice += newCartItemVo.getCartItemSubTotal();
     }
 
     /**
@@ -54,9 +54,9 @@ public class BuyCart {
     public void removeCartItem(String itemId,String specId){
         String id = itemId+":"+specId;;
         //根据ItemId来删除购物车中的商品项
-        CartItem removeItem = cartItems.remove(id);
+        CartItemVo removeItemVo = cartItems.remove(id);
         //修改购物车的总价格
-        totalPrice -= removeItem.getCartItemSubTotal();
+        totalPrice -= removeItemVo.getCartItemSubTotal();
     }
 
     /**

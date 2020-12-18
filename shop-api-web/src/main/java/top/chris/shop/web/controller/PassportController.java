@@ -18,6 +18,7 @@ import top.chris.shop.service.PassportService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 /**
@@ -86,7 +87,7 @@ public class PassportController {
     @ApiOperation("用登录接口")
     @Transactional(propagation = Propagation.REQUIRED)
     @PostMapping("/login")
-    public JsonResult login(@Valid @RequestBody UsersBo usersBo) throws JsonProcessingException {
+    public JsonResult login(@Valid @RequestBody UsersBo usersBo,HttpServletRequest request ,HttpServletResponse httpServletResponse) throws JsonProcessingException {
         usersBo.setUsername(usersBo.getUsername().trim());
         usersBo.setPassword(usersBo.getPassword().trim());
         UsersVo usersVo = passportService.login(usersBo);
@@ -94,20 +95,26 @@ public class PassportController {
         if (usersVo == null){
             return JsonResult.isErr(500,"账号或密码输入错误,请重新输入。");
         }
-
+        //使用Session保存用户登录状态
+        HttpSession session = request.getSession();
+        session.setAttribute("user",usersVo);
         CookieUtils.setCookie(request,response,"user",objectMapper.writeValueAsString(usersVo),604800,true);
 
         return JsonResult.isOk(usersVo);
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-
     @ApiOperation("用户退出接口")
     @PostMapping("/logout")
     public JsonResult logout(){
-        //TODO：不完善，只是抹去了浏览器中的对应key的cookie。单纯删除cookie，在单体架构中使用。
+        //获取Session,false代表：不创建session对象，只是从request中获取。
+        HttpSession session = request.getSession(false);
+        if (session != null){
+            //移除session数据
+            session.removeAttribute("user");
+        }
+        //只是抹去了浏览器中的对应key的cookie。单纯删除cookie，在单体架构中使用。
         CookieUtils.deleteCookie(request,response,"user");
-
         return JsonResult.ok();
     }
 }

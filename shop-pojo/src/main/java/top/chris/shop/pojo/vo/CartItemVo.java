@@ -8,8 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CartItem {
-
+public class CartItemVo {
     private String itemId;
     private String itemImgUrl;
     private String itemName;

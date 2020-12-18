@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class ShopCartVo {
+  private String itemId;
   //具体规格商品的id
   private String  specId;
   private String  itemImgUrl ;

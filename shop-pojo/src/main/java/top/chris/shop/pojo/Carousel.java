@@ -16,7 +16,7 @@ public class Carousel implements Serializable {
     /**
      * 图片 图片地址
      */
-    @Column(name = "`image_url`")
+        @Column(name = "`image_url`")
     private String imageUrl;
 
     /**
