@@ -1,5 +1,7 @@
 package top.chris.shop.service.impl;
 
+import lombok.extern.java.Log;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,10 +15,14 @@ import top.chris.shop.service.CartService;
 
 import java.util.*;
 
+@Log
 @Service
 public class CartServiceImpl implements CartService {
     @Autowired
     private CartMapper cartMapper;
+
+    @Autowired
+    private Sid sid;
 
     /**
      *
@@ -25,35 +31,43 @@ public class CartServiceImpl implements CartService {
      * 思路： 1、去数据库中查询是否有同类商品，如果有则修改购买数量，如果没有则添加新产品
      */
     @Override
-    public void addCartInDB(BuyCart buyCart,String userId) {
+    public Integer addCartInDB(BuyCart buyCart,String userId) {
+        Integer result = 0;
         //获取Session中存储的购物项
         Map<String, CartItemVo> cartItems = buyCart.getCartItems();
         //构建一个迭代器，用于迭代Session中的购物车对象数据
         Iterator<Map.Entry<String, CartItemVo>> it = cartItems.entrySet().iterator();
-        //获取Session中购物车Map集合存储的key值，里边存储的是每一个购物车的id
+        //获取Session中购物车Map集合存储的key值，里边存储的是每一个购物车的cartid
         Set<String> ids = cartItems.keySet();
-        for (String id : ids) {
-            //从数据库中根据购物车ID，获取购物车表中的数据
-            CartItem cartItem = cartMapper.selectByPrimaryKey(id);
+        for (String cartId : ids) {
+            //从数据库中根据购物车ID和userId，获取购物车表中的值得用户下的购物车数据
+            Example example = new Example(CartItem.class);
+            example.createCriteria().andEqualTo("cartId",cartId).andEqualTo("userId",userId);
+            //虽然返回的List集合，但是根据cart_item数据库表的设计，只要确定了cartId和UserId就唯一确定一条数据（一条购物项）
+            List<CartItem> cartItemList = cartMapper.selectByExample(example);
             //购物车没有数据，直接新添加的商品，直接存储在数据库中
-            if (cartItem == null){
-                //根据购物车ID，从迭代器中取出该购物项添加到数据库中，这样可以避免迭代全部数据。
-                insertCartItemToDB(it,userId,id);
+            log.info("数据库的中购物车是否为空:"+String.valueOf(cartItemList == null));
+            log.info("数据库中的购物车的数据："+ ReflectionToStringBuilder.toString(cartItemList));
+            log.info("数据库中的购物车中有多少条数据："+ cartItemList.size());
+            if (cartItemList.size() == 0){
+                //根据购物车cartId，从迭代器中取出该购物项添加到数据库中，这样可以避免迭代全部数据。
+                result = insertCartItemToDB(it,userId,cartId);
             }else { //数据库中有用户购物车的数据，此时需要判断用户最新添加的商品项是否已经存在购物车内，如果存在则取出后修改数量，如果不存在才进行存储
-                if (cartItem.getId().equals(id)){//新添加的商品项已经存在与数据库中，只需要修改原来购买数量即可
+                if (cartItemList.get(0).getCartId().equals(cartId) && cartItemList.get(0).getUserId().equals(userId)){//新添加的商品项已经存在与数据库中，只需要修改原来购买数量即可
                     Integer buyCount = 0;
                     while (it.hasNext()){
                         Map.Entry<String, CartItemVo> next = it.next();
-                        if (next.getKey().equals(id)){
+                        if (next.getKey().equals(cartId)){
                             //获取对应id在Session中存储的购买数量
                             buyCount = next.getValue().getBuyCounts();
                             break;
                         }
                     }
-                    updateCartItemBuyCountToDB(id,buyCount);
+                    result = updateCartItemBuyCountToDB(cartId,userId,buyCount);
                 }
             }
         }
+        return result;
     }
 
     @Override
@@ -78,18 +92,21 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public void delCartItemById(String userId, String id) {
+    public Integer delCartItemById(String userId, String cartId) {
         Example example = new Example(CartItem.class);
-        example.createCriteria().andEqualTo("userId",userId).andEqualTo("id",id);
-        cartMapper.deleteByExample(example);
+        example.createCriteria().andEqualTo("userId",userId).andEqualTo("cartId",cartId);
+        Integer result = cartMapper.deleteByExample(example);
+        return result;
     }
 
     @Override
-    public void delAllCartItems(String userId) {
+    public Integer delAllCartItems(String userId) {
         Example example = new Example(CartItem.class);
         example.createCriteria().andEqualTo("userId",userId);
-        cartMapper.deleteByExample(example);
+        Integer result = cartMapper.deleteByExample(example);
+        return result;
     }
+
 
     /**
      * 插入用户购物车的数据到数据库中
@@ -97,13 +114,15 @@ public class CartServiceImpl implements CartService {
      * @param userId 用于标记哪个用户的购物车数据
      * @param userId 用于标记哪个用户的购物车数据
      */
-    public void insertCartItemToDB(Iterator<Map.Entry<String, CartItemVo>> it,String userId,String id){
+    public Integer insertCartItemToDB(Iterator<Map.Entry<String, CartItemVo>> it,String userId,String cartId){
+        Integer result = 0;
         //通过迭代器把Session中存储的购物项数据遍历出来，然后写入数据库
         while (it.hasNext()){
             Map.Entry<String, CartItemVo> next = it.next();
-            if (next.getKey().equals(id)){
+            if (next.getKey().equals(cartId)){
                 CartItem cartItem = new CartItem();
-                cartItem.setId(next.getValue().getItemId()+":"+next.getValue().getSpecId());
+                cartItem.setId(sid.nextShort());
+                cartItem.setCartId(cartId);
                 cartItem.setUserId(userId);
                 cartItem.setItemId(next.getValue().getItemId());
                 cartItem.setItemName(next.getValue().getItemName());
@@ -114,23 +133,31 @@ public class CartServiceImpl implements CartService {
                 cartItem.setPriceDiscount(next.getValue().getPriceDiscount());
                 cartItem.setBuyCounts(next.getValue().getBuyCounts());
                 //插入到cart数据表中
-                cartMapper.insert(cartItem);
+                result = cartMapper.insert(cartItem);
                 break;
             }
         }
+        return result;
     }
 
     /**
      * 修改用户购物车的数据到数据库中（添加同一类商品时，直接修改原商品在数据库中的购买数量）
-     * @param id 已存在数据库中的商品id，目的是获取该id的购物车对象，然后把最新的购买数量重新给它赋上去
+     * @param cartId 已存在数据库中的商品id，目的是获取该id的购物车对象，然后把最新的购买数量重新给它赋上去
+     * @param userId 用户的id
+     * 以上两个参数能够在数据库中定位一条数据，即购物车中的一条购物项。
      * @param buyCount 相同商品中，得到用户最新的购买该商品的数量，目的是最新的购买数量重新赋值给数据库中对应商品的原数量
      */
-    public void updateCartItemBuyCountToDB(String id,Integer buyCount){
-        //获取存储在数据库中的原购物商品数据
-        CartItem cartItem = cartMapper.selectByPrimaryKey(id);
+    public Integer updateCartItemBuyCountToDB(String cartId,String userId,Integer buyCount){
+        //从数据库中根据购物车ID和userId，获取购物车表中的值得用户下的购物车数据
+        Example example = new Example(CartItem.class);
+        example.createCriteria().andEqualTo("cartId",cartId).andEqualTo("userId",userId);
+        //虽然返回的List集合，但是根据cart_item数据库表的设计，只要确定了cartId和UserId就唯一确定一条数据（一条购物项）
+        List<CartItem> cartItemList = cartMapper.selectByExample(example);
         //修改原商品的最新购买数量
-        cartItem.setBuyCounts(buyCount);
+        cartItemList.get(0).setBuyCounts( cartItemList.get(0).getBuyCounts()+buyCount);
         //重新写入数据库中
-        cartMapper.updateByPrimaryKey(cartItem);
+        Integer result = cartMapper.updateByPrimaryKey(cartItemList.get(0));
+        return result;
     }
+
 }

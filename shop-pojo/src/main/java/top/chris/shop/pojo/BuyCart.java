@@ -30,9 +30,7 @@ public class BuyCart {
      * @param newCartItemVo
      */
     public void addCartItem(CartItemVo newCartItemVo){
-        String specId = newCartItemVo.getSpecId();
-        String itemId = newCartItemVo.getItemId();
-        String id = itemId+":"+specId;
+        String id = newCartItemVo.getCartId();
         //判断购物车[集合]中是否有相同的商品被添加进来:判断依据(商品ID和商品类型ID组合称为 id)
         if (cartItems.containsKey(id)){
             //存在：即加入了相同商品，此时把原购物车中该商品取出来

@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CartItemVo {
+    private String cartId;
     private String itemId;
     private String itemImgUrl;
     private String itemName;

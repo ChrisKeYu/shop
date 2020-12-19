@@ -16,6 +16,9 @@ public class CartItem implements Serializable {
     @Column(name = "`id`")
     private String id;
 
+    @Column(name = "`cartId`")
+    private String cartId;
+
     @Column(name = "`userId`")
     private String userId;
 
@@ -58,6 +61,14 @@ public class CartItem implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getCartId() {
+        return cartId;
+    }
+
+    public void setCartId(String cartId) {
+        this.cartId = cartId;
     }
 
     public String getUserId() {
