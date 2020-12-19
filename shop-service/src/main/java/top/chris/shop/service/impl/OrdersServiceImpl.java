@@ -17,12 +17,14 @@ import top.chris.shop.pojo.*;
 import top.chris.shop.pojo.bo.OrderStatusBo;
 import top.chris.shop.pojo.bo.OrdersCreatBo;
 import top.chris.shop.service.AddressService;
+import top.chris.shop.service.CartService;
 import top.chris.shop.service.ItemsService;
 import top.chris.shop.service.OrdersService;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 @Service
 public class OrdersServiceImpl implements OrdersService {
@@ -45,12 +47,19 @@ public class OrdersServiceImpl implements OrdersService {
     @Autowired
     private OrdersMapper ordersMapper;
 
+    @Autowired
+    private CartService cartService;
+
     //TODO 商品的数量目前统一设置为1，其次，邮费统一设置为10，后期待完善，因为用户没办法一次性买多个商品，所有需要一个购物车后台模块
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public String CreateOrders(OrdersCreatBo bo) {
-        //统一设置邮费为10元=1000/100，1000的后面两个0是小数
-        int postAmount = 1000;
+        //设置时区
+        TimeZone time = TimeZone.getTimeZone("ETC/GMT-8");
+        TimeZone.setDefault(time);
+
+        //统一设置邮费为0元
+        int postAmount = 0;
         //订单总价格
         int totalPayAmount = 0;
         //实际支付总价格
@@ -82,28 +91,38 @@ public class OrdersServiceImpl implements OrdersService {
         CollectionUtils.addAll(itemSpecIdList,itemSpecIds);
         //在数据库中查询该订单中所有的商品类目
         List<ItemsSpec> itemsSpecs = itemsService.queryItemSpecByitemSpecIds(itemSpecIdList);
-        //暂时设置默认每个商品的购买数量为1个，因为前端没有传入某一具体类型商品的数量
-
+        //存储在数据库中获取用户购物车中的购物项信息
+        List<CartItem> cartItems = new ArrayList<>();
+        for (String specId : itemSpecIdList) {
+            //根据userId和specId查询用户购物车中的唯一购物项信息,因为userId和specId能确定唯一一条数据，将数据存储到cartItems集合中
+            cartItems.add(cartService.queryCartByUserIdAndSpecId(bo.getUserId(),specId).get(0));
+        }
         for (ItemsSpec itemSpec :itemsSpecs) {
-            //固定所有商品购买的数量都为1，后期需要修改。
-            int buyCounts = 1;
             //创建具体商品订单对象
             OrderItems orderItems = new OrderItems();
-            orderItems.setBuyCounts(buyCounts);
+            //遍历用户在购物车中的商品数据，赋值给商品项
+            for (CartItem cartItem : cartItems) {
+                if (cartItem.getSpecId().equals(itemSpec.getId())){
+                    orderItems.setBuyCounts(cartItem.getBuyCounts());
+                    orderItems.setItemImg(cartItem.getItemImgUrl());
+                    orderItems.setItemName(cartItem.getItemName());
+                    orderItems.setPrice(cartItem.getPriceDiscount());
+                    orderItems.setItemSpecName(cartItem.getSpecName());
+                    //删除数据库中购物车表对应的数据
+                    cartService.delCartItemById(bo.getUserId(),cartItem.getCartId());
+                }
+            }
             orderItems.setId(sid.nextShort());
             orderItems.setItemId(itemSpec.getItemId());
-            orderItems.setItemImg(itemsService.queryItemImgByItemId(itemSpec.getItemId()).getUrl());
-            orderItems.setItemName(itemsService.queryItemByItemId(itemSpec.getItemId()).getItemName());
             orderItems.setOrderId(orders.getId());
-            orderItems.setPrice(itemSpec.getPriceDiscount());
             orderItems.setItemSpecId(itemSpec.getId());
-            orderItems.setItemSpecName(itemSpec.getName());
             //插入到OrderItems表中
             orderItemsMapper.insert(orderItems);
+
             //计算订单总价格
             totalPayAmount += orderItems.getPrice()*orderItems.getBuyCounts();
             //将商品的库存设置为购买的数量，目的是用于记录购买数量，方便扣除库存
-            itemSpec.setStock(buyCounts);
+            itemSpec.setStock(orderItems.getBuyCounts());
             //根据商品id，在数据库中把对应商品的库存进行扣除。
             itemsService.decreaseItemSpecStock(itemSpec);
 
@@ -117,6 +136,7 @@ public class OrdersServiceImpl implements OrdersService {
         orders.setPostAmount(postAmount);
         orders.setRealPayAmount(realPayAmount);
         orders.setTotalAmount(totalPayAmount);
+
         //将订单对象插入到数据库的订单表中
         ordersMapper.insert(orders);
 

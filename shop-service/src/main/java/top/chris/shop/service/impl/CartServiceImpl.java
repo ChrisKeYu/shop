@@ -5,6 +5,8 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 import top.chris.shop.mapper.CartMapper;
 import top.chris.shop.pojo.BuyCart;
@@ -30,6 +32,7 @@ public class CartServiceImpl implements CartService {
      * @param userId
      * 思路： 1、去数据库中查询是否有同类商品，如果有则修改购买数量，如果没有则添加新产品
      */
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public Integer addCartInDB(BuyCart buyCart,String userId) {
         Integer result = 0;
@@ -70,6 +73,7 @@ public class CartServiceImpl implements CartService {
         return result;
     }
 
+    @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<ShopCartVo> queryCartByUserId(String userId) {
         Example example = new Example(CartItem.class);
@@ -91,6 +95,7 @@ public class CartServiceImpl implements CartService {
         return shopCartVos;
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public Integer delCartItemById(String userId, String cartId) {
         Example example = new Example(CartItem.class);
@@ -99,6 +104,7 @@ public class CartServiceImpl implements CartService {
         return result;
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public Integer delAllCartItems(String userId) {
         Example example = new Example(CartItem.class);
@@ -107,6 +113,14 @@ public class CartServiceImpl implements CartService {
         return result;
     }
 
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<CartItem> queryCartByUserIdAndSpecId(String userId, String specId) {
+        Example example = new Example(CartItem.class);
+        example.createCriteria().andEqualTo("userId",userId).andEqualTo("specId",specId);
+        List<CartItem> cartItems = cartMapper.selectByExample(example);
+        return cartItems;
+    }
 
     /**
      * 插入用户购物车的数据到数据库中
@@ -159,5 +173,7 @@ public class CartServiceImpl implements CartService {
         Integer result = cartMapper.updateByPrimaryKey(cartItemList.get(0));
         return result;
     }
+
+
 
 }

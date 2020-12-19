@@ -43,9 +43,8 @@ public class OrdersController {
     public JsonResult creatOrder(@RequestBody OrdersCreatBo bo){//从请求头中传递数据
         //创建订单
         String orderId = ordersService.CreateOrders(bo);
-        //TODO:由于购物车是前端页面用cookie实现的，没有在后台实现，危害：如果用户只结算了其中的某个商品，那么其它的商品也会丢失，后期改为Cookie+Session+数据库完成
         //清空购物车，只要清除浏览器中的cookie
-        CookieUtils.setCookie(request,response,shopProperties.getShopCarCookieName(),"");
+        //CookieUtils.setCookie(request,response,shopProperties.getShopCarCookieName(),"");
         return JsonResult.isOk(orderId);
     }
     @ApiOperation("查询订单支付状态")
@@ -54,9 +53,5 @@ public class OrdersController {
         System.out.println("-----轮询订单"+orderId+"是否支付成功");
         return JsonResult.isOk(ordersService.queryOrderStatusByOrderId(orderId));
     }
-
-
-
-
 
 }

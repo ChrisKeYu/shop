@@ -42,10 +42,10 @@ public interface ItemsService {
     //根据指定的多个ids查询商品信息
     List<ItemsSpec> queryItemSpecByitemSpecIds(List<String> itemSpecIds);
 
-    //根据指定id查询商品的图片
+    //根据指定id查询商品的图片(有了购物车数据库，就不需要这个方法了)
     ItemsImg queryItemImgByItemId(String itemId);
 
-    //根据指定id查询商品的信息
+    //根据指定id查询商品的信息(有了购物车数据库，就不需要这个方法了)
     Items queryItemByItemId(String itemId);
 
     //减少商品的库存
