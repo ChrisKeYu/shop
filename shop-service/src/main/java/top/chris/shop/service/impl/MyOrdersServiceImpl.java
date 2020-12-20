@@ -3,14 +3,18 @@ package top.chris.shop.service.impl;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.java.Log;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
+import top.chris.shop.enums.CommentLevelEnum;
 import top.chris.shop.enums.OrdersStatusEnum;
 import top.chris.shop.exception.OrdersException;
+import top.chris.shop.mapper.ItemsCommentsMapper;
 import top.chris.shop.mapper.OrderStatusMapper;
+import top.chris.shop.pojo.ItemsComments;
 import top.chris.shop.pojo.OrderItems;
 import top.chris.shop.pojo.OrderStatus;
 import top.chris.shop.pojo.Orders;
@@ -23,6 +27,7 @@ import top.chris.shop.service.OrdersService;
 import top.chris.shop.util.PagedGridResult;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Log
@@ -30,9 +35,12 @@ import java.util.List;
 public class MyOrdersServiceImpl implements MyOrdersService {
     @Autowired
     private OrdersService ordersService;
-
+    @Autowired
+    private Sid sid;
     @Autowired
     private OrderStatusMapper orderStatusMapper;
+    @Autowired
+    private ItemsCommentsMapper commentsMapper;
 
     /**
      * 根据userId查询用户所有不同订单状态下的订单个数
@@ -155,7 +163,7 @@ public class MyOrdersServiceImpl implements MyOrdersService {
     }
 
     /**
-     * 根据userId和OrderId修改订单状态
+     * 根据userId和OrderId修改订单状态，根据userId和OrderId修改订单状态，而且把该订单的商品写入到商品评论表中，方便下次点击该订单评论的时候可以在评论表中提取对应商品然后修改商品评论内容和等级。
      * @param userId 用户id
      * @param orderId 订单id
      * @param orderStatus 状态码
@@ -170,6 +178,27 @@ public class MyOrdersServiceImpl implements MyOrdersService {
             throw new OrdersException("订单状态表中没有订单号为："+orderId+"的订单状态信息");
         }
         status.setOrderStatus(orderStatus);
+        //在订单商品确定收货后，就要把该商品插入到评论表中，这样才可以在点击收货货，在数据库的评论列表中看到这个待评论的商品，否则，当你点击评论时，无法根据orderid和userid在评论表中查询到待评论的对象
+        //1、获取该订单下的商品项
+        List<OrderItems> orderItems = ordersService.queryOrderItemsByOrderId(orderId);
+        //2、将订单下的商品项写入到评论表中
+        for (OrderItems orderItem : orderItems) {
+            ItemsComments itemsComments = new ItemsComments();
+            itemsComments.setId(sid.nextShort());
+            itemsComments.setUserId(userId);
+            itemsComments.setItemId(orderItem.getItemId());
+            itemsComments.setItemSpecId(orderItem.getItemSpecId());
+            itemsComments.setItemName(orderItem.getItemName());
+            itemsComments.setSepcName(orderItem.getItemSpecName());
+            //默认为空
+            itemsComments.setContent("");
+            //默认好评
+            itemsComments.setCommentLevel(CommentLevelEnum.GOOD.type);
+            itemsComments.setCreatedTime(new Date());
+            itemsComments.setUpdatedTime(new Date());
+            //将已完成的订单下的待评论的商品插入到数据库的评论表中
+            commentsMapper.insert(itemsComments);
+        }
         return orderStatusMapper.updateByPrimaryKey(status);
     }
 

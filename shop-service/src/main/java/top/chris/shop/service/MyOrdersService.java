@@ -16,6 +16,6 @@ public interface MyOrdersService {
     //查询指定用户的所有订单的详细信息
     PagedGridResult queryOrdersItemsInfoByUserId(String userId,String orderStatus,Integer page, Integer pageSize);
 
-    //根据userId和OrderId修改订单状态
+    //根据userId和OrderId修改订单状态，而且把该订单的商品写入到商品评论表中，方便下次点击该订单评论的时候可以在评论表中提取对应商品然后修改商品评论内容和等级。
     Integer updateOrderStatusByUserIdAndOrderId(String userId,String orderId,Integer orderStatus);
 }

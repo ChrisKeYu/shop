@@ -12,7 +12,6 @@ import top.chris.shop.pojo.vo.OrderStatusCountsVo;
 import top.chris.shop.service.MyOrdersService;
 import top.chris.shop.util.JsonResult;
 
-import java.util.List;
 
 @Api("个人中心的订单控制器，管理订单")
 @RestController
@@ -42,7 +41,7 @@ public class MyOrdersController {
         return JsonResult.isOk(myOrdersService.queryOrdersItemsInfoByUserId(userId,orderStatus,page,pageSize));
     }
 
-    @ApiOperation("根据用户id和订单id，确认用户收货")
+    @ApiOperation("根据用户id和订单id，确认用户收货,且把该订单的商品项写入商品评论表中")
     @PostMapping("/confirmReceive")
     public JsonResult confirmReceive(String userId,String orderId){
         //确认用户收货的状态码
