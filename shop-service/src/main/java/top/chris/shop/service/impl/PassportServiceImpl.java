@@ -22,16 +22,18 @@ import java.util.List;
 
 @Service
 public class PassportServiceImpl implements PassportService {
-
     @Autowired
     private UsersMapper usersMapper;
-
     @Autowired
     private Sid sid;
-
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    /**
+     * 检测用户名是否在数据中已经存在
+     * @param username
+     * @return
+     */
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public JsonResult usernameIsExist(String username) {
@@ -46,6 +48,11 @@ public class PassportServiceImpl implements PassportService {
         }
     }
 
+    /**
+     * 注册方法
+     * @param usersBo 前端传入的注册参数
+     * @return
+     */
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public UsersVo regist(UsersBo usersBo) {
@@ -57,6 +64,11 @@ public class PassportServiceImpl implements PassportService {
         return usersVo;
     }
 
+    /**
+     * 登录方法
+     * @param usersBo 前端传入的登录信息
+     * @return
+     */
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public UsersVo login(UsersBo usersBo) {

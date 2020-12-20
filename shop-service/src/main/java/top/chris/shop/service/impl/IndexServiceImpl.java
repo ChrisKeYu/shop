@@ -22,12 +22,20 @@ public class IndexServiceImpl implements IndexService {
     @Autowired
     private CategoryMapper categoryMapper;
 
+    /**
+     * 轮播图的查询
+     * @return
+     */
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<Carousel> rendersCarousel() {
         return carouselMapper.selectAll();
     }
 
+    /**
+     * 一级菜单栏查询
+     * @return
+     */
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<Category> rendersCats() {
@@ -37,12 +45,22 @@ public class IndexServiceImpl implements IndexService {
         return categoryMapper.select(category);
     }
 
+    /**
+     * 二三级菜单栏查询，传入父级id
+     * @param fatherId 传入父级id
+     * @return
+     */
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<CategoryVo> rendersSubCats(Integer fatherId) {
         return categoryMapper.rendersSubCatLazyLoad(fatherId);
     }
 
+    /**
+     * 首页每一大类对应具体商品展览，传入用户选择的一级菜单id号码
+     * @param rootCatId 传入用户选择的一级菜单id号码
+     * @return
+     */
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public RenderSixItemsVo rendersSubItemsCats(Integer rootCatId) {

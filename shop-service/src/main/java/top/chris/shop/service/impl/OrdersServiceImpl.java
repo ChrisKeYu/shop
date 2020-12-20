@@ -24,40 +24,32 @@ import top.chris.shop.service.OrdersService;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.TimeZone;
 
 @Service
 public class OrdersServiceImpl implements OrdersService {
-
     @Autowired
     private Sid sid ;
-
     @Autowired
     private AddressService addressService;
-
     @Autowired
     private ItemsService itemsService;
-
     @Autowired
     private OrderItemsMapper orderItemsMapper;
-
     @Autowired
     private OrderStatusMapper orderStatusMapper;
-
     @Autowired
     private OrdersMapper ordersMapper;
-
     @Autowired
     private CartService cartService;
 
-    //TODO 商品的数量目前统一设置为1，其次，邮费统一设置为10，后期待完善，因为用户没办法一次性买多个商品，所有需要一个购物车后台模块
+    /**
+     * 创建订单
+     * @param bo 前端传入的关于订单的一些参数
+     * @return
+     */
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public String CreateOrders(OrdersCreatBo bo) {
-        //设置时区
-        TimeZone time = TimeZone.getTimeZone("ETC/GMT-8");
-        TimeZone.setDefault(time);
-
         //统一设置邮费为0元
         int postAmount = 0;
         //订单总价格
@@ -156,12 +148,22 @@ public class OrdersServiceImpl implements OrdersService {
         return orders.getId();
     }
 
+    /**
+     * 根据订单id查询订单
+     * @param orderId
+     * @return
+     */
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public Orders queryOrderByOrderId(String orderId) {
         return ordersMapper.selectByPrimaryKey(orderId);
     }
 
+    /**
+     * 根据订单id查询该订单下所购买商品的详情信息
+     * @param orderId
+     * @return
+     */
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<OrderItems> queryOrderItemsByOrderId(String orderId) {
@@ -169,6 +171,12 @@ public class OrdersServiceImpl implements OrdersService {
         example.createCriteria().andEqualTo("orderId",orderId);
         return orderItemsMapper.selectByExample(example);
     }
+
+    /**
+     * 根据订单id修改该订单的状态信息
+     * @param bo
+     * @return
+     */
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public Integer updateOrderStatusByOrderId(OrderStatusBo bo) {
@@ -183,6 +191,11 @@ public class OrdersServiceImpl implements OrdersService {
         return result;
     }
 
+    /**
+     * 根据订单ID查询订单支付状态
+     * @param orderId
+     * @return
+     */
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public String queryOrderStatusByOrderId(String orderId) {
@@ -192,5 +205,40 @@ public class OrdersServiceImpl implements OrdersService {
             throw new OrdersException("在数据库中未找到对应订单的状态数据");
         }
         return Integer.toString(orderStatus.getOrderStatus());
+    }
+
+    /**
+     * 根据用户id查询订单状态表中该用户的所有订单状态信息
+     * @param userId
+     * @return
+     */
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<OrderStatus> queryOrdersStatusByUserId(String userId) {
+        //1、根据userId查询用户的订单表信息
+        List<Orders> orders = queryOrderByUserId(userId);
+        //2、创建一个List集合存储指定用户下的所有订单id
+        List<String> ordersIds = new ArrayList<String>();
+        //3、遍历orders集合获取该用户下的订单id,将其封装起来
+        for (Orders order : orders) {
+            ordersIds.add(order.getId());
+        }
+        //4、根据ordersIds去orderStatus表中获取数据
+        Example example = new Example(OrderStatus.class);
+        example.createCriteria().andIn("orderId",ordersIds);
+        return orderStatusMapper.selectByExample(example);
+    }
+
+    /**
+     * 根据用户id查询查询订单表的信息
+     * @param userId
+     * @return
+     */
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<Orders> queryOrderByUserId(String userId) {
+        Example example = new Example(Orders.class);
+        example.createCriteria().andEqualTo("userId",userId);
+        return ordersMapper.selectByExample(example);
     }
 }

@@ -32,6 +32,10 @@ public class AddressServiceImpl implements AddressService {
     @Autowired
     private UserAddressMapper addressMapper;
 
+    /**
+     * 添加用户地址信息
+     * @param addressBo 前端传入的用户地址信息
+     */
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public void addUserAddress(AddressBo addressBo) {
@@ -47,6 +51,11 @@ public class AddressServiceImpl implements AddressService {
         addressMapper.insert(userAddress);
     }
 
+    /**
+     * 查询指定用户所有地址信息
+     * @param userId 用户id
+     * @return
+     */
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<AddressVo> renderUserAddress(String userId) {
@@ -63,6 +72,11 @@ public class AddressServiceImpl implements AddressService {
         return renderList;
     }
 
+    /**
+     * 修改用户指定的地址信息
+     * @param addressBo 前端传入的信息
+     * @return
+     */
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public Integer updateUserAddress(AddressBo addressBo) {
@@ -79,6 +93,12 @@ public class AddressServiceImpl implements AddressService {
         return addressMapper.updateByPrimaryKey(userAddress);
     }
 
+    /**
+     * 修改指定用户指定的地址为默认地址
+     * @param userId 用户id
+     * @param addressId 地址id
+     * @return
+     */
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public Integer updateDefalutUserAddress(String userId, String addressId) {
@@ -101,6 +121,12 @@ public class AddressServiceImpl implements AddressService {
         return addressMapper.updateByPrimaryKey(userAddress);
     }
 
+    /**
+     * 删除指定用户的指定地址信息
+     * @param userId 用户id
+     * @param addressId 地址id
+     * @return
+     */
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public Integer deleteUserAddress(String userId, String addressId) {
@@ -112,6 +138,11 @@ public class AddressServiceImpl implements AddressService {
         return addressMapper.deleteByPrimaryKey(addressId);
     }
 
+    /**
+     * 查询用户指定的地址信息
+     * @param addressId 地址id
+     * @return
+     */
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public UserAddress queryUserAddressByAddressId(String addressId) {

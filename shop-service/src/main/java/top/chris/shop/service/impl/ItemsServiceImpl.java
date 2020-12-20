@@ -34,17 +34,14 @@ public class ItemsServiceImpl implements ItemsService {
     private ItemsParamMapper paramMapper;
     @Autowired
     private ItemsImgMapper imgMapper;
-
     @Autowired
     private ItemsCommentsMapper commentsMapper;
-
-    //分页插件
     @Autowired
-    private PageHelper pageHelper;
+    private PageHelper pageHelper;    //分页插件
 
     /**
      * itemsBo对象中的sort值可能有三种情况：1、c表示销量优先(默认销量约高，越前)；2、k表示默认查询；3、p表示价格优先(默认价格约低，越前)
-     * @param itemsBo
+     * @param itemsBo 前端传入的参数
      * @return
      */
     @Transactional(propagation = Propagation.SUPPORTS)
@@ -74,6 +71,12 @@ public class ItemsServiceImpl implements ItemsService {
             throw new RuntimeException("查询依据不正确");
         }
     }
+
+    /**
+     * 搜索框的模糊查询，参数接受已封装好的前端数据，返回以分页的形式返回查询的数据。
+     * @param itemsBo
+     * @return
+     */
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public PagedGridResult searchItemsLikeName(SearchItemsBo itemsBo) {
@@ -99,6 +102,11 @@ public class ItemsServiceImpl implements ItemsService {
         }
     }
 
+    /**
+     * 商品详情查询，接受商品的id，返回商品详情的数据。
+     * @param itemId
+     * @return
+     */
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public RenderItemInfoVo queryItemPageInfo(String itemId) {
@@ -115,6 +123,11 @@ public class ItemsServiceImpl implements ItemsService {
         return renderItemInfoVo;
     }
 
+    /**
+     * 商品评论各等级数量的查询，返回统计好的各评论的数量模型。
+     * @param itemId 商品id
+     * @return
+     */
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public CountsVo renderCommentLevelyItemId(String itemId) {
@@ -141,10 +154,17 @@ public class ItemsServiceImpl implements ItemsService {
         return countsVo;
     }
 
+    /**
+     * 商品评论各的查询
+     * @param commentBo 前端传入的参数
+     * @param page
+     * @param pageSize
+     * @return 返回CommentRecordVo集合的数据模型。
+     */
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public PagedGridResult renderCommentByItemIdAndLevel(CommentBo commentBo,Integer page, Integer pageSize) {
-        //使用PageHelper进行分页查询（由于使用前端的分页插件，它的原理是把后台查询的所有数据返回给前端，交由前端去完成分页的功能，而不是通过后台进行分页查询，后台只需要把所有查询的结果一次性输出到前台即可）
+        //使用PageHelper进行分页查询
         //PageHelper.startPage(page,pageSize);
         List<CommentRecordVo> result = commentsMapper.getCommentByItemIdAndLevel(commentBo);
         PagedGridResult pagedGridResult = new PagedGridResult();
@@ -162,6 +182,11 @@ public class ItemsServiceImpl implements ItemsService {
         return pagedGridResult;
     }
 
+    /**
+     * 根据指定的多个ids查询商品信息
+     * @param itemSpecIds
+     * @return
+     */
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<ItemsSpec> queryItemSpecByitemSpecIds(List<String> itemSpecIds) {
@@ -170,6 +195,11 @@ public class ItemsServiceImpl implements ItemsService {
         return specMapper.selectByExample(example);
     }
 
+    /**
+     * 根据指定id查询商品的图片(有了购物车数据库，就不需要这个方法了)
+     * @param itemId
+     * @return
+     */
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public ItemsImg queryItemImgByItemId(String itemId) {
@@ -178,12 +208,22 @@ public class ItemsServiceImpl implements ItemsService {
         return imgMapper.selectByExample(example).get(0);
     }
 
+    /**
+     * 根据指定id查询商品的信息(有了购物车数据库，就不需要这个方法了)
+     * @param itemId
+     * @return
+     */
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public Items queryItemByItemId(String itemId) {
         return itemsMapper.selectByPrimaryKey(itemId);
     }
 
+    /**
+     * 减少商品的库存
+     * @param itemsSpec 最新的商品规格对象，已经修改过库存的
+     * @return
+     */
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public Integer decreaseItemSpecStock(ItemsSpec itemsSpec) {
@@ -195,6 +235,11 @@ public class ItemsServiceImpl implements ItemsService {
         return result;
     }
 
+    /**
+     * 根据商品Id和商品口味查询对应商品Id的库存量
+     * @param specId 商品规格id
+     * @return
+     */
     @Override
     public Integer queryItemStockByItemId(String specId) {
         ItemsSpec itemsSpec = specMapper.selectByPrimaryKey(specId);
@@ -204,6 +249,12 @@ public class ItemsServiceImpl implements ItemsService {
         return itemsSpec.getStock();
     }
 
+    /**
+     * 商品详情查询，接受商品的id，返回商品详情的数据。
+     * @param itemId 商品id
+     * @param specId 规格id
+     * @return
+     */
     @Override
     public RenderItemInfoVo queryCartInfoByitemIdAndSpecId(String itemId,String specId) {
         if (StringUtils.isBlank(itemId) || StringUtils.isEmpty(itemId) && StringUtils.isBlank(specId) || StringUtils.isEmpty(specId)){
@@ -218,6 +269,11 @@ public class ItemsServiceImpl implements ItemsService {
         return renderItemInfoVo;
     }
 
+    /**
+     * 根据商品属性id获取ItemSpec对象中商品的id
+     * @param specId 规格id
+     * @return
+     */
     @Override
     public String queryItemIdByItemSpecId(String specId) {
         return specMapper.selectByPrimaryKey(specId).getItemId();
@@ -248,11 +304,4 @@ public class ItemsServiceImpl implements ItemsService {
         return itemsBo;
     }
 
-
 }
-//    @Transactional(propagation = Propagation.SUPPORTS)
-//    @Override
-//    public List<ShopCartVo> renderShopCart(String[] itemSpecIds) {
-//        List<ShopCartVo> shopCartVos = itemsMapper.queryShopCart(itemSpecIds);
-//        return shopCartVos;
-//    }

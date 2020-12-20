@@ -1,190 +1,86 @@
-2020-12-19 00:07:12 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+2020-12-20 10:37:50 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
 WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 00:07:31 上午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+2020-12-20 10:38:18 上午 [Thread: http-nio-8080-exec-5][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
 WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 00:08:56 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+2020-12-20 10:40:04 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
 WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 00:09:17 上午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+2020-12-20 10:40:18 上午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
 WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 00:14:53 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 00:15:00 上午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 00:15:41 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 00:16:02 上午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 09:44:23 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 09:45:45 上午 [Thread: http-nio-8080-exec-3][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 09:59:15 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 09:59:53 上午 [Thread: http-nio-8080-exec-3][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 10:00:46 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 10:02:49 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 10:09:02 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 10:14:25 上午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 10:17:00 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 10:17:59 上午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 10:18:40 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 10:18:46 上午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 10:26:03 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 10:26:49 上午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 10:28:01 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 10:28:28 上午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 10:31:31 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 10:31:57 上午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 10:56:06 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 10:56:57 上午 [Thread: http-nio-8080-exec-3][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 11:01:31 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 11:01:44 上午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 11:17:48 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 11:19:57 上午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 11:26:28 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 11:26:39 上午 [Thread: http-nio-8080-exec-3][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 11:35:15 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 11:37:06 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 11:37:16 上午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 15:16:54 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 15:17:23 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 16:09:11 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 16:09:48 下午 [Thread: http-nio-8080-exec-4][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 16:13:45 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 16:13:56 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 16:22:18 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 16:22:25 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 16:31:55 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 16:33:49 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 16:35:24 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 16:35:30 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 16:46:24 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 16:46:51 下午 [Thread: http-nio-8080-exec-3][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 16:52:09 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 16:53:14 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 16:54:44 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 16:55:03 下午 [Thread: http-nio-8080-exec-3][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 17:06:43 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 17:07:03 下午 [Thread: http-nio-8080-exec-4][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 17:09:31 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 17:11:09 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 17:11:27 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 17:14:53 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 17:15:01 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 17:34:16 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 17:37:16 下午 [Thread: http-nio-8080-exec-4][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 18:40:51 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 18:41:24 下午 [Thread: http-nio-8080-exec-4][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 19:33:30 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 19:33:54 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 20:27:48 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 20:28:57 下午 [Thread: http-nio-8080-exec-3][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 20:34:17 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 20:34:30 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 20:36:56 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 20:37:06 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 20:38:34 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 20:38:47 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 20:39:44 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 20:40:22 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 20:40:33 下午 [Thread: http-nio-8080-exec-3][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 20:41:57 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 20:42:12 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 20:50:05 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 20:50:40 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 21:10:14 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 21:11:05 下午 [Thread: http-nio-8080-exec-5][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 21:12:57 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 21:13:41 下午 [Thread: http-nio-8080-exec-3][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 22:03:40 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 22:03:54 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
-WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 22:05:20 下午 [Thread: http-nio-8080-exec-7][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:34) ]
-WARN:------方法top.chris.shop.service.impl.PayServiceImpl.toPay在Sat Dec 19 14:05:18 GMT 2020时使用参数[Ljava.lang.Object;@64b96c0c[{20121572283947270144,201219A1G007R58H}]调用,并得到了结果<form name="punchout_form" method="post" action="https://openapi.alipaydev.com/gateway.do?charset=utf-8&method=alipay.trade.page.pay&sign=XPP69or7WBeO%2BIDtgBAoZw2luaLi%2FClzj8og4mZgY1EYed3nw1gxWta5HSBZfBnbUaPZYCNZsvPMVcQe24QYQ3UmnbCKRsHasxiXTKMpDrevj3wSXEPIrwScX0sAqRutbbJ%2FP6REuWWmjJVeX5oQFuyATaqaOKNXXLmsVoGj1VBrDu8AjpjK7z%2BP4JZX4QA5ArupeBCLh5kJHhEp5BqTVCf41QUzA8I%2B%2BDqvfRMuGHKhG3uDT0IHBtPnosKf6feliNI264ijiB8jVRNo41MOgj1sD1uauesHQdd1jI2RBGFU7Xxq%2FCdznrKJLVOl6KLhXiGsRz9tCa6JrFsLQDlF2Q%3D%3D&return_url=http%3A%2F%2Flocalhost%3A8080%2Fpayment%2Fcallback%3Fmethod%3Dcallback&version=1.0&app_id=2021000116670674&sign_type=RSA2&timestamp=2020-12-19+22%3A05%3A19&alipay_sdk=alipay-sdk-java-3.7.110.ALL&format=json">
-<input type="hidden" name="biz_content" value="{&quot;out_trade_no&quot;:&quot;201219A1G007R58H&quot;,&quot;product_code&quot;:&quot;FAST_INSTANT_TRADE_PAY&quot;,&quot;subject&quot;:&quot;【天天吃货】真香预警 超级好吃 手撕面包 儿童早餐早饭  &quot;,&quot;total_amount&quot;:&quot;360&quot;}">
+2020-12-20 10:41:46 上午 [Thread: http-nio-8080-exec-7][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:34) ]
+WARN:------方法top.chris.shop.service.impl.PayServiceImpl.toPay在Sun Dec 20 02:41:45 GMT 2020时使用参数[Ljava.lang.Object;@36b25e42[{20121572283947270144,2012201XWCZ05A5P}]调用,并得到了结果<form name="punchout_form" method="post" action="https://openapi.alipaydev.com/gateway.do?charset=utf-8&method=alipay.trade.page.pay&sign=bk6oIe4vlu8SiKcLsnnfB%2FSDlccWCmnGFobxivaxUGm6adafLbSPCBSBgY22s%2Fa1uhbrui21pj7DpJ%2BQ9ewjBTZPxprM1L3R7p%2BWfHsECCnS0uOtP97VAuSizNZrNrDHXquWUdDeWSSN4X81SglA06ug0tgx5rznlQYSxqYT4zlRkB0ks90EfAc%2Fg9%2BgfWc%2Bn8m8YGpwjLceKgWuraGp5MXEhjbwb1QJbhBqvZaH9h1W7KnrKmnEiVOQYuLcl5zoNZn20J2ZVmXjZKlKd9zcO%2BckxZWGbOjmfpvdRKYoUPC8ct0fEoQ6kslZxG9yT2v1%2FKrjM7Fo8zrz3EnAxoH6Vg%3D%3D&return_url=http%3A%2F%2Flocalhost%3A8080%2Fpayment%2Fcallback%3Fmethod%3Dcallback&version=1.0&app_id=2021000116670674&sign_type=RSA2&timestamp=2020-12-20+10%3A41%3A45&alipay_sdk=alipay-sdk-java-3.7.110.ALL&format=json">
+<input type="hidden" name="biz_content" value="{&quot;out_trade_no&quot;:&quot;2012201XWCZ05A5P&quot;,&quot;product_code&quot;:&quot;FAST_INSTANT_TRADE_PAY&quot;,&quot;subject&quot;:&quot;【天天吃货】男人最爱 秋葵饼干 嘎嘣脆  &quot;,&quot;total_amount&quot;:&quot;135&quot;}">
 <input type="submit" value="立即支付" style="display:none" >
 </form>
-<script>document.forms[0].submit();</script>，共耗时1226毫秒------
-2020-12-19 22:14:15 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+<script>document.forms[0].submit();</script>，共耗时1128毫秒------
+2020-12-20 10:43:11 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
 WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2020-12-19 22:14:33 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+2020-12-20 10:43:28 上午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
 WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-12-19 22:18:08 下午 [Thread: http-nio-8080-exec-4][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:37) ]
-ERROR:------方法top.chris.shop.service.impl.PayServiceImpl.callBackAndUpdateOrderStatus在Sat Dec 19 14:17:56 GMT 2020时使用参数[Ljava.lang.Object;@29f10583[{SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest@62a22dd],org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse@e4bc2f0}]调用,并得到了结果1，共耗时11494毫秒------
+2020-12-20 10:45:00 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-20 10:45:18 上午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-20 11:24:04 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-20 11:24:21 上午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-20 11:30:37 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-20 11:30:51 上午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-20 11:34:51 上午 [Thread: http-nio-8080-exec-9][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:37) ]
+ERROR:------方法top.chris.shop.service.impl.PayServiceImpl.callBackAndUpdateOrderStatus在Sun Dec 20 11:34:39 CST 2020时使用参数[Ljava.lang.Object;@4c556f8f[{SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest@6a0dd504],org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse@4e8c4a9b}]调用,并得到了结果1，共耗时11386毫秒------
+2020-12-20 11:42:59 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-20 11:43:14 上午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-20 14:18:47 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-20 14:19:08 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-20 14:57:38 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-20 14:58:02 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-20 15:05:14 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-20 15:05:31 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-20 15:52:29 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-20 15:52:45 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-20 16:01:18 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-20 16:02:08 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-20 16:03:44 下午 [Thread: http-nio-8080-exec-8][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:34) ]
+WARN:------方法top.chris.shop.service.impl.PayServiceImpl.toPay在Sun Dec 20 16:03:43 CST 2020时使用参数[Ljava.lang.Object;@5d932a67[{20121572283947270144,201220BCZ67T14ZC}]调用,并得到了结果<form name="punchout_form" method="post" action="https://openapi.alipaydev.com/gateway.do?charset=utf-8&method=alipay.trade.page.pay&sign=QSbmr%2FjaAIjDthUVugVUXLyBGeb7kJuXz1VlO0ex0%2FmvTOixSpdQTri9G%2F6VQtkYnx8wlxqJvd7GQPwCQuzRsYf43PCqxMlL397L8tcOCti2%2FjExb9w1899p14TSOGxcHeGjJQx4zzGRp5pDcEmmnsXctMJ3b4i2pt28YdEH%2F7RRTY328i%2BDXoGWA9QKIxi5Gziefd8B3OxFMvJOdhJJf4sIK4f7uC1dEXJsowy%2F9m%2FZSLfKH8ocPFIVWf3sBYxuecGzmZ%2BRCcrwtOWI5dAeGVWRtIyK6qsAxG7bZsCX5ykU1UlwwxkB5QTYFtz85c7oB5dd64y%2FVyznrsgRWQZZqw%3D%3D&return_url=http%3A%2F%2Flocalhost%3A8080%2Fpayment%2Fcallback%3Fmethod%3Dcallback&version=1.0&app_id=2021000116670674&sign_type=RSA2&timestamp=2020-12-20+16%3A03%3A43&alipay_sdk=alipay-sdk-java-3.7.110.ALL&format=json">
+<input type="hidden" name="biz_content" value="{&quot;out_trade_no&quot;:&quot;201220BCZ67T14ZC&quot;,&quot;product_code&quot;:&quot;FAST_INSTANT_TRADE_PAY&quot;,&quot;subject&quot;:&quot;【天天吃货】机器猫最爱 铜锣烧 最美下午茶  &quot;,&quot;total_amount&quot;:&quot;117&quot;}">
+<input type="submit" value="立即支付" style="display:none" >
+</form>
+<script>document.forms[0].submit();</script>，共耗时1221毫秒------
+2020-12-20 16:07:21 下午 [Thread: http-nio-8080-exec-1][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:37) ]
+ERROR:------方法top.chris.shop.service.impl.PayServiceImpl.callBackAndUpdateOrderStatus在Sun Dec 20 16:07:09 CST 2020时使用参数[Ljava.lang.Object;@669cf086[{SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest@7ee894db],org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse@70d6f9b3}]调用,并得到了结果1，共耗时11754毫秒------
+2020-12-20 16:10:20 下午 [Thread: http-nio-8080-exec-9][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:37) ]
+ERROR:------方法top.chris.shop.service.impl.PayServiceImpl.callBackAndUpdateOrderStatus在Sun Dec 20 16:10:08 CST 2020时使用参数[Ljava.lang.Object;@75388661[{SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest@fd9512c],org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse@58b7c0d8}]调用,并得到了结果1，共耗时11541毫秒------
+2020-12-20 16:31:01 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-20 16:31:32 下午 [Thread: http-nio-8080-exec-3][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-20 16:34:39 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-20 16:35:10 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-20 16:54:29 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-20 16:54:47 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-20 17:00:15 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-20 17:00:31 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-20 17:17:58 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2020-12-20 17:18:19 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.

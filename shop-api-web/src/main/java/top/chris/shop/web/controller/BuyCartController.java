@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.chris.shop.common.ShopProperties;
 import top.chris.shop.pojo.BuyCart;
-import top.chris.shop.pojo.CartItem;
-import top.chris.shop.pojo.Users;
 import top.chris.shop.pojo.vo.CartItemVo;
 import top.chris.shop.pojo.vo.RenderItemInfoVo;
 import top.chris.shop.pojo.vo.ShopCartVo;

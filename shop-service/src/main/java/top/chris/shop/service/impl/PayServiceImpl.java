@@ -32,6 +32,12 @@ public class PayServiceImpl implements PayService {
     @Autowired
     OrdersService ordersService;
 
+    /**
+     * 调起支付宝支付
+     * @param merchantUserId 用户id
+     * @param merchantOrderId 订单id
+     * @return
+     */
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public String toPay(String merchantUserId, String merchantOrderId) {
@@ -65,6 +71,13 @@ public class PayServiceImpl implements PayService {
         return form;
     }
 
+    /**
+     * 支付宝回传校验并修改订单状态
+     * @param httpRequest
+     * @param httpResponse
+     * @return
+     * @throws AlipayApiException
+     */
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public Integer callBackAndUpdateOrderStatus(HttpServletRequest httpRequest, HttpServletResponse httpResponse) throws AlipayApiException {

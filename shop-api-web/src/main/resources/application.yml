@@ -21,7 +21,7 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource #数据源类型为HikariCP,特点快，但没有druid那么安全，监控性，稳定性
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/shop?characterEncoding=UTF-8&useSSL=false&useUnicode=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/shop?characterEncoding=UTF-8&useSSL=false&useUnicode=true&serverTimezone=GMT%2B8
     username: root
     password: root
     hikari:

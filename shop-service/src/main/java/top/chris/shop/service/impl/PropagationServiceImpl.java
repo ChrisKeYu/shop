@@ -16,10 +16,8 @@ import java.util.UUID;
 
 @Service
 public class PropagationServiceImpl implements PropagationService {
-
-     //注入通用Mapper生成好的单表操作的工具类
     @Autowired
-    private StuMapper stuMapper;
+    private StuMapper stuMapper;//注入通用Mapper生成好的单表操作的工具类
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override

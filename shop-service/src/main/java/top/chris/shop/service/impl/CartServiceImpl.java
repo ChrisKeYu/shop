@@ -27,9 +27,9 @@ public class CartServiceImpl implements CartService {
     private Sid sid;
 
     /**
-     *
-     * @param buyCart
-     * @param userId
+     * 将已登录用户的购物车存储到数据库中
+     * @param buyCart Session中存储的购物车对象
+     * @param userId  用户的id
      * 思路： 1、去数据库中查询是否有同类商品，如果有则修改购买数量，如果没有则添加新产品
      */
     @Transactional(propagation = Propagation.REQUIRED)
@@ -73,6 +73,11 @@ public class CartServiceImpl implements CartService {
         return result;
     }
 
+    /**
+     * 查询某用户下的购物车数据
+     * @param userId 用户id
+     * @return
+     */
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<ShopCartVo> queryCartByUserId(String userId) {
@@ -95,6 +100,12 @@ public class CartServiceImpl implements CartService {
         return shopCartVos;
     }
 
+    /**
+     * 根据购物车id删除用户指定的商品项
+     * @param userId 用户id
+     * @param cartId 购物车的cartID，不是购物车的主键id
+     * @return
+     */
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public Integer delCartItemById(String userId, String cartId) {
@@ -104,6 +115,11 @@ public class CartServiceImpl implements CartService {
         return result;
     }
 
+    /**
+     * 根据用户id删除该用户购物车内的所有商品项
+     * @param userId 用户id
+     * @return
+     */
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public Integer delAllCartItems(String userId) {
@@ -113,6 +129,12 @@ public class CartServiceImpl implements CartService {
         return result;
     }
 
+    /**
+     * 根据userId和specId查询用户购物车中的购物项信息
+     * @param userId 用户id
+     * @param specId 规格id
+     * @return
+     */
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<CartItem> queryCartByUserIdAndSpecId(String userId, String specId) {
@@ -126,8 +148,9 @@ public class CartServiceImpl implements CartService {
      * 插入用户购物车的数据到数据库中
      * @param it Session中存储的购物项，转换为可迭代对象，最后通过迭代把数据写入数据库
      * @param userId 用于标记哪个用户的购物车数据
-     * @param userId 用于标记哪个用户的购物车数据
+     * @param cartId 购物车的CartID
      */
+    @Transactional(propagation = Propagation.SUPPORTS)
     public Integer insertCartItemToDB(Iterator<Map.Entry<String, CartItemVo>> it,String userId,String cartId){
         Integer result = 0;
         //通过迭代器把Session中存储的购物项数据遍历出来，然后写入数据库
@@ -161,6 +184,7 @@ public class CartServiceImpl implements CartService {
      * 以上两个参数能够在数据库中定位一条数据，即购物车中的一条购物项。
      * @param buyCount 相同商品中，得到用户最新的购买该商品的数量，目的是最新的购买数量重新赋值给数据库中对应商品的原数量
      */
+    @Transactional(propagation = Propagation.SUPPORTS)
     public Integer updateCartItemBuyCountToDB(String cartId,String userId,Integer buyCount){
         //从数据库中根据购物车ID和userId，获取购物车表中的值得用户下的购物车数据
         Example example = new Example(CartItem.class);
