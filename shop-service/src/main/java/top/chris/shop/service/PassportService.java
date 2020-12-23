@@ -11,4 +11,6 @@ public interface PassportService {
     UsersVo regist(UsersBo usersBo);
     //登录方法
     UsersVo login(UsersBo usersBo);
+    //根据UserId获取用户信息
+    UsersVo renderUser(String userId);
 }

@@ -3,7 +3,26 @@ top:
   chris:
     shop:
       basicStaticServerUrl: "http://localhost:8848"
-
+#配置sftp
+sftp:
+  # 端口
+  port: 22
+  # 服务器地址
+  host: 192.168.2.2
+  # 账号
+  userName: root
+  # 密码
+  password: root
+  # 文件存储的根路径
+  basePath: /usr/images/
+  # session连接超时时间
+  sessionConnectTimeout: 30000
+  # channel连接超时时间
+  channelConnectedTimeout: 30000
+  # 协议
+  protocol: sftp
+  #本地访问服务器图片的地址
+  ImageBaseUrl: http://192.168.2.2:8089/
 #服务相关的配置
 #
 ###############################################################################

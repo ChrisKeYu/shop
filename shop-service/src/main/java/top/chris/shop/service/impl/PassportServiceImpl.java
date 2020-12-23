@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 import top.chris.shop.common.ShopConstant;
 import top.chris.shop.enums.SexEnum;
+import top.chris.shop.exception.UserException;
 import top.chris.shop.util.DateUtil;
 import top.chris.shop.util.JsonResult;
 import top.chris.shop.mapper.UsersMapper;
@@ -84,6 +85,20 @@ public class PassportServiceImpl implements PassportService {
             return usersVo;
         }
         usersVo = new UsersVo(users.getId(),users.getUsername(),users.getFace(),users.getSex());
+        return usersVo;
+    }
+
+    @Override
+    public UsersVo renderUser(String userId) {
+        Users users = usersMapper.selectByPrimaryKey(userId);
+        if (users == null){
+            throw new UserException("用户不存在");
+        }
+        UsersVo usersVo = new UsersVo();
+        usersVo.setId(userId);
+        usersVo.setFace(users.getFace());
+        usersVo.setSex(users.getSex());
+        usersVo.setUsername(users.getUsername());
         return usersVo;
     }
 

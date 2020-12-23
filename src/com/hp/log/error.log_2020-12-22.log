@@ -1,0 +1,19 @@
+2020-12-22 18:43:19 下午 [Thread: main][ Class:org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter >> Method: org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter.report(LoggingFailureAnalysisReporter.java:42) ]
+ERROR:
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field myCenterService in top.chris.shop.web.controller.MyCenterController required a bean of type 'top.chris.shop.service.MyCenterService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'top.chris.shop.service.MyCenterService' in your configuration.
+

@@ -151,6 +151,7 @@ public class BuyCartController {
         log.info("删除了购物车CartId："+cartId+"的"+result+"条数据");
         return JsonResult.isOk(result);
     }
+
     @GetMapping("/delAll")
     public JsonResult  delBuyCart(HttpServletRequest request, HttpServletResponse response){
         //false代表：不创建session对象，只是从request中获取。
