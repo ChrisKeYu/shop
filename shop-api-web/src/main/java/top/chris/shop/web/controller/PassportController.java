@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import top.chris.shop.common.ShopProperties;
 import top.chris.shop.pojo.vo.UsersVo;
 import top.chris.shop.util.CookieUtils;
 import top.chris.shop.util.JsonResult;
@@ -57,6 +58,9 @@ public class PassportController {
 
     @Autowired
     private ObjectMapper objectMapper;
+
+    @Autowired
+    private ShopProperties shopProperties;
 
     @ApiOperation("查看注册用户是否已经存在")
     @GetMapping("/usernameIsExist")
@@ -115,6 +119,8 @@ public class PassportController {
         }
         //只是抹去了浏览器中的对应key的cookie。单纯删除cookie，在单体架构中使用。
         CookieUtils.deleteCookie(request,response,"user");
+        //只是抹去了浏览器中的对应key的cookie。单纯删除cookie，在单体架构中使用。
+        CookieUtils.deleteCookie(request,response,shopProperties.getShopCarCookieName());
         return JsonResult.ok();
     }
 }

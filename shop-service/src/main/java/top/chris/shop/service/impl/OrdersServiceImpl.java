@@ -241,4 +241,10 @@ public class OrdersServiceImpl implements OrdersService {
         example.createCriteria().andEqualTo("userId",userId);
         return ordersMapper.selectByExample(example);
     }
+
+    @Override
+    public List<Orders> queryOrdersByUserIdAndOrderStatus(String userId, String orderStatus) {
+        List<Orders> orders = ordersMapper.queryOrderByUserIdAndOrderStatus(userId, orderStatus);
+        return orders;
+    }
 }

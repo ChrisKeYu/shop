@@ -30,14 +30,14 @@ public class MyOrdersController {
     @ApiOperation("查询指定用户订单动向-分页查询")
     @PostMapping("/trend")
     public JsonResult getOrderTrend(String userId,@RequestParam(defaultValue = "1") Integer page,
-                                    @RequestParam(defaultValue = "10") Integer pageSize){
+                                    @RequestParam(defaultValue = "5") Integer pageSize){
         return JsonResult.isOk(myOrdersService.queryOrdersTrendByUserId(userId,page,pageSize));
     }
 
     @ApiOperation("查询指定用户的所有订单详细信息-分页查询")
     @PostMapping("/query")
     public JsonResult getOrdersItemsInfo(String userId,String orderStatus,@RequestParam(defaultValue = "1") Integer page,
-                                       @RequestParam(defaultValue = "10") Integer pageSize){
+                                       @RequestParam(defaultValue = "5") Integer pageSize){
         return JsonResult.isOk(myOrdersService.queryOrdersItemsInfoByUserId(userId,orderStatus,page,pageSize));
     }
 

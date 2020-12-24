@@ -38,7 +38,7 @@ public class MyCommentsController {
 
     @ApiOperation("查询指定用户订单状态的评论数")
     @PostMapping("/query")
-    public JsonResult getMyOrderComment(String userId,@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer pageSize){
+    public JsonResult getMyOrderComment(String userId,@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "5") Integer pageSize){
         PagedGridResult pagedGridResult = myCommentService.queryMyCommentsByUserId(userId, page, pageSize);
         if (pagedGridResult != null){
             return JsonResult.isOk(pagedGridResult);

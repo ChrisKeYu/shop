@@ -14,4 +14,6 @@ public class ShopProperties {
     private String basicStaticServerUrl = "http://localhost:8848";
     //前端Cookie保存的购物车名称
     private String shopCarCookieName = "shopcart";
+
+
 }

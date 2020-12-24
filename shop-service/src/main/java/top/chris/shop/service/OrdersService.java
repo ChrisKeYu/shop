@@ -24,5 +24,7 @@ public interface OrdersService {
     List<OrderStatus> queryOrdersStatusByUserId(String userId);
     //根据用户id查询查询订单表的信息
     List<Orders> queryOrderByUserId(String userId);
+    //根据userId和OrderStatus查询订单
+    List<Orders> queryOrdersByUserIdAndOrderStatus(String userId,String orderStatus);
 
 }

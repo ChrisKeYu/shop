@@ -1,7 +1,6 @@
 package top.chris.shop.service.impl;
 
 import lombok.extern.java.Log;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +10,6 @@ import top.chris.shop.exception.UserException;
 import top.chris.shop.mapper.UsersMapper;
 import top.chris.shop.pojo.Users;
 import top.chris.shop.pojo.bo.UserInfoBo;
-import top.chris.shop.pojo.bo.UsersBo;
 import top.chris.shop.pojo.vo.UserInfoVo;
 import top.chris.shop.service.MyCenterService;
 
@@ -70,6 +68,9 @@ public class MyCenterServiceImpl implements MyCenterService {
         }
         if (bo.getRealname() != null){
             users.setRealname(bo.getRealname());
+        }
+        if (bo.getSex() != null){
+            users.setSex(bo.getSex());
         }
         if (bo.getBirthday() != null){
             users.setBirthday(bo.getBirthday());

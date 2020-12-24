@@ -4,4 +4,30 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="top.chris.shop.mapper.OrdersMapper">
 
+    <select id="queryOrderByUserIdAndOrderStatus" resultType="top.chris.shop.pojo.Orders" parameterType="string">
+        SELECT
+	        ord.id AS id,
+	        ord.user_id AS userId,
+	        ord.receiver_name AS receiverName,
+	        ord.receiver_mobile AS receiverMobile,
+	        ord.receiver_address AS receiverAddress,
+	        ord.total_amount AS totalAmount,
+	        ord.real_pay_amount AS realPayAmount ,
+	        ord.post_amount AS postAmount,
+	        ord.pay_method AS payMethod,
+	        ord.left_msg AS leftMsg,
+	        ord.extand AS extand,
+	        ord.is_comment AS isComment,
+	        ord.is_delete AS isDelete,
+	        ord.created_time AS createdTime,
+	        ord.updated_time AS updatedTime
+        FROM
+	        ( SELECT * FROM orders WHERE user_id = #{userId} ) AS ord,
+	        order_status AS oss
+        WHERE
+	        ord.id = oss.order_id
+	    AND
+	        oss.order_status = #{orderStatus}
+
+    </select>
 </mapper>

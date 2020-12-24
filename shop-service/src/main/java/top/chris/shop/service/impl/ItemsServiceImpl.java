@@ -165,7 +165,7 @@ public class ItemsServiceImpl implements ItemsService {
     @Override
     public PagedGridResult renderCommentByItemIdAndLevel(CommentBo commentBo,Integer page, Integer pageSize) {
         //使用PageHelper进行分页查询
-        //PageHelper.startPage(page,pageSize);
+        PageHelper.startPage(page,pageSize);
         List<CommentRecordVo> result = commentsMapper.getCommentByItemIdAndLevel(commentBo);
         PagedGridResult pagedGridResult = new PagedGridResult();
         if (result != null){

@@ -2,8 +2,11 @@ package top.chris.shop.service;
 
 
 
+import top.chris.shop.pojo.Orders;
 import top.chris.shop.pojo.vo.OrderStatusCountsVo;
 import top.chris.shop.util.PagedGridResult;
+
+import java.util.List;
 
 
 public interface MyOrdersService {
@@ -18,4 +21,5 @@ public interface MyOrdersService {
 
     //根据userId和OrderId修改订单状态，而且把该订单的商品写入到商品评论表中，方便下次点击该订单评论的时候可以在评论表中提取对应商品然后修改商品评论内容和等级。
     Integer updateOrderStatusByUserIdAndOrderId(String userId,String orderId,Integer orderStatus);
+
 }

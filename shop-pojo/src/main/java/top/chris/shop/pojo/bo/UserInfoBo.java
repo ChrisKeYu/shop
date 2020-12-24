@@ -9,6 +9,7 @@ import java.util.Date;
 public class UserInfoBo {
     private String nickname;
     private String realname;
+    private Integer sex;
     private String mobile;
     private String email;
     private Date birthday;

@@ -1,5 +1,6 @@
 package top.chris.shop.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.java.Log;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
@@ -9,11 +10,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
+import top.chris.shop.common.OrdersStatusCommon;
+import top.chris.shop.common.ShopProperties;
 import top.chris.shop.enums.CommentLevelEnum;
 import top.chris.shop.enums.OrdersStatusEnum;
 import top.chris.shop.exception.OrdersException;
 import top.chris.shop.mapper.ItemsCommentsMapper;
 import top.chris.shop.mapper.OrderStatusMapper;
+import top.chris.shop.mapper.OrdersMapper;
 import top.chris.shop.pojo.ItemsComments;
 import top.chris.shop.pojo.OrderItems;
 import top.chris.shop.pojo.OrderStatus;
@@ -40,7 +44,11 @@ public class MyOrdersServiceImpl implements MyOrdersService {
     @Autowired
     private OrderStatusMapper orderStatusMapper;
     @Autowired
+    private OrdersMapper ordersMapper;
+    @Autowired
     private ItemsCommentsMapper commentsMapper;
+    @Autowired
+    private PageHelper pageHelper;
 
     /**
      * 根据userId查询用户所有不同订单状态下的订单个数
@@ -92,8 +100,20 @@ public class MyOrdersServiceImpl implements MyOrdersService {
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public PagedGridResult queryOrdersTrendByUserId(String userId, Integer page, Integer pageSize) {
-        //根据用户id查询订单状态表
-        List<OrderStatus> statusList = ordersService.queryOrdersStatusByUserId(userId);
+        //根据userId查询用户的订单表信息
+        List<Orders> orders = ordersService.queryOrderByUserId(userId);
+        //2、创建一个List集合存储指定用户下的所有订单id
+        List<String> ordersIds = new ArrayList<String>();
+        //3、遍历orders集合获取该用户下的订单id,将其封装起来
+        for (Orders order : orders) {
+            ordersIds.add(order.getId());
+        }
+        //4、根据ordersIds去orderStatus表中获取数据
+        Example example = new Example(OrderStatus.class);
+        example.createCriteria().andIn("orderId",ordersIds);
+        //使用pageHelper进行分页查询的设定page和pagesize
+        pageHelper.startPage(page,pageSize);
+        List<OrderStatus> statusList = orderStatusMapper.selectByExample(example);
         //把查询到数据进行封装
         List<OrderTrendVo> result = new ArrayList<OrderTrendVo>();
         for (OrderStatus orderStatus : statusList) {
@@ -105,12 +125,12 @@ public class MyOrdersServiceImpl implements MyOrdersService {
             vo.setSuccessTime(orderStatus.getSuccessTime());
             result.add(vo);
         }
-        log.info("查看订单状态:"+ ReflectionToStringBuilder.toString(result));
         //使用分页插件
         PagedGridResult pagedGridResult = new PagedGridResult();
         if (result != null){
-            PageInfo<?> pageInfo = new PageInfo<>(result);
-            //插入数据
+            //传入的参数是被pageHelper设定大小查询返回的结果对象，因为被pageHelper设定后，它会先去查询总量，然后再根据你指定的大小输出具体量的数据,因此总的记录数是保存在该对象上的
+            PageInfo<?> pageInfo = new PageInfo<>(statusList);
+            //插入查询到的指定数据，与上面传入的参数是不一致的，下面传入的参数是orders对象被pageHelper设定固定大小后返回的结果，再由返回的结果查询到的具体数据。
             pagedGridResult.setRows(result);
             //插入当前页数
             pagedGridResult.setPage(page);
@@ -118,6 +138,7 @@ public class MyOrdersServiceImpl implements MyOrdersService {
             pagedGridResult.setRecords(pageInfo.getTotal());
             //插入总页数（总记录数 / pageSize[每一页的可展示的数量]）
             pagedGridResult.setTotal(pageInfo.getPages());
+            log.info("查看分页情况："+ ReflectionToStringBuilder.toString(pagedGridResult));
         }
         return pagedGridResult;
     }
@@ -133,32 +154,28 @@ public class MyOrdersServiceImpl implements MyOrdersService {
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public PagedGridResult queryOrdersItemsInfoByUserId(String userId, String orderStatus, Integer page, Integer pageSize) {
-        //根据用户userID查询订单信息
-        List<Orders> orders = ordersService.queryOrderByUserId(userId);
-        //只查询未付款的订单信息
-        if (orderStatus.equals(OrdersStatusEnum.WAIT_PAY)){
-            log.info("未付款的订单信息:"+orderStatus);
-            return queryOrdersItemsInfoByOrderIdAndorderStatus(orders,orderStatus,page,pageSize);
-        }
-        //只查询付了款，但是没有发货的订单信息
-        else if (orderStatus.equals(OrdersStatusEnum.PAID)){
-            log.info("付了款，但是没有发货的订单信息:"+orderStatus);
-            return queryOrdersItemsInfoByOrderIdAndorderStatus(orders,orderStatus,page,pageSize);
-        }
-        //只查询付了款且已发货，但是未收货的订单信息
-        else if (orderStatus.equals(OrdersStatusEnum.DELIVERED)){
-            log.info("付了款且已发货，但是未收货的订单信息:"+orderStatus);
-            return queryOrdersItemsInfoByOrderIdAndorderStatus(orders,orderStatus,page,pageSize);
-        }
-        //查询交易完成的订单
-        else if (orderStatus.equals(OrdersStatusEnum.SUCCESS)){
-            log.info("交易完成的订单:"+orderStatus);
-            return queryOrdersItemsInfoByOrderIdAndorderStatus(orders,orderStatus,page,pageSize);
-        }
-        //查询所有订单信息
-        else {
-            log.info("所有订单信息:"+orderStatus);
-            return queryOrdersItemsInfoByOrderIdAndorderStatus(orders,orderStatus,page,pageSize);
+        if (orderStatus.equals("")){
+            //使用pageHelper进行分页查询的设定page和pagesize
+            pageHelper.startPage(page,pageSize);
+            //根据用户userID查询订单信息
+            List<Orders> orders = ordersService.queryOrderByUserId(userId);
+            //询指定订单状态下的订单商品信息
+            List<OrderInfoVo> orderInfoVos = queryOrdersItemsInfoByOrderIdAndorderStatus(orders);
+            //封装分页信息
+            PagedGridResult pagedGridResult = savePagedGridResult(orderInfoVos, orders, page);
+            //返回分页信息
+            return pagedGridResult;
+        }else {
+            //使用pageHelper进行分页查询的设定page和pagesize
+            pageHelper.startPage(page,pageSize);
+            //根据用户userID和OrderStatus查询订单信息
+            List<Orders> orders = ordersService.queryOrdersByUserIdAndOrderStatus(userId,orderStatus);
+            //询指定订单状态下的订单商品信息
+            List<OrderInfoVo> orderInfoVos = queryOrdersItemsInfoByOrderIdAndorderStatus(orders);
+            //封装分页信息
+            PagedGridResult pagedGridResult = savePagedGridResult(orderInfoVos, orders, page);
+            //返回分页信息
+            return pagedGridResult;
         }
     }
 
@@ -205,41 +222,16 @@ public class MyOrdersServiceImpl implements MyOrdersService {
     /**
      * 查询指定订单状态下的订单商品信息
      * @param orders 根据userId，在Order表中查询到的所有该用户下的订单数据
-     * @param orderStatus 根据前端传入的待查询订单状态码，根据不同的码，提取不同的数据展示
-     * @param page 当前页面
-     * @param pageSize 页面大小
      * @return
      */
     @Transactional(propagation = Propagation.SUPPORTS)
-    public PagedGridResult queryOrdersItemsInfoByOrderIdAndorderStatus(List<Orders> orders,String orderStatus,Integer page, Integer pageSize){
+    public List<OrderInfoVo> queryOrdersItemsInfoByOrderIdAndorderStatus(List<Orders> orders){
         //构建存储订单详细信息Vo对象的List集合
         List<OrderInfoVo> orderInfoVos = new ArrayList<OrderInfoVo>();
         for (Orders order : orders) {
-            //获取对应订单id的订单状态码信息
-            String status = ordersService.queryOrderStatusByOrderId(order.getId());
-            if (status.equals(orderStatus)){
-                //当传入的订单状态码和数据库中订单的状态码对应上了，才取出数据来。
-                orderInfoVos = queryOrdersItems(order,orderInfoVos);
-            }
-            else if (orderStatus.equals("")){
-                //当传入的订单状态码为“”，则取出全部数据。
-                orderInfoVos = queryOrdersItems(order,orderInfoVos);
-            }
+            orderInfoVos = queryOrdersItems(order,orderInfoVos);
         }
-        //使用分页插件
-        PagedGridResult pagedGridResult = new PagedGridResult();
-        if (orderInfoVos != null){
-            PageInfo<?> pageInfo = new PageInfo<>(orderInfoVos);
-            //插入数据
-            pagedGridResult.setRows(orderInfoVos);
-            //插入当前页数
-            pagedGridResult.setPage(page);
-            //插入查询的总记录数
-            pagedGridResult.setRecords(pageInfo.getTotal());
-            //插入总页数（总记录数 / pageSize[每一页的可展示的数量]）
-            pagedGridResult.setTotal(pageInfo.getPages());
-        }
-        return pagedGridResult;
+        return orderInfoVos;
     }
 
     /**
@@ -274,4 +266,31 @@ public class MyOrdersServiceImpl implements MyOrdersService {
         orderInfoVos.add(orderInfoVo);
         return orderInfoVos;
     }
+
+    /**
+     * 专门用于做分页后结果的封装
+     * @param orderInfoVos 根据分页输出的结果，查询该结果集下面的所有订单信息
+     * @param orders   分页输出的结果：包含{总记录数、分页记录结果}
+     * @param page  当前页面大小
+     * @return
+     */
+    public PagedGridResult savePagedGridResult( List<OrderInfoVo> orderInfoVos,List<Orders> orders,Integer page){
+        //使用分页插件
+        PagedGridResult pagedGridResult = new PagedGridResult();
+        if (orderInfoVos != null){
+            //传入的参数是被pageHelper设定大小查询返回的结果对象，因为被pageHelper设定后，它会先去查询总量，然后再根据你指定的大小输出具体量的数据,因此总的记录数是保存在该对象上的
+            PageInfo<?> pageInfo = new PageInfo<>(orders);
+            //插入查询到的指定数据，与上面传入的参数是不一致的，下面传入的参数是orders对象被pageHelper设定固定大小后返回的结果，再由返回的结果查询到的具体数据。
+            pagedGridResult.setRows(orderInfoVos);
+            //插入当前页数
+            pagedGridResult.setPage(page);
+            //插入查询的总记录数
+            pagedGridResult.setRecords(pageInfo.getTotal());
+            //插入总页数（总记录数 / pageSize[每一页的可展示的数量]）
+            pagedGridResult.setTotal(pageInfo.getPages());
+        }
+        return pagedGridResult;
+    }
+
+
 }

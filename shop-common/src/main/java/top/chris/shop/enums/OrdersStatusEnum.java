@@ -8,8 +8,22 @@ public enum OrdersStatusEnum {
     public final Integer type;
     public final String content;
 
+    public Integer getType() {
+        return type;
+    }
+
     OrdersStatusEnum(Integer type, String content) {
         this.type = type;
         this.content = content;
     }
+    public static int getById(Integer id){
+        for(OrdersStatusEnum transactType : values()){
+            if (transactType.getType() == id) {
+                //获取指定的枚举
+                return transactType.getType();
+            }
+        }
+        return 0;
+    }
+
 }
