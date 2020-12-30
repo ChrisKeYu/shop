@@ -31,6 +31,7 @@ public class Items implements Serializable {
     @Column(name = "`root_cat_id`")
     private Integer rootCatId;
 
+
     /**
      * 累计销售 累计销售
      */
@@ -117,6 +118,7 @@ public class Items implements Serializable {
         this.catId = catId;
     }
 
+
     /**
      * 获取一级分类外键id 一级分类id，用于优化查询
      *
@@ -134,7 +136,6 @@ public class Items implements Serializable {
     public void setRootCatId(Integer rootCatId) {
         this.rootCatId = rootCatId;
     }
-
     /**
      * 获取累计销售 累计销售
      *

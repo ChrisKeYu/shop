@@ -3,6 +3,7 @@ package top.chris.shop.util;
 
 import com.jcraft.jsch.*;
 
+import lombok.extern.java.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import top.chris.shop.config.SFtpConfig;
@@ -86,6 +87,25 @@ public class SFtpUtil{
         return false;
     }
 
+    /**
+     * 删除文件
+     *  (无法删除，原因未知)
+     * @param directory 要删除文件所在目录
+     * @param deleteFile 要删除的文件
+     * @param sFtpConfig sftp配置文件
+     */
+    public static void delete(String directory, String deleteFile,SFtpConfig sFtpConfig) throws JSchException {
+        ChannelSftp sftp = getSftp(sFtpConfig);
+        String fileDir = sFtpConfig.getBasePath() + directory;
+        try {
+            log.info("访问的文件目录为："+fileDir);
+            sftp.cd(fileDir);
+            log.info("删除的文件名称为："+deleteFile);
+            sftp.rm("/root/"+fileDir+deleteFile);
+        } catch (Exception e) {
+            log.info("delete:"+e);
+        }
+    }
 
     /**
      * 功能描述： 创建sftp连接
