@@ -4,6 +4,8 @@ import lombok.Data;
 
 @Data
 public class AdminItemParamBo {
+    //商品参数id
+    private String id;
     //商品id
     private String itemId;
     //生产地

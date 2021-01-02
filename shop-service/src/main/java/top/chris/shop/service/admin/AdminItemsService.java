@@ -31,6 +31,5 @@ public interface AdminItemsService {
     Integer updateItemInfo(AdminItemBo bo);
     //根据ItemId删除商品
     Map<String,String> deleteItemByItemId(String itemId);
-    //TODO (无法删除，原因未知) 根据商品图片的ID删除图片
-    Integer deleteItemImgById(String id,String directory,String deleteFile);
+
 }

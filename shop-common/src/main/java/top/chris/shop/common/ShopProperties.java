@@ -14,6 +14,11 @@ public class ShopProperties {
     private String basicStaticServerUrl = "http://localhost:8848";
     //前端Cookie保存的购物车名称
     private String shopCarCookieName = "shopcart";
-
+    //商品照片的存储位置
+    private String  itemImageCentosUrl = "foodie/";
+    //头像照片的存储位置
+    private String  faceImageCentosUrl = "face/";
+    //轮播图的存储位置
+    private String carouselImageCentosUrl = "carousel/";
 
 }

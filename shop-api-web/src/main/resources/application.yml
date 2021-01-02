@@ -14,7 +14,7 @@ sftp:
   # 密码
   password: root
   # 文件存储的根路径
-  basePath: /usr/images/
+  basePath: /usr/photos/images/
   # session连接超时时间
   sessionConnectTimeout: 30000
   # channel连接超时时间

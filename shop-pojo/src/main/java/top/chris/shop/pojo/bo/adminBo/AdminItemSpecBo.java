@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 
 @Data
 public class AdminItemSpecBo {
+    private String id;
     private String itemId;
     //规格名称：3kg/箱、6kg/箱、10kg/箱
     private String name;

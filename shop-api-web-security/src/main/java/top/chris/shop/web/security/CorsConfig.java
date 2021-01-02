@@ -26,6 +26,7 @@ public class CorsConfig {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         //添加允许访问本服务的源路径(域名+端口)，类似添加一个放行组
         corsConfiguration.addAllowedOrigin(shopProperties.getBasicStaticServerUrl());
+        //corsConfiguration.addAllowedOrigin(shopProperties.getAdminBasicStaticServerUrl());
         //允许认证
         corsConfiguration.setAllowCredentials(true);
         //允许访问的方法,*表示所有的方法

@@ -1,13 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="top.chris.shop.mapper.ItemsCommentsMapper">
-    <resultMap id="ItemCommentLevelDtoResultMapper" type="top.chris.shop.pojo.dto.ItemCommentLevelDto">
-        <result property="counts" column="counts"></result>
-        <result property="commentLevel" column="comment_level"></result>
-    </resultMap>
-    <select id="getCommentForEveryLevelByItemId" parameterType="String" resultMap="ItemCommentLevelDtoResultMapper">
+	<resultMap id="ItemCommentLevelDtoResultMapper" type="top.chris.shop.pojo.dto.ItemCommentLevelDto">
+		<result property="counts" column="counts"></result>
+		<result property="commentLevel" column="comment_level"></result>
+	</resultMap>
+
+	<resultMap id="AllAdminItemCommentInfoResultMap" type="top.chris.shop.pojo.vo.adminVo.AdminItemCommentInfoVo">
+		<result column="id" property="id" />
+		<result column="itemId" property="itemId" />
+		<result column="userName" property="userName" />
+		<result column="itemImg" property="itemImg" />
+		<result column="itemName" property="itemName" />
+		<result column="itemSpecName" property="itemSpecName" />
+		<result column="commentLevel" property="commentLevel" />
+		<result column="content" property="content" />
+		<result column="createdTime" property="createdTime" />
+		<result column="updatedTime" property="updatedTime" />
+	</resultMap>
+
+	<resultMap id="ItemCommentByUserIdResultMap" type="top.chris.shop.pojo.vo.MyCommentVo">
+		<result column="itemName" property="itemName"/>
+		<result column="specName" property="specName"/>
+		<result column="content" property="content"/>
+		<result column="createdTime" property="createdTime"/>
+		<result column="itemImg" property="itemImg"/>
+	</resultMap>
+
+	<select id="getCommentForEveryLevelByItemId" parameterType="String" resultMap="ItemCommentLevelDtoResultMapper">
         SELECT
 	comment_level,
 	COUNT(*) AS 'counts'
@@ -18,23 +40,318 @@ WHERE
 GROUP BY
 	comment_level
     </select>
-    <select id="getCommentByItemIdAndLevel" resultType="top.chris.shop.pojo.vo.CommentRecordVo" parameterType="top.chris.shop.pojo.bo.CommentBo">
-        SELECT
-	u.face AS userFace,
-	u.nickname AS nickname,
-	ic.created_time AS createdTime,
-	ic.content AS content,
-	ic.sepc_name AS specName
+
+	<select id="getCommentByItemIdAndLevel" resultType="top.chris.shop.pojo.vo.CommentRecordVo" parameterType="top.chris.shop.pojo.bo.CommentBo">
+		SELECT
+		u.face AS userFace,
+		u.nickname AS nickname,
+		ic.created_time AS createdTime,
+		ic.content AS content,
+		ic.sepc_name AS specName
+		FROM
+		items_comments ic
+		LEFT JOIN users u ON u.id = ic.user_id
+		<where>
+			<if test="itemId != null">
+				AND item_id = #{itemId}
+			</if>
+			<if test="level != 0 and level != null">
+				AND comment_level = #{level}
+			</if>
+		</where>
+	</select>
+
+	<select id="getAllAdminItemCommentInfo" resultMap="AllAdminItemCommentInfoResultMap" parameterType="string">
+		SELECT
+		icui.id AS id,
+		icui.item_id AS itemId,
+		icui.username AS userName,
+		icui.url AS itemImg,
+		icui.item_name AS itemName,
+		icui.itemSpecName AS itemSpecName,
+		icui.comment_level AS commentLevel,
+		icui.content AS content,
+		icui.created_time AS createdTime,
+		icui.updated_time AS updatedTime
+		FROM
+		(
+		SELECT
+		icu.*,
+		ii.url,
+		ii.is_main
+		FROM
+		(
+		SELECT
+		ic.id,
+		ic.user_id,
+		ic.item_id,
+		ic.item_name,
+		ic.sepc_name as itemSpecName ,
+		ic.comment_level,
+		ic.content,
+		ic.created_time,
+		ic.updated_time,
+		users.username
+		FROM
+		items_comments AS ic
+		LEFT JOIN users ON ic.user_id = users.id
+		WHERE	ic.created_time != ic.updated_time
+		) AS icu
+		LEFT JOIN items_img AS ii ON icu.item_id = ii.item_id
+		) AS icui
+		WHERE
+		icui.is_main = '1'
+		<if test="condition != null ">
+			and icui.comment_level = #{condition}
+		</if>
+	</select>
+
+	<select id="queryItemCommentByCondition" resultMap="AllAdminItemCommentInfoResultMap">
+		SELECT
+		*
+		FROM
+		(
+		SELECT
+		iip.*
+		FROM
+		(
+		SELECT
+		icic.*,
+		i.cat_id AS catId,
+		i.root_cat_id AS rootCatId
+		FROM
+		(
+		SELECT
+		icui.id AS id,
+		icui.item_id AS itemId,
+		icui.username AS userName,
+		icui.url AS itemImg,
+		icui.item_name AS itemName,
+		icui.itemSpecName AS itemSpecName,
+		icui.comment_level AS commentLevel,
+		icui.content AS content,
+		icui.created_time AS createdTime,
+		icui.updated_time AS updatedTime
+		FROM
+		(
+		SELECT
+		icu.*,
+		ii.url,
+		ii.is_main
+		FROM
+		(
+		SELECT
+		ic.id,
+		ic.user_id,
+		ic.item_id,
+		ic.item_name,
+		ic.sepc_name AS itemSpecName,
+		ic.comment_level,
+		ic.content,
+		ic.created_time,
+		ic.updated_time,
+		users.username
+		FROM
+		items_comments AS ic
+		LEFT JOIN users ON ic.user_id = users.id
+		WHERE	ic.created_time != ic.updated_time
+		) AS icu
+		LEFT JOIN items_img AS ii ON icu.item_id = ii.item_id
+		) AS icui
+		WHERE
+		icui.is_main = '1'
+		) AS icic
+		LEFT JOIN items AS i ON i.id = icic.itemId
+		) AS iip
+		LEFT JOIN category AS ca ON iip.catId = ca.id
+		) AS iicp
+
+		<where>
+			<if test="userName != null">
+				iicp.userName LIKE '%${userName}%'
+			</if>
+			<if test="itemName != null">
+				 iicp.itemName LIKE '%${itemName}%'
+			</if>
+			<if test="category0 != null">
+				AND	iicp.rootCatId = #{category0}
+			</if>
+			<if test="catIdCatgory0 != null">
+				AND iicp.catId = #{catIdCatgory0}
+			</if>
+		</where>
+	</select>
+
+	<select id="queryItemCommentByCatIdAndRootCatId" resultMap="AllAdminItemCommentInfoResultMap">
+	SELECT
+	*
 FROM
-	items_comments ic
-	LEFT JOIN users u ON u.id = ic.user_id
-	<where>
-		<if test="itemId != null">
-			AND item_id = #{itemId}
+	(
+	SELECT
+		iip.*
+	FROM
+		(
+		SELECT
+	icic.*,
+	i.cat_id AS catId,
+	i.root_cat_id AS rootCatId
+FROM
+	(
+	SELECT
+		icui.id AS id,
+		icui.item_id AS itemId,
+		icui.username AS userName,
+		icui.url AS itemImg,
+		icui.item_name AS itemName,
+		icui.itemSpecName AS itemSpecName,
+		icui.comment_level AS commentLevel,
+		icui.content AS content,
+		icui.created_time AS createdTime,
+		icui.updated_time AS updatedTime
+	FROM
+		(
+		SELECT
+			icu.*,
+			ii.url,
+			ii.is_main
+		FROM
+			(
+			SELECT
+				ic.id,
+				ic.user_id,
+				ic.item_id,
+				ic.item_name,
+				ic.sepc_name AS itemSpecName,
+				ic.comment_level,
+				ic.content,
+				ic.created_time,
+				ic.updated_time,
+				users.username
+			FROM
+				items_comments AS ic
+				LEFT JOIN users ON ic.user_id = users.id
+			) AS icu
+			LEFT JOIN items_img AS ii ON icu.item_id = ii.item_id
+		) AS icui
+	WHERE
+		icui.is_main = '1'
+	) AS icic
+	LEFT JOIN items AS i ON i.id = icic.itemId
+		) AS iip
+		LEFT JOIN category AS ca ON iip.catId = ca.id
+	) AS iicp
+		<where>
+			<if test="category0 != null">
+				iicp.rootCatId = #{category0}
+			</if>
+			<if test="catIdCatgory0 != null">
+				AND iicp.catId = #{catIdCatgory0}
+			</if>
+		</where>
+	</select>
+
+	<select id="queryItemCommentByUserNameAndItemNameAndCat" resultMap="AllAdminItemCommentInfoResultMap">
+		SELECT
+		*
+		FROM
+		(
+		SELECT
+		iip.*
+		FROM
+		(
+		SELECT
+		icic.*,
+		i.cat_id AS catId,
+		i.root_cat_id AS rootCatId
+		FROM
+		(
+		SELECT
+		icui.id AS id,
+		icui.item_id AS itemId,
+		icui.username AS userName,
+		icui.url AS itemImg,
+		icui.item_name AS itemName,
+		icui.itemSpecName AS itemSpecName,
+		icui.comment_level AS commentLevel,
+		icui.content AS content,
+		icui.created_time AS createdTime,
+		icui.updated_time AS updatedTime
+		FROM
+		(
+		SELECT
+		icu.*,
+		ii.url,
+		ii.is_main
+		FROM
+		(
+		SELECT
+		ic.id,
+		ic.user_id,
+		ic.item_id,
+		ic.item_name,
+		ic.sepc_name AS itemSpecName,
+		ic.comment_level,
+		ic.content,
+		ic.created_time,
+		ic.updated_time,
+		users.username
+		FROM
+		items_comments AS ic
+		LEFT JOIN users ON ic.user_id = users.id
+		WHERE	ic.created_time != ic.updated_time
+		) AS icu
+		LEFT JOIN items_img AS ii ON icu.item_id = ii.item_id
+		) AS icui
+		WHERE
+		icui.is_main = '1'
+		) AS icic
+		LEFT JOIN items AS i ON i.id = icic.itemId
+		) AS iip
+		LEFT JOIN category AS ca ON iip.catId = ca.id
+		) AS iicp
+
+		where iicp.userName LIKE '%${userName}%' and  iicp.itemName LIKE '%${itemName}%'
+		<if test="category0 != null">
+			AND	iicp.rootCatId = #{category0}
 		</if>
-		<if test="level != 0 and level != null">
-			AND comment_level = #{level}
+		<if test="catIdCatgory0 != null">
+			AND iicp.catId = #{catIdCatgory0}
 		</if>
-	</where>
-    </select>
+	</select>
+
+	<select id="queryItemCommentByUserId" parameterType="string" resultMap="ItemCommentByUserIdResultMap">
+SELECT
+	iiic.itemName AS itemName,
+	iiic.specName AS specName,
+	iiic.content AS content,
+	iiic.createdTime AS createdTime,
+	iiic.itemImg AS itemImg
+FROM
+	(
+	SELECT
+		iic.itemName AS itemName,
+		iic.specName AS specName,
+		iic.content AS content,
+		iic.createdTime AS createdTime,
+		items_img.url AS itemImg,
+		items_img.is_main
+	FROM
+		(
+		SELECT
+			ice.item_name AS itemName,
+			ice.sepc_name AS specName,
+			ice.content AS content,
+			ice.created_time AS createdTime,
+			i.id
+		FROM
+			( SELECT * FROM items_comments AS ic WHERE ic.created_time != ic.updated_time AND ic.user_id = #{userId} ) AS ice
+			LEFT JOIN items AS i ON ice.item_id = i.id
+		) AS iic
+		LEFT JOIN items_img ON iic.id = items_img.item_id
+	) AS iiic
+WHERE
+	iiic.is_main = '1'
+	</select>
+
+
 </mapper>

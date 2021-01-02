@@ -11,15 +11,126 @@
         <result property="stock" column="stock"/>
         <result property="discounts" column="discounts"/>
     </resultMap>
+
+    <resultMap id="allItemsSpec" type="top.chris.shop.pojo.vo.adminVo.AdminItemSpecInfoVo">
+        <result column="id" property="id"/>
+        <result column="itemId" property="itemId"/>
+        <result column="itemName" property="itemName"/>
+        <result column="name" property="name"/>
+        <result column="stock" property="stock"/>
+        <result column="discounts" property="discounts"/>
+        <result column="priceDiscount" property="priceDiscount"/>
+        <result column="priceNormal" property="priceNormal"/>
+        <result column="createdTime" property="createdTime"/>
+        <result column="updatedTime" property="updatedTime"/>
+    </resultMap>
+
     <update id="updateItemSpecStock" parameterType="top.chris.shop.pojo.ItemsSpec">
         update items_spec ic set ic.stock = ic.stock - #{stock}
         where ic.stock - #{stock} > 0 and ic.id = #{id}
     </update>
+
     <select id="querySimpleItemsSpecByItemId" resultMap="SimpleItemsSpecResultMap" parameterType="String">
         select id,name,price_discount,price_normal,stock,discounts from items_spec where item_id = #{itemId}
     </select>
 
     <select id="querySimpleItemsSpecBySpecId" resultMap="SimpleItemsSpecResultMap" parameterType="String">
         select id,name,price_discount,price_normal,stock,discounts from items_spec where id = #{specId}
+    </select>
+
+    <select id="queryAllItemsSpec" resultMap="allItemsSpec">
+SELECT
+	isc. id as id ,
+	isc. item_id as itemId ,
+	i.item_name as itemName,
+	isc.`name` as name,
+	isc.stock as stock,
+	isc.discounts as discounts ,
+	isc.price_discount as priceDiscount,
+	isc.price_normal as priceNormal,
+	isc.created_time as createdTime,
+	isc.updated_time as updatedTime
+FROM
+	items_spec AS isc
+	LEFT JOIN items AS i ON isc.item_id = i.id
+    </select>
+
+    <select id="queryItemSpecByCondition" resultMap="allItemsSpec">
+        SELECT
+	*
+FROM
+	(
+	SELECT
+		iip.*
+	FROM
+		(
+		SELECT
+			isc.id AS id,
+			isc.item_id AS itemId,
+			i.item_name AS itemName,
+			isc.`name` AS NAME,
+			isc.stock AS stock,
+			isc.discounts AS discounts,
+			isc.price_discount AS priceDiscount,
+			isc.price_normal AS priceNormal,
+			isc.created_time AS createdTime,
+			isc.updated_time AS updatedTime,
+			i.cat_id AS catId,
+			i.root_cat_id AS rootCatId
+		FROM
+			items_spec AS isc
+			LEFT JOIN items AS i ON isc.item_id = i.id
+		) AS iip
+		LEFT JOIN category AS ca ON iip.catId = ca.id
+	) AS iicp
+        <where>
+            <if test="itemName != null">
+                iicp.itemName LIKE '%${itemName}%'
+            </if>
+            <if test="category0 != null">
+                AND	iicp.rootCatId = #{category0}
+            </if>
+            <if test="catIdCatgory0 != null">
+                AND iicp.catId = #{catIdCatgory0}
+            </if>
+        </where>
+    </select>
+
+    <select id="queryItemSpecByCatIdAndRootCatId" resultMap="allItemsSpec">
+        SELECT
+	*
+FROM
+	(
+	SELECT
+		iip.*
+	FROM
+		(
+		SELECT
+			isc.id AS id,
+			isc.item_id AS itemId,
+			i.item_name AS itemName,
+			isc.`name` AS NAME,
+			isc.stock AS stock,
+			isc.discounts AS discounts,
+			isc.price_discount AS priceDiscount,
+			isc.price_normal AS priceNormal,
+			isc.created_time AS createdTime,
+			isc.updated_time AS updatedTime,
+			i.cat_id AS catId,
+			i.root_cat_id AS rootCatId
+		FROM
+			items_spec AS isc
+			LEFT JOIN items AS i ON isc.item_id = i.id
+		) AS iip
+		LEFT JOIN category AS ca ON iip.catId = ca.id
+	) AS iicp
+        <where>
+            <if test="category0 != null">
+                iicp.rootCatId = #{category0}
+            </if>
+            <if test="catIdCatgory0 != null">
+                AND iicp.catId = #{catIdCatgory0}
+            </if>
+        </where>
     </select>
 </mapper>

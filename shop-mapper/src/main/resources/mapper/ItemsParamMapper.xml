@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="top.chris.shop.mapper.ItemsParamMapper">
-<resultMap id="simpleItemsParamResultMap" type="top.chris.shop.pojo.vo.RenderItemInfoVo$SimpleItemsParam">
+    <resultMap id="simpleItemsParamResultMap" type="top.chris.shop.pojo.vo.RenderItemInfoVo$SimpleItemsParam">
     <result property="producPlace" column="produc_place"/>
     <result property="brand" column="brand"/>
     <result property="factoryName" column="factory_name"/>
@@ -14,8 +14,137 @@
     <result property="storageMethod" column="storage_method"/>
     <result property="eatMethod" column="eat_method"/>
 </resultMap>
+
+    <resultMap id="allItemParam" type="top.chris.shop.pojo.vo.adminVo.AdminItemParamVo">
+        <result column="id" property="id"/>
+        <result column="itemId" property="itemId"/>
+        <result column="itemName" property="itemName"/>
+        <result column="producPlace" property="producPlace"/>
+        <result column="factoryName" property="factoryName"/>
+        <result column="factoryAddress" property="factoryAddress"/>
+        <result column="brand" property="brand"/>
+        <result column="packagingMethod" property="packagingMethod"/>
+        <result column="eatMethod" property="eatMethod"/>
+        <result column="footPeriod" property="footPeriod"/>
+        <result column="weight" property="weight"/>
+        <result column="storageMethod" property="storageMethod"/>
+        <result column="createdTime" property="createdTime"/>
+        <result column="updatedTime" property="updatedTime"/>
+    </resultMap>
+
     <select id="querySimpleItemsParamByItemId" parameterType="String" resultMap="simpleItemsParamResultMap">
         select produc_place,brand,factory_name,factory_address,packaging_method,foot_period,weight,storage_method,eat_method
         from items_param where item_id = #{itemId}
     </select>
+
+    <select id="queryAllItemParam" resultMap="allItemParam">
+SELECT
+	ip.id as id,
+	ip.item_id as itemId,
+	i.item_name	as itemName,
+	ip.produc_place as producPlace,
+	ip.factory_name as factoryName,
+	ip.factory_address as factoryAddress,
+	ip.brand as brand,
+	ip.packaging_method as packagingMethod,
+	ip.eat_method as eatMethod,
+	ip.foot_period as footPeriod,
+	ip.weight as weight,
+	ip.storage_method as storageMethod,
+	ip. created_time as createdTime ,
+	ip.updated_time as  updatedTime
+FROM
+	items_param AS ip
+	LEFT JOIN items AS i ON ip.item_id = i.id
+    </select>
+
+    <select id="queryItemParamByCondition" resultMap="allItemParam">
+        SELECT
+	*
+FROM
+	(
+	SELECT
+		iip.*
+	FROM
+		(
+		SELECT
+			ip.id AS id,
+			ip.item_id AS itemId,
+			i.item_name AS itemName,
+			ip.produc_place AS producPlace,
+			ip.factory_name AS factoryName,
+			ip.factory_address AS factoryAddress,
+			ip.brand AS brand,
+			ip.packaging_method AS packagingMethod,
+			ip.eat_method AS eatMethod,
+			ip.foot_period AS footPeriod,
+			ip.weight AS weight,
+			ip.storage_method AS storageMethod,
+			ip.created_time AS createdTime,
+			ip.updated_time AS updatedTime,
+			i.cat_id AS catId,
+			i.root_cat_id AS rootCatId
+		FROM
+			items_param AS ip
+			LEFT JOIN items AS i ON ip.item_id = i.id
+		) AS iip
+		LEFT JOIN category AS ca ON iip.catId = ca.id
+	) AS iicp
+        <where>
+            <if test="itemName != null">
+                iicp.itemName LIKE '%${itemName}%'
+            </if>
+            <if test="category0 != null">
+                AND	iicp.rootCatId = #{category0}
+            </if>
+            <if test="catIdCatgory0 != null">
+                AND iicp.catId = #{catIdCatgory0}
+            </if>
+        </where>
+    </select>
+
+    <select id="queryItemParamByCatIdAndRootCatId" resultMap="allItemParam">
+                SELECT
+	*
+FROM
+	(
+	SELECT
+		iip.*
+	FROM
+		(
+		SELECT
+			ip.id AS id,
+			ip.item_id AS itemId,
+			i.item_name AS itemName,
+			ip.produc_place AS producPlace,
+			ip.factory_name AS factoryName,
+			ip.factory_address AS factoryAddress,
+			ip.brand AS brand,
+			ip.packaging_method AS packagingMethod,
+			ip.eat_method AS eatMethod,
+			ip.foot_period AS footPeriod,
+			ip.weight AS weight,
+			ip.storage_method AS storageMethod,
+			ip.created_time AS createdTime,
+			ip.updated_time AS updatedTime,
+			i.cat_id AS catId,
+			i.root_cat_id AS rootCatId
+		FROM
+			items_param AS ip
+			LEFT JOIN items AS i ON ip.item_id = i.id
+		) AS iip
+		LEFT JOIN category AS ca ON iip.catId = ca.id
+	) AS iicp
+        <where>
+            <if test="category0 != null">
+                iicp.rootCatId = #{category0}
+            </if>
+            <if test="catIdCatgory0 != null">
+                AND iicp.catId = #{catIdCatgory0}
+            </if>
+        </where>
+
+    </select>
+
+
 </mapper>

@@ -3,6 +3,7 @@ package top.chris.shop.service.adminImpl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.jcraft.jsch.JSchException;
+import com.jcraft.jsch.SftpException;
 import lombok.extern.java.Log;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import tk.mybatis.mapper.entity.Example;
+import top.chris.shop.common.ShopProperties;
 import top.chris.shop.config.SFtpConfig;
 import top.chris.shop.enums.ItemStatusEnum;
 import top.chris.shop.enums.OrdersStatusEnum;
@@ -21,6 +23,7 @@ import top.chris.shop.pojo.bo.adminBo.*;
 import top.chris.shop.pojo.vo.adminVo.AdminItemImgsVo;
 import top.chris.shop.pojo.vo.adminVo.IsExistVo;
 import top.chris.shop.pojo.vo.adminVo.ItemsInfoVo;
+import top.chris.shop.service.admin.AdminItemImageService;
 import top.chris.shop.service.admin.AdminItemsService;
 import top.chris.shop.util.*;
 
@@ -46,6 +49,8 @@ public class AdminItemsServiceImpl implements AdminItemsService {
     private OrderItemsMapper orderItemsMapper;
     @Autowired
     private OrderStatusMapper orderStatusMapper;
+    @Autowired
+    private ShopProperties shopProperties;
     @Autowired
     private SFtpConfig sFtpConfig;
     @Autowired
@@ -429,17 +434,6 @@ public class AdminItemsServiceImpl implements AdminItemsService {
         return res;
     }
 
-    //TODO (无法删除，原因未知)
-    @Override
-    public Integer deleteItemImgById(String id,String directory,String deleteFile) {
-        //从数据库中删除存储在服务器中的url地址
-//        int i = itemsImgMapper.deleteByPrimaryKey(id);
-//        if (i != 0){
-        //从服务器中删除照片
-        deleteItemImgs(directory,deleteFile);
-//        }
-        return 1;
-    }
 
     /**
      * 封装数据库中查询到的信息到Vo对象中，并且返回Vo对象
@@ -479,7 +473,7 @@ public class AdminItemsServiceImpl implements AdminItemsService {
     public PagedGridResult finfishPagedGridResult(List<ItemsInfoVo> vos, Integer page,List<Items> items){
         //使用分页插件
         PagedGridResult pagedGridResult = new PagedGridResult();
-        if (vos != null){
+        if (vos != null || vos.size() != 0){
             //传入的参数是被pageHelper设定大小查询返回的结果对象，因为被pageHelper设定后，它会先去查询总量，然后再根据你指定的大小输出具体量的数据,因此总的记录数是保存在该对象上的
             PageInfo<?> pageInfo = new PageInfo<>(items);
             //插入查询到的指定数据，与上面传入的参数是不一致的，下面传入的参数是orders对象被pageHelper设定固定大小后返回的结果，再由返回的结果查询到的具体数据。
@@ -515,7 +509,7 @@ public class AdminItemsServiceImpl implements AdminItemsService {
         Example example2 = new Example(ItemsSpec.class);
         example2.createCriteria().andEqualTo("itemId",itemId);
         List<ItemsSpec> itemsSpecs = itemsSpecMapper.selectByExample(example2);
-        if (itemsSpecs.size() < 4){ //商品的规格暂时只能有三种，不能超过三种
+        if (itemsSpecs.size() < 3){ //商品的规格暂时只能有三种，不能超过三种
             vo.setSpecIsExist(false);
         }else {
             vo.setSpecIsExist(true);
@@ -524,7 +518,7 @@ public class AdminItemsServiceImpl implements AdminItemsService {
         Example example3 = new Example(ItemsImg.class);
         example3.createCriteria().andEqualTo("itemId",itemId);
         List<ItemsImg> itemsImgs = itemsImgMapper.selectByExample(example3);
-        if (itemsImgs.size() < 3){ //商品的照片暂时只能上传两张，不能超过两张
+        if (itemsImgs.size() < 2){ //商品的照片暂时只能上传两张，不能超过两张
             vo.setImgIsExist(false);
         }else {
             vo.setImgIsExist(true);
@@ -592,12 +586,36 @@ public class AdminItemsServiceImpl implements AdminItemsService {
         //1、删除照片(只是从数据库中删除，没有从服务器中删除照片)
         Example example2 = new Example(ItemsImg.class);
         example2.createCriteria().andEqualTo("itemId",itemId);
+        List<ItemsImg> itemsImgs = itemsImgMapper.selectByExample(example2);
         int imgDel = 0;
         if (itemsImgMapper.selectByExample(example2).size() == 0){
             //数据库中没有存在该商品的图片,那么就不用删除它，默认设置imgDel为1
             imgDel = 1;
         }else {
-            imgDel = itemsImgMapper.deleteByExample(example2);
+            int i = 1;
+            for (ItemsImg itemsImg : itemsImgs) {
+                try {
+                    //获取之前图片的信息
+                    String[] split = itemsImg.getUrl().split("/");
+                    //在服务器中的目录地址
+                    String directory = split[4];
+                    //在服务器中文件的名称
+                    String deleteFile = split[5];
+                    //获取文件路径
+                    String filePath = shopProperties.getItemImageCentosUrl()+ directory +"/"+ deleteFile;
+                    //从服务器中删除照片
+                    SFtpUtil.deleteFile(sFtpConfig,filePath);
+                    //从数据库中删除该商品照片数据
+                    itemsImgMapper.deleteByPrimaryKey(itemsImg);
+                    log.info("删除成功！");
+                } catch (SftpException e) {
+                    e.printStackTrace();
+                } catch (JSchException e) {
+                    e.printStackTrace();
+                }
+                i++;
+            }
+            imgDel = i;
         }
         //2、删除商品参数
         Example example3 = new Example(ItemsParam.class);
@@ -616,19 +634,5 @@ public class AdminItemsServiceImpl implements AdminItemsService {
         return result;
     }
 
-    //TODO (无法删除，原因未知)
-    /**
-     * 删除服务器中存储的商品照片
-     * @param directory 目录
-     * @param deleteFile 文件名
-     */
-    public void deleteItemImgs(String directory,String deleteFile){
-        String picSavePath = "foodie/"+directory;
-        String fileName = deleteFile;
-        try {
-            SFtpUtil.delete(picSavePath,fileName,sFtpConfig);
-        } catch (JSchException e) {
-            e.printStackTrace();
-        }
-    }
+
 }

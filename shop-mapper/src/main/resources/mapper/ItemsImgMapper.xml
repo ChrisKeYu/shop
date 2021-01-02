@@ -7,7 +7,102 @@
         <result property="isMain" column="is_main"/>
         <result property="url" column="url"/>
     </resultMap>
+
+    <resultMap id="queryAllItemImagesByCon" type="top.chris.shop.pojo.vo.adminVo.AdminItemImagesInfoVo">
+        <result column="id" property="id"/>
+        <result column="itemId" property="itemId"/>
+        <result column="url" property="url"/>
+        <result column="isMain" property="isMain"/>
+        <result column="createdTime" property="createdTime"/>
+        <result column="updatedTime" property="updatedTime"/>
+        <result column="itemName" property="itemName"/>
+        <result column="catName" property="catName"/>
+    </resultMap>
+
     <select id="querySimpleItemsImgByItemId" resultMap="simpleItemImgResultMap" parameterType="String">
         select is_main,url from items_img where item_id = #{itemId}
     </select>
+
+    <select id="queryAllItemImagesInfoByCondition" resultMap="queryAllItemImagesByCon" parameterType="top.chris.shop.pojo.bo.adminBo.AdminSearchItemParamBo">
+SELECT
+	*
+FROM
+	(
+	SELECT
+		iit.*,
+		cat.`name` AS catName
+	FROM
+		(
+		SELECT
+			ii.id AS id,
+			ii.item_id AS itemId,
+			ii.url AS url,
+			ii.is_main AS isMain,
+			ii.created_time AS createdTime,
+			ii.updated_time AS updatedTime,
+			it.item_name AS itemName,
+			it.cat_id,
+			it.root_cat_id
+		FROM
+			items_img AS ii
+			LEFT JOIN items AS it ON ii.item_id = it.id
+		) AS iit
+		LEFT JOIN category AS cat ON cat.id = iit.cat_id
+	) AS iiit
+<where>
+	<if test="isMain == 1">
+		iiit.isMain = #{isMain}
+	</if>
+	<if test="category0 != null">
+		iiit.root_cat_id = #{category0}
+	</if>
+	<if test="catIdCatgory0 != null">
+		AND iiit.cat_id = #{catIdCatgory0}
+	</if>
+</where>
+
+
+
+
+
+    </select>
+
+    <select id="queryAllItemImagesInfoByItemNameAndCategory" resultMap="queryAllItemImagesByCon" parameterType="top.chris.shop.pojo.bo.adminBo.AdminSearchItemParamBo">
+		SELECT
+		*
+		FROM
+		(
+		SELECT
+		iit.*,
+		cat.`name` AS catName
+		FROM
+		(
+		SELECT
+		ii.id AS id,
+		ii.item_id AS itemId,
+		ii.url AS url,
+		ii.is_main AS isMain,
+		ii.created_time AS createdTime,
+		ii.updated_time AS updatedTime,
+		it.item_name AS itemName,
+		it.cat_id,
+		it.root_cat_id
+		FROM
+		items_img AS ii
+		LEFT JOIN items AS it ON ii.item_id = it.id
+		) AS iit
+		LEFT JOIN category AS cat ON cat.id = iit.cat_id
+		) AS iiit
+		<where>
+			<if test="itemName != null">
+				iiit.itemName LIKE '%${itemName}%'
+			</if>
+			<if test="category0 != null">
+				AND	iiit.root_cat_id = #{category0}
+			</if>
+			<if test="catIdCatgory0 != null">
+				AND iiit.cat_id = #{catIdCatgory0}
+			</if>
+		</where>
+	</select>
 </mapper>

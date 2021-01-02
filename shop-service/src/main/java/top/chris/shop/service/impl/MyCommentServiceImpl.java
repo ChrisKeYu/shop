@@ -114,28 +114,13 @@ public class MyCommentServiceImpl implements MyCommentService {
     public PagedGridResult queryMyCommentsByUserId(String userId, Integer page, Integer pageSize) {
         //使用pageHelper进行分页查询的设定page和pagesize
         pageHelper.startPage(page,pageSize);
-        Example example = new Example(ItemsComments.class);
-        example.createCriteria().andEqualTo("userId", userId);
-        List<ItemsComments> itemsComments = commentsMapper.selectByExample(example);
-        //存储数据库中查询的数据
-        List<MyCommentVo> result = new ArrayList<>();
-        if (itemsComments.size() != 0) {
-            for (ItemsComments itemsComment : itemsComments) {
-                MyCommentVo vo = new MyCommentVo();
-                vo.setItemName(itemsComment.getItemName());
-                vo.setSpecName(itemsComment.getSepcName());
-                vo.setContent(itemsComment.getContent());
-                Example exam = new Example(ItemsImg.class);
-                exam.createCriteria().andEqualTo("itemId",itemsComment.getItemId()).andEqualTo("isMain","1");
-                vo.setItemImg(itemsImgMapper.selectOneByExample(exam).getUrl());
-                vo.setCreatedTime(itemsComment.getCreatedTime());
-                result.add(vo);
-            }
+        List<MyCommentVo> result = commentsMapper.queryItemCommentByUserId(userId);
+        if (result.size() != 0){
             //使用分页插件
             PagedGridResult pagedGridResult = new PagedGridResult();
             if (result != null){
                 //传入的参数是被pageHelper设定大小查询返回的结果对象，因为被pageHelper设定后，它会先去查询总量，然后再根据你指定的大小输出具体量的数据,因此总的记录数是保存在该对象上的
-                PageInfo<?> pageInfo = new PageInfo<>(itemsComments);
+                PageInfo<?> pageInfo = new PageInfo<>(result);
                 //插入查询到的指定数据，与上面传入的参数是不一致的，下面传入的参数是orders对象被pageHelper设定固定大小后返回的结果，再由返回的结果查询到的具体数据。
                 pagedGridResult.setRows(result);
                 //插入当前页数
@@ -147,8 +132,26 @@ public class MyCommentServiceImpl implements MyCommentService {
                 log.info("查看分页情况："+ ReflectionToStringBuilder.toString(pagedGridResult));
             }
             return pagedGridResult;
-        }else {
+        }
+        else {
             return null;
         }
+//        Example example = new Example(ItemsComments.class);
+//        example.createCriteria().andEqualTo("userId", userId);
+//        List<ItemsComments> itemsComments = commentsMapper.selectByExample(example);
+//        //存储数据库中查询的数据
+//        List<MyCommentVo> result = new ArrayList<>();
+//        if (itemsComments.size() != 0) {
+//            for (ItemsComments itemsComment : itemsComments) {
+//                MyCommentVo vo = new MyCommentVo();
+//                vo.setItemName(itemsComment.getItemName());
+//                vo.setSpecName(itemsComment.getSepcName());
+//                vo.setContent(itemsComment.getContent());
+//                Example exam = new Example(ItemsImg.class);
+//                exam.createCriteria().andEqualTo("itemId",itemsComment.getItemId()).andEqualTo("isMain","1");
+//                vo.setItemImg(itemsImgMapper.selectOneByExample(exam).getUrl());
+//                vo.setCreatedTime(itemsComment.getCreatedTime());
+//                result.add(vo);
+//            }
     }
 }

@@ -19,6 +19,24 @@
       "defaultValue": "http:\/\/localhost:8848"
     },
     {
+      "name": "top.chris.shop.carousel-image-centos-url",
+      "type": "java.lang.String",
+      "sourceType": "top.chris.shop.common.ShopProperties",
+      "defaultValue": "carousel\/"
+    },
+    {
+      "name": "top.chris.shop.face-image-centos-url",
+      "type": "java.lang.String",
+      "sourceType": "top.chris.shop.common.ShopProperties",
+      "defaultValue": "face\/"
+    },
+    {
+      "name": "top.chris.shop.item-image-centos-url",
+      "type": "java.lang.String",
+      "sourceType": "top.chris.shop.common.ShopProperties",
+      "defaultValue": "foodie\/"
+    },
+    {
       "name": "top.chris.shop.shop-car-cookie-name",
       "type": "java.lang.String",
       "sourceType": "top.chris.shop.common.ShopProperties",
