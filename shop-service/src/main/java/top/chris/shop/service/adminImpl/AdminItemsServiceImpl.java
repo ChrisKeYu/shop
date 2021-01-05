@@ -434,7 +434,6 @@ public class AdminItemsServiceImpl implements AdminItemsService {
         return res;
     }
 
-
     /**
      * 封装数据库中查询到的信息到Vo对象中，并且返回Vo对象
      * @param items 数据库中查询的结果

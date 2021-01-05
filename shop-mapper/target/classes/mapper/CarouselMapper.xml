@@ -4,4 +4,107 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="top.chris.shop.mapper.CarouselMapper">
 
+    <select id="renderAllCategorysInfo" resultType="top.chris.shop.pojo.vo.adminVo.AdminCarouselInfoVo">
+        SELECT
+	ci. id,
+	ci. image_url as imageUrl,
+	ci. background_color as backgroundColor,
+	ci. item_id as itemId,
+	ci. cat_id as catId,
+	ci. type,
+	ci. sort,
+	ci. is_show as isShow,
+	ci. create_time as createTime,
+	ci. update_time as updateTime,
+	ci. item_name as itemName,
+	category.NAME as catName
+FROM
+	( SELECT carousel.*, items.item_name FROM carousel LEFT JOIN items ON carousel.item_id = items.id ) AS ci
+	LEFT JOIN category ON category.id = ci.cat_id
+    </select>
+
+    <select id="renderCategorysInfoByCondition" resultType="top.chris.shop.pojo.vo.adminVo.AdminCarouselInfoVo">
+        SELECT
+        ci. id,
+        ci. image_url as imageUrl,
+        ci. background_color as backgroundColor,
+        ci. item_id as itemId,
+        ci. cat_id as catId,
+        ci. type,
+        ci. sort,
+        ci. is_show as isShow,
+        ci. create_time as createTime,
+        ci. update_time as updateTime,
+        ci. item_name as itemName,
+        category.NAME as catName
+        FROM
+        ( SELECT carousel.*, items.item_name FROM carousel LEFT JOIN items ON carousel.item_id = items.id ) AS ci
+        LEFT JOIN category ON category.id = ci.cat_id
+        <where>
+            <if test="param1 == '1:L'">
+                ci.type = #{param2}
+            </if>
+            <if test="param1 == '2:L'">
+                ci.type = #{param2}
+            </if>
+            <if test="param1 == '1:S'">
+                ci.is_show = #{param2}
+            </if>
+            <if test="param1 == '0:S'">
+                ci.is_show = #{param2}
+            </if>
+        </where>
+
+
+    </select>
+
+    <select id="renderCategorysInfoBySearch" resultType="top.chris.shop.pojo.vo.adminVo.AdminCarouselInfoVo">
+        SELECT
+        ci. id,
+        ci. image_url as imageUrl,
+        ci. background_color as backgroundColor,
+        ci. item_id as itemId,
+        ci. cat_id as catId,
+        ci. type,
+        ci. sort,
+        ci. is_show as isShow,
+        ci. create_time as createTime,
+        ci. update_time as updateTime,
+        ci. item_name as itemName,
+        category.NAME as catName
+        FROM
+        ( SELECT carousel.*, items.item_name FROM carousel LEFT JOIN items ON carousel.item_id = items.id ) AS ci
+        LEFT JOIN category ON category.id = ci.cat_id
+        <where>
+            <if test="itemName != null">
+                ci.item_name LIKE	'%${itemName}%'
+            </if>
+            <if test="catIdCatgory0 != null">
+                ci.cat_id = #{catIdCatgory0}
+            </if>
+        </where>
+
+    </select>
+
+    <select id="renderCategorysInfoByThreeSearch" resultType="top.chris.shop.pojo.vo.adminVo.AdminCarouselInfoVo">
+        SELECT
+        ci. id,
+        ci. image_url as imageUrl,
+        ci. background_color as backgroundColor,
+        ci. item_id as itemId,
+        ci. cat_id as catId,
+        ci. type,
+        ci. sort,
+        ci. is_show as isShow,
+        ci. create_time as createTime,
+        ci. update_time as updateTime,
+        ci. item_name as itemName,
+        category.NAME as catName
+        FROM
+        ( SELECT carousel.*, items.item_name FROM carousel LEFT JOIN items ON carousel.item_id = items.id ) AS ci
+        LEFT JOIN category ON category.id = ci.cat_id
+        where ci.item_name LIKE	'%${itemName}%'
+        and ci.cat_id = #{catIdCatgory0}
+
+    </select>
 </mapper>

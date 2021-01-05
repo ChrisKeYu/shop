@@ -20,7 +20,8 @@ public interface CategoryMapper extends tk.mybatis.mapper.common.Mapper<Category
      * @param rootCatId
      * @return
      */
-    public RenderSixItemsVo rendersSubCatItemsLazyLoad(Integer rootCatId);
+     RenderSixItemsVo rendersSubCatItemsLazyLoad(Integer rootCatId);
+
 }
 
 

@@ -45,7 +45,7 @@ import javax.validation.Valid;
 @Api("登录和注册控制器")
 @RestController
 @RequestMapping("/passport")
-public class PassportController {
+public class  PassportController {
 
     @Autowired
     private HttpServletRequest request;

@@ -58,7 +58,7 @@ public class PassportServiceImpl implements PassportService {
     @Override
     public UsersVo regist(UsersBo usersBo) {
         Users users = new Users(sid.next(),usersBo.getUsername(),passwordEncoder.encode(usersBo.getPassword()),
-                usersBo.getUsername(),usersBo.getUsername(), ShopConstant.defaultUserFaceImage,null,null,
+                usersBo.getUsername(),usersBo.getUsername(), ShopConstant.defaultUserFaceImage,"","",
                 SexEnum.SECRET.type,DateUtil.stringToDate("1999-1-1"),new Date(),new Date());
         usersMapper.insert(users);
         UsersVo usersVo = new UsersVo(users.getId(),users.getUsername(),users.getFace(),users.getSex());

@@ -4,4 +4,32 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="top.chris.shop.mapper.UserAddressMapper">
 
+    <select id="queryAllUserAddressInfo" resultType="top.chris.shop.pojo.vo.adminVo.AdminUserAddressInfoVo" parameterType="string">
+        SELECT
+	uu.id,
+	uu.user_id AS userId,
+	uu.receiver,
+	uu.mobile,
+	uu.province,
+	uu.city,
+	uu.district,
+	uu.detail,
+	uu.extand,
+	uu.is_default as isDefault,
+	uu.created_time as createdTime,
+	uu.updated_time as updatedTime,
+	uu.username
+FROM
+	( SELECT user_address.*, users.username FROM user_address LEFT JOIN users ON users.id = user_address.user_id ) AS uu
+	<where>
+		<if	test="condition != null">
+			uu.username LIKE '%${condition}%'
+		</if>
+	</where>
+
+
+    </select>
+
+
+
 </mapper>
