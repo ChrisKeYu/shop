@@ -7,7 +7,7 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import top.chris.shop.pojo.bo.adminBo.AdminCategoryBo;
+import top.chris.shop.pojo.bo.adminBo.AdminCarouselBo;
 import top.chris.shop.pojo.bo.adminBo.AdminSearchItemParamBo;
 import top.chris.shop.service.admin.AdminCarouselService;
 import top.chris.shop.util.JsonResult;
@@ -36,7 +36,7 @@ public class AdminCarouselController {
 
     @ApiOperation("多条件查询所有的轮播图信息")
     @PostMapping("/search")
-    public JsonResult renderCategorysInfoByCondition(@RequestBody  AdminSearchItemParamBo bo, @RequestParam(defaultValue = "1") Integer page,
+    public JsonResult renderCarouselInfoByCondition(@RequestBody  AdminSearchItemParamBo bo, @RequestParam(defaultValue = "1") Integer page,
                                                  @RequestParam(defaultValue = "10") Integer pageSize){
         log.info("查询前端传入的参数:"+ ReflectionToStringBuilder.toString(bo));
         PagedGridResult pagedGridResult = service.queryCarouselInfoByCondition(bo,page,pageSize);
@@ -51,7 +51,7 @@ public class AdminCarouselController {
 
     @ApiOperation("上传新的轮播图及轮播信息")
     @PostMapping("/addCarouselPic")
-    public JsonResult addCategorysImg(AdminCategoryBo bo, @RequestParam("file") MultipartFile file){
+    public JsonResult addCategorysImg(AdminCarouselBo bo, @RequestParam("file") MultipartFile file){
         log.info("查询前端传入的图片附加参数:"+ bo+ReflectionToStringBuilder.toString(file));
         String s = service.addNewCarouselInfo(bo, file);
         log.info("结果为："+s);
@@ -64,7 +64,7 @@ public class AdminCarouselController {
 
     @ApiOperation("根据轮播图的ID更改轮播图信息")
     @PostMapping("/updateCarousel")
-    public JsonResult changeCarouselInfoById(@RequestBody AdminCategoryBo bo){
+    public JsonResult changeCarouselInfoById(@RequestBody AdminCarouselBo bo){
         log.info("查询前端传入的图片id参数:"+ReflectionToStringBuilder.toString(bo));
         service.updateCarouselInfoById(bo);
         return JsonResult.isOk();

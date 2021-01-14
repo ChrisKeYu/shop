@@ -25,6 +25,7 @@ public class OrderInfoVo {
     private String orderStatus;
     //是否评论
     private Integer isComment;
-
+    //是否已经删除
+    private Integer isDelete;
 
 }

@@ -1,8 +1,7 @@
 package top.chris.shop.service.admin;
 
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import top.chris.shop.pojo.bo.adminBo.AdminCategoryBo;
+import top.chris.shop.pojo.bo.adminBo.AdminCarouselBo;
 import top.chris.shop.pojo.bo.adminBo.AdminSearchItemParamBo;
 import top.chris.shop.pojo.vo.adminVo.AdminCarouselInfoVo;
 import top.chris.shop.pojo.vo.adminVo.AdminItemImagesInfoVo;
@@ -21,13 +20,13 @@ public interface AdminCarouselService {
     List<AdminItemImagesInfoVo> queryAllItemInfo();
 
     //增加新的轮播图
-    String addNewCarouselInfo(AdminCategoryBo bo,MultipartFile file);
+    String addNewCarouselInfo(AdminCarouselBo bo, MultipartFile file);
 
     //根据轮播图Id获取该轮播图信息
     AdminCarouselInfoVo queryCarouselInfoById(String id);
 
     //修改轮播图信息
-    void updateCarouselInfoById(AdminCategoryBo bo);
+    void updateCarouselInfoById(AdminCarouselBo bo);
 
     //修改轮播图的图片
     void updateCarouselPicById(String id, MultipartFile file);

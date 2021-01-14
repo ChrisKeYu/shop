@@ -17,8 +17,7 @@ import top.chris.shop.mapper.ItemsMapper;
 import top.chris.shop.pojo.Carousel;
 import top.chris.shop.pojo.Category;
 import top.chris.shop.pojo.Items;
-import top.chris.shop.pojo.ItemsImg;
-import top.chris.shop.pojo.bo.adminBo.AdminCategoryBo;
+import top.chris.shop.pojo.bo.adminBo.AdminCarouselBo;
 import top.chris.shop.pojo.bo.adminBo.AdminSearchItemParamBo;
 import top.chris.shop.pojo.vo.adminVo.AdminCarouselInfoVo;
 import top.chris.shop.pojo.vo.adminVo.AdminItemImagesInfoVo;
@@ -142,7 +141,7 @@ public class AdminCarouselServiceImpl implements AdminCarouselService  {
     }
 
     @Override
-    public String addNewCarouselInfo(AdminCategoryBo bo, MultipartFile file) {
+    public String addNewCarouselInfo(AdminCarouselBo bo, MultipartFile file) {
         String re = "---";
         //统计以下已存在的轮播图数量
         int size = mapper.selectAll().size();
@@ -219,7 +218,7 @@ public class AdminCarouselServiceImpl implements AdminCarouselService  {
     }
 
     @Override
-    public void updateCarouselInfoById(AdminCategoryBo bo) {
+    public void updateCarouselInfoById(AdminCarouselBo bo) {
         Carousel carousel = mapper.selectByPrimaryKey(bo.getId());
         carousel.setUpdateTime(new Date());
         if (bo.getType().equals("1")){

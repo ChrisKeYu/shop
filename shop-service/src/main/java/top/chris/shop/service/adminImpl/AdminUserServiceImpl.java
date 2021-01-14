@@ -219,6 +219,26 @@ public class AdminUserServiceImpl implements AdminUserService {
         }
     }
 
+    @Override
+    public Integer updateUserPwdById(String id) {
+        Users users = usersMapper.selectByPrimaryKey(id);
+        users.setPassword(passwordEncoder.encode("123456"));
+        users.setUpdatedTime(new Date());
+        return usersMapper.updateByPrimaryKey(users);
+    }
+
+    @Override
+    public Integer updateNewUserPwdById(String id, String pwd) {
+        Users users = usersMapper.selectByPrimaryKey(id);
+        if (passwordEncoder.matches(pwd,users.getPassword())){
+            //与原始密码一致，请输入新密码
+            return -1;
+        }
+        users.setPassword(passwordEncoder.encode(pwd));
+        users.setUpdatedTime(new Date());
+        return usersMapper.updateByPrimaryKey(users);
+    }
+
     /**
      * 用来封装查询好的用户信息
      * @param users

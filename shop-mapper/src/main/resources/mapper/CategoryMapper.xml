@@ -88,6 +88,105 @@ WHERE
 	ORDER BY item.updateTime DESC
     </select>
 
+    <select id="rendersCategoryByCondition" resultType="top.chris.shop.pojo.vo.adminVo.AdminCategoryInfoVo">
+SELECT
+	c3.id,
+	c3.`name`,
+	c3.type,
+	c3.father_id as fatherId,
+	c3.logo,
+	c3.slogan,
+	c3.cat_image as catImage,
+	c3.bg_color as bgColor,
+	c4.fatherName
+FROM
+	category AS c3
+	LEFT JOIN (
+	SELECT
+		c2.id,
+		c2.`name`,
+		c2.type,
+		c2.father_id AS fatherId,
+		c2.logo,
+		c2.slogan,
+		c2.cat_image AS catImage,
+		c2.bg_color AS bgColor,
+		c1.`name` AS fatherName
+	FROM
+		category AS c1,
+		( SELECT * FROM category WHERE father_id != 0 ) AS c2
+	WHERE
+		c2.father_id = c1.id
+	) AS c4 ON c3.id = c4.id
+   <if test="con != null">
+       WHERE c3.type = #{con}
+   </if>
+
+    </select>
+    <select id="rendersCategoryByName" resultType="top.chris.shop.pojo.vo.adminVo.AdminCategoryInfoVo">
+        SELECT
+	c3.id,
+	c3.`name`,
+	c3.type,
+	c3.father_id as fatherId,
+	c3.logo,
+	c3.slogan,
+	c3.cat_image as catImage,
+	c3.bg_color as bgColor,
+	c4.fatherName
+FROM
+	category AS c3
+	LEFT JOIN (
+	SELECT
+		c2.id,
+		c2.`name`,
+		c2.type,
+		c2.father_id AS fatherId,
+		c2.logo,
+		c2.slogan,
+		c2.cat_image AS catImage,
+		c2.bg_color AS bgColor,
+		c1.`name` AS fatherName
+	FROM
+		category AS c1,
+		( SELECT * FROM category WHERE father_id != 0 ) AS c2
+	WHERE
+		c2.father_id = c1.id
+	) AS c4 ON c3.id = c4.id
+	where  c3.name LIKE '%${name}%'
+    </select>
+	<select id="rendersCategoryById" resultType="top.chris.shop.pojo.vo.adminVo.AdminCategoryInfoVo">
+		        SELECT
+	c3.id,
+	c3.`name`,
+	c3.type,
+	c3.father_id as fatherId,
+	c3.logo,
+	c3.slogan,
+	c3.cat_image as catImage,
+	c3.bg_color as bgColor,
+	c4.fatherName
+FROM
+	category AS c3
+	LEFT JOIN (
+	SELECT
+		c2.id,
+		c2.`name`,
+		c2.type,
+		c2.father_id AS fatherId,
+		c2.logo,
+		c2.slogan,
+		c2.cat_image AS catImage,
+		c2.bg_color AS bgColor,
+		c1.`name` AS fatherName
+	FROM
+		category AS c1,
+		( SELECT * FROM category WHERE father_id != 0 ) AS c2
+	WHERE
+		c2.father_id = c1.id
+	) AS c4 ON c3.id = c4.id
+	where  c3.id  = #{id}
+	</select>
 
 
 </mapper>

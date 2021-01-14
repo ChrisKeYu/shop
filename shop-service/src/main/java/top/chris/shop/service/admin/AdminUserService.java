@@ -1,5 +1,6 @@
 package top.chris.shop.service.admin;
 
+import io.swagger.models.auth.In;
 import org.springframework.web.bind.annotation.RequestParam;
 import top.chris.shop.pojo.bo.adminBo.AdminSearchItemParamBo;
 import top.chris.shop.pojo.bo.adminBo.AdminUserParamBo;
@@ -29,5 +30,11 @@ public interface AdminUserService {
 
     //根据用户userId删除用户
     String delUserByUserId(String userId);
+
+    //重置用户密码
+    Integer updateUserPwdById(String id);
+
+    //修改用户密码
+    Integer updateNewUserPwdById(String id,String pwd);
 
 }

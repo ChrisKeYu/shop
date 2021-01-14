@@ -3,8 +3,26 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="top.chris.shop.mapper.OrdersMapper">
+	<resultMap id="queryAllOrderItemInfoResultMap" type="top.chris.shop.pojo.vo.OrderInfoVo">
+		<result column="orderId" property="orderId" />
+		<result column="createdTime" property="createdTime" />
+		<result column="payMethod" property="payMethod" />
+		<result column="realPayAmount" property="realPayAmount" />
+		<result column="postAmount" property="postAmount" />
+		<result column="orderStatus" property="orderStatus" />
+		<result column="isComment" property="isComment" />
+		<result column="isDelete" property="isDelete" />
+		<collection property="subOrderItemList" ofType="top.chris.shop.pojo.vo.OrderItemInfoVo">
+			<result column="itemId" property="itemId"/>
+			<result column="itemImg" property="itemImg"/>
+			<result column="itemName" property="itemName"/>
+			<result column="itemSpecName" property="itemSpecName"/>
+			<result column="price" property="price"/>
+			<result column="buyCounts" property="buyCounts"/>
+		</collection>
+	</resultMap>
 
-    <select id="queryOrderByUserIdAndOrderStatus" resultType="top.chris.shop.pojo.Orders" parameterType="string">
+	<select id="queryOrderByUserIdAndOrderStatus" resultType="top.chris.shop.pojo.Orders" parameterType="string">
         SELECT
 	        ord.id AS id,
 	        ord.user_id AS userId,
@@ -30,4 +48,79 @@
 	        oss.order_status = #{orderStatus}
 
     </select>
+
+	<select id="queryOrderItemInfoByCondition" resultMap="queryAllOrderItemInfoResultMap">
+		SELECT
+	oi.item_id AS itemId,
+	oi.item_img AS itemImg,
+	oi.item_name AS itemName,
+	oi.item_spec_name AS itemSpecName,
+	oi.price AS price,
+	oi.buy_counts AS buyCounts,
+	os.*
+FROM
+	order_items AS oi
+	LEFT JOIN (
+	SELECT
+		orders.id AS orderId,
+		orders.created_time AS createdTime,
+		orders.pay_method AS payMethod,
+		orders.real_pay_amount AS realPayAmount,
+		orders.post_amount AS postAmount,
+		orders.is_comment AS isComment,
+		orders.is_delete As isDelete,
+		order_status.order_status AS orderStatus
+	FROM
+		orders
+	LEFT JOIN order_status ON orders.id = order_status.order_id
+	) AS os ON oi.order_id = os.orderId
+	<where>
+		<if test="condition == ''">
+
+		</if>
+		<if test="condition == '10'">
+			os.orderStatus 	=	#{condition}
+		</if>
+		<if test="condition == '20'">
+			os.orderStatus 	=	#{condition}
+		</if>
+		<if test="condition == '30'">
+			os.orderStatus 	=	#{condition}
+		</if>
+		<if test="condition == '40'">
+			os.orderStatus 	=	#{condition}
+		</if>
+
+	</where>
+
+	</select>
+
+	<select id="queryOrderItemInfoById" resultMap="queryAllOrderItemInfoResultMap">
+SELECT
+	oi.item_id AS itemId,
+	oi.item_img AS itemImg,
+	oi.item_name AS itemName,
+	oi.item_spec_name AS itemSpecName,
+	oi.price AS price,
+	oi.buy_counts AS buyCounts,
+	os.*
+FROM
+	order_items AS oi
+	LEFT JOIN (
+	SELECT
+		orders.id AS orderId,
+		orders.created_time AS createdTime,
+		orders.pay_method AS payMethod,
+		orders.real_pay_amount AS realPayAmount,
+		orders.post_amount AS postAmount,
+		orders.is_comment AS isComment,
+		orders.is_delete As isDelete,
+		order_status.order_status AS orderStatus
+	FROM
+		orders
+	LEFT JOIN order_status ON orders.id = order_status.order_id
+	) AS os ON oi.order_id = os.orderId
+	WHERE	os.orderId 	=	#{id}
+
+	</select>
 </mapper>

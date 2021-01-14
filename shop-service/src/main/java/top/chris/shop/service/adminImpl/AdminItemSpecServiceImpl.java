@@ -92,15 +92,15 @@ public class AdminItemSpecServiceImpl implements AdminItemSpecService {
                     //按照商品名称和一级分类查找
                     pageHelper.startPage(page,pageSize);
                     log.info("按照商品名称和一级分类查找:"+ReflectionToStringBuilder.toString(bo));
-                    List<AdminItemSpecInfoVo> vos1 = itemsSpecMapper.queryItemSpecByCondition(bo);;;
-                    if (vos1.size() == 0) {
-                        //查询结果为0，在数据库中查询不到数据
-                        PagedGridResult result0 = new PagedGridResult();
-                        result0.setRows(null);
-                        return result0;
+                    List<AdminItemSpecInfoVo> vos1 = itemsSpecMapper.queryItemSpecByCondition(bo);
+                    if (vos1.size() > 0) {
+                        PagedGridResult pagedGridResult = finfishPagedGridResult(vos1, page);
+                        return pagedGridResult;
                     }
-                    PagedGridResult pagedGridResult = finfishPagedGridResult(vos1, page);
-                    return pagedGridResult;
+                    //查询结果为0，在数据库中查询不到数据
+                    PagedGridResult result0 = new PagedGridResult();
+                    result0.setRows(null);
+                    return result0;
                 }else {
                     //按照商品名称、一级分类和三级分类查找
                     pageHelper.startPage(page,pageSize);

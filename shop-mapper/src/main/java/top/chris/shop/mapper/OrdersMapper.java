@@ -1,6 +1,7 @@
 package top.chris.shop.mapper;
 
 import top.chris.shop.pojo.Orders;
+import top.chris.shop.pojo.vo.OrderInfoVo;
 
 import java.util.List;
 
@@ -12,6 +13,12 @@ import java.util.List;
 public interface OrdersMapper extends tk.mybatis.mapper.common.Mapper<Orders> {
     //根据用户id和订单状态查询订单表中的订单数据
     List<Orders> queryOrderByUserIdAndOrderStatus(String userId,String orderStatus);
+
+    //根据条件查询订单信息
+    List<OrderInfoVo> queryOrderItemInfoByCondition(String condition);
+
+    //根据订单Id查询订单详情
+    List<OrderInfoVo> queryOrderItemInfoById(String id);
 
 }
 

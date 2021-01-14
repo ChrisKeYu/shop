@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import top.chris.shop.pojo.bo.adminBo.AdminUserParamBo;
+import top.chris.shop.pojo.bo.adminBo.AdminUserUpdatePwdBo;
 import top.chris.shop.pojo.vo.adminVo.AdminUserInfoVo;
 import top.chris.shop.service.admin.AdminUserService;
 import top.chris.shop.util.JsonResult;
@@ -106,7 +107,7 @@ public class AdminUserController {
         return JsonResult.isOk(userService.queryUserInfoByUserName(userName,page,pageSize));
     }
 
-    @ApiOperation("删除商品参数信息")
+    @ApiOperation("删除用户信息")
     @GetMapping("/delUser")
     public JsonResult delParamByItemId(String id){
         String s = userService.delUserByUserId(id);
@@ -114,6 +115,30 @@ public class AdminUserController {
             return JsonResult.isOk();
         }else {
             return JsonResult.isErr(500,"该用户下还有订单未完成交易");
+        }
+    }
+
+    @ApiOperation("重置用户密码")
+    @GetMapping("/restPwdById")
+    public JsonResult restPwdById(String id){
+        Integer s = userService.updateUserPwdById(id);
+        if (s != 0){
+            return JsonResult.isOk();
+        }else {
+            return JsonResult.isErr(500,"重置密码错误");
+        }
+    }
+
+
+    @ApiOperation("修改用户密码")
+    @PostMapping("/updatePwdById")
+    public JsonResult updatePwdById(@RequestBody AdminUserUpdatePwdBo bo){
+        log.info("前端传入的参数："+bo);
+        Integer s = userService.updateNewUserPwdById(bo.getId(),bo.getPwd());
+        if (s == -1){
+            return JsonResult.isErr(500,"新密码与原始密码一致，请输入新密码");
+        }else {
+            return JsonResult.isOk();
         }
     }
 

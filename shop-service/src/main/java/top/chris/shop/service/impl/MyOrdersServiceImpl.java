@@ -246,6 +246,7 @@ public class MyOrdersServiceImpl implements MyOrdersService {
         orderInfoVo.setOrderId(order.getId());
         orderInfoVo.setCreatedTime(order.getCreatedTime());
         orderInfoVo.setIsComment(order.getIsComment());
+        orderInfoVo.setIsDelete(order.getIsDelete());
         orderInfoVo.setPayMethod(order.getPayMethod());
         orderInfoVo.setPostAmount(order.getPostAmount());
         orderInfoVo.setRealPayAmount(order.getRealPayAmount());

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.entity.Example;
 import top.chris.shop.mapper.CarouselMapper;
 import top.chris.shop.mapper.CategoryMapper;
 import top.chris.shop.pojo.Carousel;
@@ -54,6 +55,13 @@ public class IndexServiceImpl implements IndexService {
     @Override
     public List<CategoryVo> rendersSubCats(Integer fatherId) {
         return categoryMapper.rendersSubCatLazyLoad(fatherId);
+    }
+
+    @Override
+    public List<Category> rendersAllSubCats() {
+        Example example = new Example(Category.class);
+        example.createCriteria().andEqualTo("type","2");
+        return categoryMapper.selectByExample(example);
     }
 
     /**

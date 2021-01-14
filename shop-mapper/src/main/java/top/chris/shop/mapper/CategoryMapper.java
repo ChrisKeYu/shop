@@ -3,16 +3,17 @@ package top.chris.shop.mapper;
 import top.chris.shop.pojo.Category;
 import top.chris.shop.pojo.vo.RenderSixItemsVo;
 import top.chris.shop.pojo.vo.CategoryVo;
+import top.chris.shop.pojo.vo.adminVo.AdminCategoryInfoVo;
 
 import java.util.List;
 
 /**
-* 通用 Mapper 代码生成器
-*
-* @author mapper-generator
-*/
+ * 通用 Mapper 代码生成器
+ *
+ * @author mapper-generator
+ */
 public interface CategoryMapper extends tk.mybatis.mapper.common.Mapper<Category> {
-    public List<CategoryVo> rendersSubCatLazyLoad(Integer rootCatId);
+    List<CategoryVo> rendersSubCatLazyLoad(Integer rootCatId);
 
     /**
      * 一种类别，对多个商品。所以返回只有一个类别Vo，但是该返回对象中又存在一个List集合存储多个商品item。
@@ -20,7 +21,15 @@ public interface CategoryMapper extends tk.mybatis.mapper.common.Mapper<Category
      * @param rootCatId
      * @return
      */
-     RenderSixItemsVo rendersSubCatItemsLazyLoad(Integer rootCatId);
+    RenderSixItemsVo rendersSubCatItemsLazyLoad(Integer rootCatId);
+
+    //按条件查询所有的分类信息
+    List<AdminCategoryInfoVo> rendersCategoryByCondition(String con);
+
+    //按条件模糊查询所有的分类信息
+    List<AdminCategoryInfoVo> rendersCategoryByName(String name);
+
+    AdminCategoryInfoVo rendersCategoryById(String id);
 
 }
 

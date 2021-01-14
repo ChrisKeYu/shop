@@ -97,7 +97,7 @@ FROM
     </select>
 
     <select id="queryItemSpecByCatIdAndRootCatId" resultMap="allItemsSpec">
-        SELECT
+SELECT
 	*
 FROM
 	(
