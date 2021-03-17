@@ -34,6 +34,7 @@ public class MyCenterServiceImpl implements MyCenterService {
             throw new UserException("在数据库中未找到指定UserID为:"+userId+"的信息");
         }
         UserInfoVo vo = new UserInfoVo();
+        vo.setId(users.getId());
         vo.setBirthday(users.getBirthday());
         vo.setEmail(users.getEmail());
         vo.setMobile(users.getMobile());

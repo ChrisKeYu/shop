@@ -1,105 +1,30 @@
-2021-01-07 22:43:57 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+2021-03-17 08:54:55 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
 WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2021-01-07 22:44:16 下午 [Thread: main][ Class:org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext >> Method: org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:557) ]
-WARN:Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'documentationPluginsBootstrapper' defined in URL [jar:file:/E:/env/apache-maven-3.6.3/repository/io/springfox/springfox-spring-web/2.9.2/springfox-spring-web-2.9.2.jar!/springfox/documentation/spring/web/plugins/DocumentationPluginsBootstrapper.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webMvcRequestHandlerProvider' defined in URL [jar:file:/E:/env/apache-maven-3.6.3/repository/io/springfox/springfox-spring-web/2.9.2/springfox-spring-web-2.9.2.jar!/springfox/documentation/spring/web/plugins/WebMvcRequestHandlerProvider.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [top/chris/shop/config/StateResourceConfigurer.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'adminCategoryController' method 
-public top.chris.shop.util.JsonResult top.chris.shop.web.controller.admin.AdminCategoryController.addCategorysInfo(top.chris.shop.pojo.bo.adminBo.AdminCategoryBo)
-to {POST /adminCategory/addCarousel}: There is already 'adminCategoryController' bean method
-public top.chris.shop.util.JsonResult top.chris.shop.web.controller.admin.AdminCategoryController.getCategorysInfoById(java.lang.String) mapped.
-2021-01-07 22:44:17 下午 [Thread: main][ Class:org.springframework.boot.SpringApplication >> Method: org.springframework.boot.SpringApplication.reportFailure(SpringApplication.java:858) ]
-ERROR:Application run failed
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'documentationPluginsBootstrapper' defined in URL [jar:file:/E:/env/apache-maven-3.6.3/repository/io/springfox/springfox-spring-web/2.9.2/springfox-spring-web-2.9.2.jar!/springfox/documentation/spring/web/plugins/DocumentationPluginsBootstrapper.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webMvcRequestHandlerProvider' defined in URL [jar:file:/E:/env/apache-maven-3.6.3/repository/io/springfox/springfox-spring-web/2.9.2/springfox-spring-web-2.9.2.jar!/springfox/documentation/spring/web/plugins/WebMvcRequestHandlerProvider.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [top/chris/shop/config/StateResourceConfigurer.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'adminCategoryController' method 
-public top.chris.shop.util.JsonResult top.chris.shop.web.controller.admin.AdminCategoryController.addCategorysInfo(top.chris.shop.pojo.bo.adminBo.AdminCategoryBo)
-to {POST /adminCategory/addCarousel}: There is already 'adminCategoryController' bean method
-public top.chris.shop.util.JsonResult top.chris.shop.web.controller.admin.AdminCategoryController.getCategorysInfoById(java.lang.String) mapped.
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:769)
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:218)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1341)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1187)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:843)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
-	at top.chris.shop.ShopMainApplication.main(ShopMainApplication.java:31)
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webMvcRequestHandlerProvider' defined in URL [jar:file:/E:/env/apache-maven-3.6.3/repository/io/springfox/springfox-spring-web/2.9.2/springfox-spring-web-2.9.2.jar!/springfox/documentation/spring/web/plugins/WebMvcRequestHandlerProvider.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [top/chris/shop/config/StateResourceConfigurer.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'adminCategoryController' method 
-public top.chris.shop.util.JsonResult top.chris.shop.web.controller.admin.AdminCategoryController.addCategorysInfo(top.chris.shop.pojo.bo.adminBo.AdminCategoryBo)
-to {POST /adminCategory/addCarousel}: There is already 'adminCategoryController' bean method
-public top.chris.shop.util.JsonResult top.chris.shop.web.controller.admin.AdminCategoryController.getCategorysInfoById(java.lang.String) mapped.
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:769)
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:218)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1341)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1187)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1464)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1428)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1319)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1206)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1168)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:857)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:760)
-	... 19 more
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [top/chris/shop/config/StateResourceConfigurer.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'adminCategoryController' method 
-public top.chris.shop.util.JsonResult top.chris.shop.web.controller.admin.AdminCategoryController.addCategorysInfo(top.chris.shop.pojo.bo.adminBo.AdminCategoryBo)
-to {POST /adminCategory/addCarousel}: There is already 'adminCategoryController' bean method
-public top.chris.shop.util.JsonResult top.chris.shop.web.controller.admin.AdminCategoryController.getCategorysInfoById(java.lang.String) mapped.
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1778)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1464)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1428)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1319)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1206)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1168)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:857)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:760)
-	... 36 more
-Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'adminCategoryController' method 
-public top.chris.shop.util.JsonResult top.chris.shop.web.controller.admin.AdminCategoryController.addCategorysInfo(top.chris.shop.pojo.bo.adminBo.AdminCategoryBo)
-to {POST /adminCategory/addCarousel}: There is already 'adminCategoryController' bean method
-public top.chris.shop.util.JsonResult top.chris.shop.web.controller.admin.AdminCategoryController.getCategorysInfoById(java.lang.String) mapped.
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.assertUniqueMethodMapping(AbstractHandlerMethodMapping.java:618)
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:586)
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.registerHandlerMethod(AbstractHandlerMethodMapping.java:312)
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lambda$detectHandlerMethods$1(AbstractHandlerMethodMapping.java:282)
-	at java.util.LinkedHashMap.forEach(LinkedHashMap.java:684)
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.detectHandlerMethods(AbstractHandlerMethodMapping.java:280)
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.processCandidateBean(AbstractHandlerMethodMapping.java:252)
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.initHandlerMethods(AbstractHandlerMethodMapping.java:211)
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.afterPropertiesSet(AbstractHandlerMethodMapping.java:199)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.afterPropertiesSet(RequestMappingHandlerMapping.java:164)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1837)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1774)
-	... 50 more
-2021-01-07 22:46:11 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
-WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2021-01-07 22:47:17 下午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+2021-03-17 08:55:12 上午 [Thread: http-nio-8080-exec-9][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
 WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2021-01-07 22:47:22 下午 [Thread: http-nio-8080-exec-2][ Class:top.chris.shop.aspect.LogTimeAspect >> Method: top.chris.shop.aspect.LogTimeAspect.arroundServiceLog(LogTimeAspect.java:37) ]
-ERROR:------方法top.chris.shop.service.impl.IndexServiceImpl.rendersCats在Thu Jan 07 22:47:17 CST 2021时使用参数[Ljava.lang.Object;@6532de9[{}]调用,并得到了结果[top.chris.shop.pojo.Category@35fa907f, top.chris.shop.pojo.Category@6527dbd2, top.chris.shop.pojo.Category@27095985, top.chris.shop.pojo.Category@38aa04e8, top.chris.shop.pojo.Category@593202ea, top.chris.shop.pojo.Category@290bb55, top.chris.shop.pojo.Category@6f380ff3, top.chris.shop.pojo.Category@75dcbb8, top.chris.shop.pojo.Category@4eb1aceb, top.chris.shop.pojo.Category@497cfc7b]，共耗时5044毫秒------
-2021-01-07 22:48:45 下午 [Thread: http-nio-8080-exec-10][ Class:org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver >> Method: org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.logException(AbstractHandlerExceptionResolver.java:198) ]
-WARN:Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
-2021-01-07 22:49:24 下午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+2021-03-17 09:10:11 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
 WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
-2021-01-07 22:49:54 下午 [Thread: http-nio-8080-exec-2][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+2021-03-17 09:10:27 上午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
 WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-03-17 09:13:11 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2021-03-17 09:13:27 上午 [Thread: http-nio-8080-exec-3][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-03-17 09:18:18 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2021-03-17 09:18:32 上午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-03-17 09:21:19 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2021-03-17 09:21:44 上午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-03-17 09:58:32 上午 [Thread: main][ Class:org.mybatis.spring.mapper.ClassPathMapperScanner >> Method: org.mybatis.logging.Logger.warn(Logger.java:44) ]
+WARN:No MyBatis mapper was found in '[top.chris.shop]' package. Please check your configuration.
+2021-03-17 09:58:47 上午 [Thread: http-nio-8080-exec-1][ Class:com.zaxxer.hikari.util.DriverDataSource >> Method: com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:68) ]
+WARN:Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-03-17 14:19:42 下午 [Thread: DateSourceHikariCP housekeeper][ Class:com.zaxxer.hikari.pool.HikariPool >> Method: com.zaxxer.hikari.pool.HikariPool$HouseKeeper.run(HikariPool.java:766) ]
+WARN:DateSourceHikariCP - Thread starvation or clock leap detected (housekeeper delta=2h6m54s655ms910µs900ns).
+2021-03-17 14:52:31 下午 [Thread: http-nio-8080-exec-10][ Class:org.springframework.web.servlet.PageNotFound >> Method: org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1249) ]
+WARN:No mapping for GET /foodie-center/
+2021-03-17 14:52:31 下午 [Thread: http-nio-8080-exec-2][ Class:org.springframework.web.servlet.PageNotFound >> Method: org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1249) ]
+WARN:No mapping for GET /favicon.ico

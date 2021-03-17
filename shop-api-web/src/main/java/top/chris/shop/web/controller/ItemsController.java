@@ -45,6 +45,12 @@ public class ItemsController {
         return JsonResult.isOk(itemsService.queryItemPageInfo(itemId));
     }
 
+    @ApiOperation("商品具体内容接口")
+    @GetMapping("/detailInfo/{itemId}")
+    public JsonResult renderItemDetailInfo(@PathVariable(required = true) String itemId){
+        return JsonResult.isOk(itemsService.queryItemDetailInfo(itemId));
+    }
+
     @ApiOperation("统计商品评论各等价数量接口")
     @GetMapping("/commentLevel")
     public JsonResult renderCommentLevel(String itemId){

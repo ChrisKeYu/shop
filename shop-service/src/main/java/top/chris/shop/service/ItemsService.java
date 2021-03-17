@@ -6,6 +6,7 @@ import top.chris.shop.pojo.ItemsImg;
 import top.chris.shop.pojo.ItemsSpec;
 import top.chris.shop.pojo.bo.CommentBo;
 import top.chris.shop.pojo.bo.SearchItemsBo;
+import top.chris.shop.pojo.vo.ContentVo;
 import top.chris.shop.pojo.vo.CountsVo;
 import top.chris.shop.pojo.vo.RenderItemInfoVo;
 import top.chris.shop.util.PagedGridResult;
@@ -46,7 +47,7 @@ public interface ItemsService {
 
     //减少商品的库存
     Integer decreaseItemSpecStock(ItemsSpec itemsSpec);
-    
+
     //根据商品Id和商品口味查询对应商品Id的库存量
     Integer queryItemStockByItemId(String specId);
 
@@ -55,6 +56,9 @@ public interface ItemsService {
 
     //根据商品属性id获取ItemSpec对象中商品的id
     String queryItemIdByItemSpecId(String specId);
+
+    //查询商品具体内容
+    ContentVo queryItemDetailInfo(String itemId);
 
 }
 

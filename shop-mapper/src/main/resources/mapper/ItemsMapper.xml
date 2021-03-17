@@ -71,6 +71,7 @@
 		WHERE
 		c.is_main = 1
 		AND i.cat_id = #{catId}
+		AND	i.on_off_status = 1
 		<choose>
 			<when test='sort == "k" '>
 				ORDER BY
@@ -102,6 +103,7 @@
 		WHERE
 		c.is_main = 1
 		AND i.item_name LIKE '%${keywords}%'
+		AND	i.on_off_status = 1
 		<choose>
 			<when test='sort == "k" '>
 				ORDER BY

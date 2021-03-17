@@ -152,7 +152,7 @@ public class AdminItemsServiceImpl implements AdminItemsService {
         items.setCatId(bo.getCatId());
         items.setOnOffStatus(bo.getOnOffStatus());
         items.setSellCounts(0);
-        items.setContent("<p>"+bo.getContent()+"</p>");
+        items.setContent(bo.getContent());
         items.setCreatedTime(new Date());
         items.setUpdatedTime(new Date());
         return itemsMapper.insert(items);
@@ -336,7 +336,7 @@ public class AdminItemsServiceImpl implements AdminItemsService {
     public Integer updateItemInfo(AdminItemBo bo) {
         Items items = itemsMapper.selectByPrimaryKey(bo.getItemId());
         items.setUpdatedTime(new Date());
-        items.setContent("<p>"+bo.getContent()+"</p>");
+        items.setContent(bo.getContent());
         items.setOnOffStatus(bo.getOnOffStatus());
         items.setRootCatId(bo.getRootCatId());
         items.setCatId(bo.getCatId());

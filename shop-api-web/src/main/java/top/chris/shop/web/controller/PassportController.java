@@ -82,6 +82,9 @@ public class  PassportController {
             return JsonResult.isErr(500,"两次输入密码不一致，请重新输入");
         }
         UsersVo userVo = passportService.regist(usersBo);
+        //使用Session保存用户登录状态
+        HttpSession session = request.getSession();
+        session.setAttribute("user",userVo);
         //将UserVo对象写入Cookie中
         CookieUtils.setCookie(request,response,"user",objectMapper.writeValueAsString(userVo),604800,true);
         return JsonResult.isOk(userVo); //passportService.regist(usersBo)

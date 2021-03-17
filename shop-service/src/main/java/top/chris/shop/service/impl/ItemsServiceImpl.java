@@ -22,6 +22,7 @@ import top.chris.shop.pojo.vo.*;
 import top.chris.shop.service.ItemsService;
 import top.chris.shop.util.PagedGridResult;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -240,6 +241,7 @@ public class ItemsServiceImpl implements ItemsService {
      * @param specId 商品规格id
      * @return
      */
+    @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public Integer queryItemStockByItemId(String specId) {
         ItemsSpec itemsSpec = specMapper.selectByPrimaryKey(specId);
@@ -255,6 +257,7 @@ public class ItemsServiceImpl implements ItemsService {
      * @param specId 规格id
      * @return
      */
+    @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public RenderItemInfoVo queryCartInfoByitemIdAndSpecId(String itemId,String specId) {
         if (StringUtils.isBlank(itemId) || StringUtils.isEmpty(itemId) && StringUtils.isBlank(specId) || StringUtils.isEmpty(specId)){
@@ -274,9 +277,31 @@ public class ItemsServiceImpl implements ItemsService {
      * @param specId 规格id
      * @return
      */
+    @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public String queryItemIdByItemSpecId(String specId) {
         return specMapper.selectByPrimaryKey(specId).getItemId();
+    }
+
+    /**
+     * 查询商品的具体内容
+     * @param itemId
+     * @return
+     */
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public ContentVo queryItemDetailInfo(String itemId) {
+        Items items = itemsMapper.selectByPrimaryKey(itemId);
+        ContentVo contentVo = new ContentVo();
+        contentVo.setContent(items.getContent());
+        List<String> images = new ArrayList<>();
+        Example example = new Example(ItemsImg.class);
+        example.createCriteria().andEqualTo("itemId",itemId);
+        for (ItemsImg itemsImg : imgMapper.selectByExample(example)) {
+            images.add(itemsImg.getUrl());
+        }
+        contentVo.setImages(images);
+        return contentVo;
     }
 
     /**

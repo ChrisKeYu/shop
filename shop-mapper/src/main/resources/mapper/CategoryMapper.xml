@@ -72,6 +72,7 @@ FROM
 		LEFT JOIN category AS c ON i.root_cat_id = c.id
 	WHERE
 		i.root_cat_id = #{rootCatId}
+		AND i.on_off_status = 1
 	) AS item,
 	(
 	SELECT

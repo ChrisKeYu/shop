@@ -30,7 +30,9 @@ public class IndexServiceImpl implements IndexService {
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<Carousel> rendersCarousel() {
-        return carouselMapper.selectAll();
+        Example example = new Example(Carousel.class);
+        example.createCriteria().andEqualTo("isShow","1");
+        return carouselMapper.selectByExample(example);
     }
 
     /**
